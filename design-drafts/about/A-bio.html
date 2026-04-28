@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Bryant Hepp — Bio</title>
+  <meta name="description" content="About Bryant Hepp — variant A: standard bio." />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,900;1,700&family=Archivo+Black&family=Anton&family=Bungee&family=Bricolage+Grotesque:wght@800&family=Big+Shoulders+Display:wght@900&family=Bowlby+One&family=Roboto+Slab:wght@900&family=Fraunces:wght@900&family=Funnel+Display:wght@900&display=swap" rel="stylesheet" />
+  <script src="../wordmark-font.js" defer></script>
+  <script src="../logo-system.js" defer></script>
+  <style>
+    .bio-hero {
+      padding-block: clamp(3rem, 7vw, 5rem) clamp(2rem, 4vw, 3rem);
+    }
+    .bio-hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: start;
+    }
+    @media (max-width: 880px) {
+      .bio-hero__grid { grid-template-columns: 1fr; }
+    }
+    .bio-hero__photo {
+      aspect-ratio: 4 / 5;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+      font-style: italic;
+    }
+    .bio-hero__eyebrow {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--color-eyebrow);
+      margin-bottom: 0.75rem;
+    }
+    .bio-hero__name {
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+      margin-bottom: 0.5rem;
+    }
+    .bio-hero__role {
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+      margin-bottom: 1.75rem;
+    }
+    .bio-hero__lede {
+      font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+      line-height: 1.55;
+      max-width: 50ch;
+    }
+    .bio-section {
+      padding-block: clamp(2.5rem, 5vw, 4rem);
+      border-top: 1px solid var(--color-border);
+    }
+    .bio-section__heading {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--color-eyebrow);
+      margin-bottom: 1.5rem;
+    }
+    .bio-section h3 { font-size: 1.4rem; margin-bottom: 1rem; }
+    .bio-section p { font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem; max-width: 60ch; }
+    .bio-list { list-style: none; padding: 0; margin: 0 0 1rem 0; max-width: 60ch; }
+    .bio-list li {
+      padding: 0.875rem 0;
+      border-bottom: 1px solid var(--color-border);
+      display: grid;
+      grid-template-columns: 6em 1fr;
+      gap: 1rem;
+      align-items: baseline;
+    }
+    .bio-list strong { color: var(--color-text-muted); font-weight: 700; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+  <div id="logo-system-bar"></div>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="cstack cstack--sm order2-GR" href="../home/A-hero-forward.html" aria-label="Hepp for Rep — home">
+        <span class="cstack__hepp">HEPP</span>
+        <span class="cstack__for"><span data-for-text>for</span><span data-for-alt aria-hidden="true">4</span></span>
+        <span class="cstack__rep">REP</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../home/A-hero-forward.html">Home</a>
+        <a href="../home/A-hero-forward.html#in-focus">Redlining</a>
+        <a class="button button--small button--primary" href="../home/A-hero-forward.html#get-involved">Join the campaign</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="bio-hero">
+      <div class="container">
+        <div class="bio-hero__grid">
+          <div class="bio-hero__photo" aria-hidden="true">[ Portrait placeholder ]</div>
+          <div>
+            <p class="bio-hero__eyebrow">About</p>
+            <h1 class="bio-hero__name">Bryant Hepp</h1>
+            <p class="bio-hero__role">Limited-license social worker · urban planner · candidate for Michigan State Representative, District 9</p>
+            <p class="bio-hero__lede">
+              Bryant is a Detroit-based clinician and urban planner
+              running to outlaw auto insurance redlining and rebuild
+              the public services District 9 has been denied. He has
+              worked in affordable housing and homelessness services
+              and previously taught English in Nablus.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bio-section">
+      <div class="container">
+        <h2 class="bio-section__heading">Career</h2>
+        <p>Bryant currently works in affordable housing and homelessness services in Detroit, applying his clinical training in coordinated entry, harm reduction, and housing-first frameworks. As an urban planner, he focuses on the intersections of land use, transit, and equity.</p>
+        <p>Before returning to Detroit, he spent three years teaching English in Nablus, an experience that shaped how he thinks about civil rights, dignity, and what governments owe the people they govern.</p>
+      </div>
+    </section>
+
+    <section class="bio-section">
+      <div class="container">
+        <h2 class="bio-section__heading">Education</h2>
+        <ul class="bio-list">
+          <li><strong>UMich</strong><span>Master of Urban &amp; Regional Planning · Master of Social Work</span></li>
+          <li><strong>MSU</strong><span>B.A. International Relations</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="bio-section">
+      <div class="container">
+        <h2 class="bio-section__heading">Why I'm running</h2>
+        <p>The people I've worked with, taught, and lived alongside have one thing in common: governments that should have shown up for them, didn't. District 9 deserves a legislator who has done the work, knows the levers, and won't soften the specifics.</p>
+        <p>I'm running on auto insurance redlining as a first issue because it's the most expensive line item in too many household budgets — and the simplest to fix at the state level. From there: transit, housing as a human right, mental health funding, and government that treats showing up as the baseline, not the exception.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <a class="cstack cstack--sm order2-GR" href="#top" aria-label="Hepp for Rep — back to top">
+          <span class="cstack__hepp">HEPP</span>
+          <span class="cstack__for"><span data-for-text>for</span><span data-for-alt aria-hidden="true">4</span></span>
+          <span class="cstack__rep">REP</span>
+        </a>
+        <nav class="site-footer__socials" aria-label="Social media">
+          <a href="https://instagram.com/hepp4rep">Instagram</a>
+          <a href="https://tiktok.com/@hepp4rep">TikTok</a>
+          <a href="https://facebook.com/hepp4rep">Facebook</a>
+          <a href="https://bsky.app/profile/hepp4rep.bsky.social">Bluesky</a>
+        </nav>
+        <p class="site-footer__contact"><a href="mailto:hello@hepp4rep.com">hello@hepp4rep.com</a></p>
+      </div>
+      <div class="site-footer__legal">
+        <span>Paid for by Bryant Hepp for State Representative</span>
+        <span>© 2026</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

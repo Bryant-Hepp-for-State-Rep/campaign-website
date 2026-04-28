@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Bryant Hepp — Timeline</title>
+  <meta name="description" content="About Bryant Hepp — variant B: timeline / journey." />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,900;1,700&family=Archivo+Black&family=Anton&family=Bungee&family=Bricolage+Grotesque:wght@800&family=Big+Shoulders+Display:wght@900&family=Bowlby+One&family=Roboto+Slab:wght@900&family=Fraunces:wght@900&family=Funnel+Display:wght@900&display=swap" rel="stylesheet" />
+  <script src="../wordmark-font.js" defer></script>
+  <script src="../logo-system.js" defer></script>
+  <style>
+    .timeline-intro {
+      padding-block: clamp(3rem, 7vw, 5rem) clamp(2rem, 4vw, 3rem);
+      text-align: center;
+    }
+    .timeline-intro__eyebrow {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--color-eyebrow);
+      margin-bottom: 0.75rem;
+    }
+    .timeline-intro__heading {
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+      margin-bottom: 1rem;
+    }
+    .timeline-intro__lede {
+      font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+      line-height: 1.55;
+      max-width: 50ch;
+      margin: 0 auto;
+      color: var(--color-text-muted);
+    }
+
+    .timeline {
+      padding-block: clamp(2rem, 5vw, 4rem) clamp(3rem, 7vw, 5rem);
+    }
+    .timeline__inner {
+      max-width: 760px;
+      margin-inline: auto;
+      padding-inline: clamp(1.25rem, 4vw, 2rem);
+      position: relative;
+    }
+    .timeline__inner::before {
+      content: "";
+      position: absolute;
+      left: calc(clamp(1.25rem, 4vw, 2rem) + 5rem);
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--color-border);
+    }
+    @media (max-width: 720px) {
+      .timeline__inner::before { left: calc(clamp(1.25rem, 4vw, 2rem) + 1.5rem); }
+    }
+    .timeline-entry {
+      display: grid;
+      grid-template-columns: 5rem 1fr;
+      gap: 2rem;
+      padding-block: 1.5rem;
+      position: relative;
+    }
+    @media (max-width: 720px) {
+      .timeline-entry { grid-template-columns: 3rem 1fr; gap: 1rem; }
+    }
+    .timeline-entry__year {
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--color-eyebrow);
+      letter-spacing: -0.005em;
+      padding-top: 0.15em;
+      text-align: right;
+      position: relative;
+    }
+    .timeline-entry__year::after {
+      content: "";
+      position: absolute;
+      right: -2.05rem;
+      top: 0.5em;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--color-eyebrow);
+      box-shadow: 0 0 0 4px var(--color-bg);
+    }
+    @media (max-width: 720px) {
+      .timeline-entry__year { font-size: 0.9rem; text-align: left; }
+      .timeline-entry__year::after { right: auto; left: -1.6rem; width: 10px; height: 10px; }
+    }
+    .timeline-entry__heading {
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-entry__body {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--color-text);
+      max-width: 50ch;
+    }
+    .timeline-entry--feature .timeline-entry__heading { color: var(--color-primary); }
+    .timeline-entry--feature .timeline-entry__year::after {
+      background: var(--color-primary);
+      width: 16px;
+      height: 16px;
+      top: 0.4em;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="logo-system-bar"></div>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="cstack cstack--sm order2-GR" href="../home/A-hero-forward.html" aria-label="Hepp for Rep — home">
+        <span class="cstack__hepp">HEPP</span>
+        <span class="cstack__for"><span data-for-text>for</span><span data-for-alt aria-hidden="true">4</span></span>
+        <span class="cstack__rep">REP</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../home/A-hero-forward.html">Home</a>
+        <a href="../home/A-hero-forward.html#in-focus">Redlining</a>
+        <a class="button button--small button--primary" href="../home/A-hero-forward.html#get-involved">Join the campaign</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="timeline-intro">
+      <div class="container">
+        <p class="timeline-intro__eyebrow">About</p>
+        <h1 class="timeline-intro__heading">How I got here</h1>
+        <p class="timeline-intro__lede">A path from a Detroit upbringing through Nablus and back to the housing programs and city planning offices of HD-9.</p>
+      </div>
+    </section>
+
+    <section class="timeline">
+      <div class="timeline__inner">
+
+        <div class="timeline-entry">
+          <div class="timeline-entry__year">Detroit</div>
+          <div>
+            <h2 class="timeline-entry__heading">Born and raised here</h2>
+            <p class="timeline-entry__body">Detroit kid, Detroit family. The schools, the buses, the bills. The city's working-class spine is the backdrop for everything that follows.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry">
+          <div class="timeline-entry__year">MSU</div>
+          <div>
+            <h2 class="timeline-entry__heading">B.A. International Relations</h2>
+            <p class="timeline-entry__body">Michigan State. Wanted to understand how power moves at scale — how decisions made in distant rooms ended up at our kitchen table.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry">
+          <div class="timeline-entry__year">Nablus</div>
+          <div>
+            <h2 class="timeline-entry__heading">Three years teaching English in the West Bank</h2>
+            <p class="timeline-entry__body">In Nablus, I taught English to high school students whose lives were shaped daily by a state that didn't recognize their dignity. It changed how I think about civil rights, governance, and what showing up actually means.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry">
+          <div class="timeline-entry__year">UMich</div>
+          <div>
+            <h2 class="timeline-entry__heading">Dual degrees: Urban Planning &amp; Social Work</h2>
+            <p class="timeline-entry__body">Graduate school at the University of Michigan. The two programs in parallel were deliberate — I wanted both the systems lens (planning) and the person-by-person lens (social work).</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry">
+          <div class="timeline-entry__year">Detroit</div>
+          <div>
+            <h2 class="timeline-entry__heading">Affordable housing &amp; homelessness services</h2>
+            <p class="timeline-entry__body">Returned home and went to work in the systems I'd studied. Coordinated entry. Housing-first. The actual mechanics of getting a person into a home that stays a home.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry timeline-entry--feature">
+          <div class="timeline-entry__year">2026</div>
+          <div>
+            <h2 class="timeline-entry__heading">Running for State Representative, District 9</h2>
+            <p class="timeline-entry__body">I'm running because the people I've worked with, taught, and lived alongside have one thing in common: governments that should have shown up for them, didn't. District 9 deserves a legislator who has done the work and won't soften the specifics.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <a class="cstack cstack--sm order2-GR" href="#top" aria-label="Hepp for Rep — back to top">
+          <span class="cstack__hepp">HEPP</span>
+          <span class="cstack__for"><span data-for-text>for</span><span data-for-alt aria-hidden="true">4</span></span>
+          <span class="cstack__rep">REP</span>
+        </a>
+        <nav class="site-footer__socials" aria-label="Social media">
+          <a href="https://instagram.com/hepp4rep">Instagram</a>
+          <a href="https://tiktok.com/@hepp4rep">TikTok</a>
+          <a href="https://facebook.com/hepp4rep">Facebook</a>
+          <a href="https://bsky.app/profile/hepp4rep.bsky.social">Bluesky</a>
+        </nav>
+        <p class="site-footer__contact"><a href="mailto:hello@hepp4rep.com">hello@hepp4rep.com</a></p>
+      </div>
+      <div class="site-footer__legal">
+        <span>Paid for by Bryant Hepp for State Representative</span>
+        <span>© 2026</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

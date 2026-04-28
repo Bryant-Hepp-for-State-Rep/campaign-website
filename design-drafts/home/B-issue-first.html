@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bryant Hepp for State Rep — Home (Issue-Forward)</title>
+  <meta name="description" content="Bryant Hepp, Democrat for Michigan State House District 9 — homepage variant B: issue-forward." />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,900;1,700&family=Archivo+Black&family=Anton&family=Bungee&family=Bricolage+Grotesque:wght@800&family=Big+Shoulders+Display:wght@900&family=Bowlby+One&family=Roboto+Slab:wght@900&family=Fraunces:wght@900&family=Funnel+Display:wght@900&display=swap" rel="stylesheet" />
+  <script src="../wordmark-font.js" defer></script>
+  <script src="../logo-system.js" defer></script>
+  <style>
+    /* Issue-forward layout — the redlining stat is the page-opening
+       headline; the candidate is introduced after the issue. */
+    .open-stat {
+      padding-block: clamp(4rem, 9vw, 7rem) clamp(2.5rem, 6vw, 4.5rem);
+      background: var(--color-loud-bg);
+      color: var(--color-loud-text);
+    }
+    .open-stat__eyebrow {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--color-loud-accent);
+      margin-bottom: 1.25rem;
+    }
+    .open-stat__hed {
+      font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      max-width: 22ch;
+    }
+    .open-stat__hed strong {
+      color: var(--color-loud-accent);
+      font-weight: 800;
+    }
+    .open-stat__sub {
+      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+      line-height: 1.45;
+      max-width: 50ch;
+      margin-bottom: 2rem;
+      opacity: 0.92;
+    }
+    .open-stat__ctas { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .open-stat__ctas .button--secondary {
+      color: var(--color-loud-text);
+      border-color: var(--color-loud-text);
+    }
+    .open-stat__ctas .button--secondary:hover {
+      background: var(--color-loud-text);
+      color: var(--color-loud-bg);
+    }
+
+    .context {
+      padding-block: clamp(2.5rem, 6vw, 4rem);
+      background: var(--color-surface);
+    }
+    .context__inner { max-width: 56ch; }
+    .context p { font-size: clamp(1rem, 1.4vw, 1.15rem); line-height: 1.65; margin-bottom: 1rem; }
+    .context p:last-child { margin-bottom: 0; }
+
+    .who {
+      padding-block: clamp(2.5rem, 6vw, 4rem);
+      background: var(--color-bg);
+    }
+    .who__inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+    }
+    @media (max-width: 880px) {
+      .who__inner { grid-template-columns: 1fr; }
+    }
+    .who__photo {
+      aspect-ratio: 1 / 1;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+      font-size: 0.875rem;
+      font-style: italic;
+    }
+    .who__heading {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--color-eyebrow);
+      margin-bottom: 0.75rem;
+    }
+    .who__name {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .who__bio { font-size: 1.05rem; line-height: 1.55; }
+    .who__bio p { margin-bottom: 0.75rem; }
+
+    .more-priorities {
+      padding-block: clamp(2.5rem, 6vw, 4rem);
+      background: var(--color-surface);
+    }
+    .more-priorities__heading {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      margin-bottom: 2rem;
+    }
+    .more-priorities__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0;
+      border-top: 1px solid var(--color-border);
+    }
+    .more-priorities__list li {
+      padding: 1.25rem 0 1.25rem;
+      border-bottom: 1px solid var(--color-border);
+      display: grid;
+      grid-template-columns: 7em 1fr;
+      gap: 1rem;
+      align-items: baseline;
+    }
+    .more-priorities__list strong {
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--color-eyebrow);
+    }
+    .more-priorities__list span {
+      color: var(--color-text);
+      font-size: 1.05rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="logo-system-bar"></div>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="cstack cstack--sm order2-GR" href="#top" aria-label="Hepp for Rep — home">
+        <span class="cstack__hepp">HEPP</span>
+        <span class="cstack__for"><span data-for-text>for</span><span data-for-alt aria-hidden="true">4</span></span>
+        <span class="cstack__rep">REP</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#bryant">About</a>
+        <a href="#more-priorities">Priorities</a>
+        <a class="button button--small button--primary" href="#get-involved">Join the campaign</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="open-stat" aria-labelledby="open-stat-hed">
+      <div class="container">
+        <p class="open-stat__eyebrow">In District 9 · September 2025 advocacy report</p>
+        <h1 id="open-stat-hed" class="open-stat__hed">
+          Black neighborhoods in Detroit pay <strong>up to 5× more</strong> for the same auto insurance.
+        </h1>
+        <p class="open-stat__sub">
+          I'm Bryant Hepp — limited-license social worker, urban planner,
+          and a Democrat running for State Representative to outlaw auto
+          insurance redlining and rebuild the public services District 9
+          has been denied.
+        </p>
+        <div class="open-stat__ctas">
+          <a class="button button--primary" href="#get-involved">Join the campaign</a>
+          <a class="button button--secondary" href="#bryant">Meet Bryant</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="context" aria-labelledby="context-hed">
+      <div class="container">
+        <div class="context__inner">
+          <h2 id="context-hed" class="sr-only">Context</h2>
+          <p>
+            <strong>Same coverage. Same cars. Same roads.</strong>
+            A driver in Midtown pays a fraction of what a driver pays
+            two miles east, in a predominantly Black neighborhood. The
+            difference isn't risk — it's the ZIP code.
+          </p>
+          <p>
+            That's not market pricing. It's redlining with a different
+            spreadsheet. Outlawing it statewide is achievable, popular,
+            and overdue.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="bryant" class="who" aria-labelledby="bryant-name">
+      <div class="container">
+        <div class="who__inner">
+          <div class="who__photo" aria-hidden="true">[ Photo placeholder ]</div>
+          <div>
+            <p class="who__heading">Who's running</p>
+            <h2 id="bryant-name" class="who__name">Bryant Hepp</h2>
+            <div class="who__bio">
+              <p>Limited-license social worker. Urban planner. Three
+              years teaching English in Nablus. I've worked in
+              affordable housing and homelessness services here in
+              Detroit.</p>
+              <p>I'm running because the people I've worked with,
+              taught, and lived alongside have one thing in common:
+              governments that should have shown up for them, didn't.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="more-priorities" class="more-priorities" aria-labelledby="more-priorities-hed">
+      <div class="container">
+        <h2 id="more-priorities-hed" class="more-priorities__heading">Beyond redlining</h2>
+        <ul class="more-priorities__list">
+          <li><strong>Transit</strong><span>Fully fund DDOT, advance Bus Rapid Transit on Woodward and Gratiot.</span></li>
+          <li><strong>Housing</strong><span>Detroit Land Value Tax authorization, zoning reform, homelessness funding.</span></li>
+          <li><strong>Basic needs</strong><span>Mental health funding, benefit enrollment, Medicaid expansion advocacy.</span></li>
+          <li><strong>Energy</strong><span>Oppose DTE rate increases, fund the Lifeline Plan, ban utility political donations.</span></li>
+          <li><strong>Education</strong><span>Teacher compensation, wraparound services, oppose unaccountable charter expansion.</span></li>
+          <li><strong>Human rights</strong><span>Oppose federal intimidation, ensure immigrant access to services.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="get-involved" style="padding-block: clamp(3rem, 7vw, 5rem); background: var(--color-bg);">
+      <div class="container">
+        <h2 class="get-involved__heading">Get involved</h2>
+        <div class="get-involved__grid">
+          <div class="cta-card cta-card--primary">
+            <h3 class="cta-card__heading">Join the email list</h3>
+            <p class="cta-card__body">The single best way to stay in the loop. Updates roughly twice a month.</p>
+            <form action="#" method="post" aria-label="Email signup">
+              <label class="sr-only" for="email">Email address</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              <button type="submit">Sign up</button>
+            </form>
+          </div>
+          <div class="cta-card">
+            <h3 class="cta-card__heading">Volunteer</h3>
+            <p class="cta-card__body">Door-knock, phone-bank, host a meet-up. Tell us what works for you.</p>
+            <a class="button button--secondary" href="mailto:volunteer@hepp4rep.com?subject=Volunteer">Get in touch</a>
+          </div>
+          <div class="cta-card">
+            <h3 class="cta-card__heading">Donate</h3>
+            <p class="cta-card__body">ActBlue committee being set up. Linked here once it's live.</p>
+            <span class="cta-card__pending">Coming soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <a class="cstack cstack--sm order2-GR" href="#top" aria-label="Hepp for Rep — back to top">
+          <span class="cstack__hepp">HEPP</span>
+          <span class="cstack__for"><span data-for-text>for</span><span data-for-alt aria-hidden="true">4</span></span>
+          <span class="cstack__rep">REP</span>
+        </a>
+        <nav class="site-footer__socials" aria-label="Social media">
+          <a href="https://instagram.com/hepp4rep">Instagram</a>
+          <a href="https://tiktok.com/@hepp4rep">TikTok</a>
+          <a href="https://facebook.com/hepp4rep">Facebook</a>
+          <a href="https://bsky.app/profile/hepp4rep.bsky.social">Bluesky</a>
+        </nav>
+        <p class="site-footer__contact"><a href="mailto:hello@hepp4rep.com">hello@hepp4rep.com</a></p>
+      </div>
+      <div class="site-footer__legal">
+        <span>Paid for by Bryant Hepp for State Representative</span>
+        <span>© 2026 · <a href="#privacy">Privacy</a> · <a href="#accessibility">Accessibility</a></span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

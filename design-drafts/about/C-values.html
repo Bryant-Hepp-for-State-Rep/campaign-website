@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Bryant Hepp — Values</title>
+  <meta name="description" content="About Bryant Hepp — variant C: values-led." />
+  <link rel="stylesheet" href="../styles/base.css" />
+  <link rel="stylesheet" href="../styles/components.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,900;1,700&family=Archivo+Black&family=Anton&family=Bungee&family=Bricolage+Grotesque:wght@800&family=Big+Shoulders+Display:wght@900&family=Bowlby+One&family=Roboto+Slab:wght@900&family=Fraunces:wght@900&family=Funnel+Display:wght@900&display=swap" rel="stylesheet" />
+  <script src="../wordmark-font.js" defer></script>
+  <script src="../logo-system.js" defer></script>
+  <style>
+    .values-intro {
+      padding-block: clamp(3rem, 7vw, 5rem) clamp(2rem, 4vw, 3rem);
+    }
+    .values-intro__eyebrow {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--color-eyebrow);
+      margin-bottom: 0.75rem;
+    }
+    .values-intro__heading {
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+      max-width: 18ch;
+    }
+    .values-intro__lede {
+      font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+      line-height: 1.55;
+      max-width: 50ch;
+      color: var(--color-text-muted);
+    }
+    .value {
+      padding-block: clamp(2.75rem, 6vw, 4.5rem);
+      border-top: 1px solid var(--color-border);
+    }
+    .value__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: start;
+    }
+    @media (max-width: 880px) {
+      .value__grid { grid-template-columns: 1fr; gap: 1rem; }
+    }
+    .value__heading {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+      color: var(--color-primary);
+    }
+    .value__heading em {
+      font-style: italic;
+      color: var(--color-eyebrow);
+    }
+    .value__body {
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .value__body p { margin-bottom: 1rem; max-width: 56ch; }
+    .value__body p:last-child { margin-bottom: 0; }
+    .value__body strong { font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <div id="logo-system-bar"></div>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="cstack cstack--sm order2-GR" href="../home/A-hero-forward.html" aria-label="Hepp for Rep — home">
+        <span class="cstack__hepp">HEPP</span>
+        <span class="cstack__for"><span data-for-text>for</span><span data-for-alt aria-hidden="true">4</span></span>
+        <span class="cstack__rep">REP</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../home/A-hero-forward.html">Home</a>
+        <a href="../home/A-hero-forward.html#in-focus">Redlining</a>
+        <a class="button button--small button--primary" href="../home/A-hero-forward.html#get-involved">Join the campaign</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="values-intro">
+      <div class="container">
+        <p class="values-intro__eyebrow">About</p>
+        <h1 class="values-intro__heading">What I believe, and why</h1>
+        <p class="values-intro__lede">Four convictions, each backed by what I've actually done. These aren't slogans — they're the lens I'll bring to every vote in Lansing.</p>
+      </div>
+    </section>
+
+    <section class="value">
+      <div class="container">
+        <div class="value__grid">
+          <h2 class="value__heading">Housing is <em>a human right.</em></h2>
+          <div class="value__body">
+            <p>I work in affordable housing and homelessness services in
+            Detroit. I've sat across from people whose only barrier to a
+            stable life was a deposit they couldn't make, a unit that
+            didn't exist, or a system that didn't believe them.</p>
+            <p>Housing-first works. Coordinated entry works. The Detroit
+            Land Value Tax — sitting in Lansing waiting for state
+            authorization — would shift the cost of vacancy onto the
+            speculators who profit from it. <strong>These aren't
+            theories. They're tools we have, and aren't using.</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="value">
+      <div class="container">
+        <div class="value__grid">
+          <h2 class="value__heading">Transit <em>moves communities.</em></h2>
+          <div class="value__body">
+            <p>I'm an urban planner. The auto-insurance redlining that
+            opens this campaign is what happens when a city forces
+            everyone into a car and then prices the car like a luxury
+            for half the population.</p>
+            <p>Fully funding DDOT, advancing Bus Rapid Transit on
+            Woodward and Gratiot, restoring state revenue sharing — every
+            one of these moves is technically straightforward. The
+            obstacle is political will. <strong>I'll bring it.</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="value">
+      <div class="container">
+        <div class="value__grid">
+          <h2 class="value__heading">Government should <em>show up.</em></h2>
+          <div class="value__body">
+            <p>I'm a limited-license social worker. The clinical work
+            taught me what people actually need from public services
+            when they're at the worst point of their year, and how
+            often the answer is just <em>somebody who picks up the
+            phone.</em></p>
+            <p>That sounds small. It's not. It's the difference between
+            a benefit enrollment that takes two weeks and one that
+            takes nine months. Mental health funding, expanded benefit
+            access, Medicaid expansion advocacy, ending utility
+            shutoffs through a fully-funded Lifeline Plan —
+            <strong>basic dignity isn't a wedge issue.</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="value">
+      <div class="container">
+        <div class="value__grid">
+          <h2 class="value__heading"><em>Foreign</em> policy is <em>local.</em></h2>
+          <div class="value__body">
+            <p>I spent three years teaching English in Nablus. I
+            watched a state that didn't recognize my students'
+            dignity decide every detail of their day — and I watched
+            U.S. tax dollars underwrite it.</p>
+            <p>State representatives don't set foreign policy. But the
+            human-rights principles I learned on those streets — that
+            governments owe the people they govern, and that civil
+            rights are indivisible — show up in every state-level
+            fight: ICE access to schools, immigrant access to
+            services, federal intimidation of communities here.
+            <strong>These I will set, and lead on.</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <a class="cstack cstack--sm order2-GR" href="#top" aria-label="Hepp for Rep — back to top">
+          <span class="cstack__hepp">HEPP</span>
+          <span class="cstack__for"><span data-for-text>for</span><span data-for-alt aria-hidden="true">4</span></span>
+          <span class="cstack__rep">REP</span>
+        </a>
+        <nav class="site-footer__socials" aria-label="Social media">
+          <a href="https://instagram.com/hepp4rep">Instagram</a>
+          <a href="https://tiktok.com/@hepp4rep">TikTok</a>
+          <a href="https://facebook.com/hepp4rep">Facebook</a>
+          <a href="https://bsky.app/profile/hepp4rep.bsky.social">Bluesky</a>
+        </nav>
+        <p class="site-footer__contact"><a href="mailto:hello@hepp4rep.com">hello@hepp4rep.com</a></p>
+      </div>
+      <div class="site-footer__legal">
+        <span>Paid for by Bryant Hepp for State Representative</span>
+        <span>© 2026</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
