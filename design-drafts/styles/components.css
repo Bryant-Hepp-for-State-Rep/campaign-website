@@ -106,7 +106,10 @@
   align-items: center;
 }
 
-.site-nav a {
+/* Nav text-link styling intentionally excludes anchor-buttons —
+   without :not(.button), the link's color rule would override
+   the .button--primary text color and make the nav CTA unreadable. */
+.site-nav a:not(.button) {
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
@@ -115,7 +118,7 @@
   border-bottom: 2px solid transparent;
 }
 
-.site-nav a:hover {
+.site-nav a:not(.button):hover {
   border-bottom-color: var(--color-primary);
 }
 

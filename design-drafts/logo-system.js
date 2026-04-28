@@ -200,12 +200,46 @@
 
     /* ============================================================
        Control bar UI
+       Wrapped in a "shell" with a small always-visible trigger so
+       the whole bar can collapse on mobile (or by user choice).
        ============================================================ */
-    .ls-bar {
+    .ls-bar-shell {
       position: sticky;
       top: 0;
       z-index: 50;
       margin: 0 0 1.5rem;
+    }
+    .ls-bar-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.4rem 0.85rem;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: saturate(180%) blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 999px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #222;
+      cursor: pointer;
+      line-height: 1;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+    .ls-bar-trigger:hover { border-color: #222; }
+    .ls-bar-trigger__chevron {
+      font-size: 0.6rem;
+      opacity: 0.6;
+      transition: transform 0.15s ease;
+    }
+    .ls-bar-shell[data-expanded="true"] .ls-bar-trigger__chevron {
+      transform: rotate(180deg);
+    }
+    .ls-bar-shell[data-expanded="false"] .ls-bar { display: none; }
+    .ls-bar-shell[data-expanded="true"] .ls-bar { margin-top: 0.5rem; }
+
+    .ls-bar {
       padding: 0.55rem 0.875rem;
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: saturate(180%) blur(10px);
@@ -218,6 +252,31 @@
       align-items: center;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       color: #222;
+    }
+    /* Explicit section label for the logo-formatting controls
+       (font / for / custom / offset / layout). Visually breaks
+       the bar into "Theme" + "Logo formatting" sections. */
+    .ls-bar__section-label {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: rgba(0, 0, 0, 0.5);
+      white-space: nowrap;
+      padding-left: 0.6rem;
+      border-left: 2px dashed rgba(0, 0, 0, 0.18);
+    }
+    @media (max-width: 600px) {
+      .ls-bar__section-label {
+        flex: 0 0 100%;
+        border-left: none;
+        border-top: 2px dashed rgba(0, 0, 0, 0.18);
+        padding-left: 0;
+        padding-top: 0.5rem;
+        margin: 0.25rem 0 0;
+      }
     }
     .ls-bar__group { display: flex; align-items: center; gap: 0.5rem; flex-wrap: nowrap; }
     .ls-bar__group--themes { flex-wrap: wrap; flex: 1 1 auto; }
@@ -273,6 +332,81 @@
       border-radius: 50%;
       display: inline-block;
       box-shadow: 0 0 0 1px rgba(0,0,0,0.12) inset;
+    }
+
+    /* Theme dropdown — collapses the row of theme pills into
+       a single click-to-open trigger. Saves significant
+       horizontal space, especially on mobile. */
+    .ls-theme-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .ls-theme-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.7rem 0.3rem 0.5rem;
+      background: transparent;
+      border: 1.5px solid rgba(0,0,0,0.18);
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: #222;
+      cursor: pointer;
+      font-family: inherit;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .ls-theme-trigger:hover { border-color: #222; }
+    .ls-theme-trigger[aria-expanded="true"] {
+      border-color: #222;
+      border-width: 2px;
+      padding: calc(0.3rem - 0.5px) calc(0.7rem - 0.5px) calc(0.3rem - 0.5px) calc(0.5rem - 0.5px);
+      background: rgba(0,0,0,0.04);
+    }
+    .ls-theme-trigger__chevron {
+      font-size: 0.65rem;
+      opacity: 0.6;
+      transition: transform 0.15s ease;
+      margin-left: 0.05rem;
+    }
+    .ls-theme-trigger[aria-expanded="true"] .ls-theme-trigger__chevron {
+      transform: rotate(180deg);
+    }
+    .ls-theme-panel {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      z-index: 100;
+      min-width: 240px;
+      max-height: 60vh;
+      overflow-y: auto;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.14);
+      padding: 0.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .ls-theme-panel[hidden] { display: none; }
+    .ls-theme-panel .ls-theme-btn {
+      width: 100%;
+      justify-content: flex-start;
+      border-color: transparent;
+    }
+    .ls-theme-panel .ls-theme-btn:hover { background: rgba(0,0,0,0.05); }
+    .ls-theme-panel .ls-theme-btn[aria-pressed="true"] {
+      border-color: #222;
+      background: rgba(0,0,0,0.04);
+    }
+    @media (max-width: 600px) {
+      .ls-theme-panel {
+        left: 0;
+        right: auto;
+        min-width: 280px;
+      }
     }
 
     .ls-select {
@@ -489,12 +623,26 @@
   }
 
   var BAR_HTML = (
-    '<header class="ls-bar" aria-label="Logo controls">' +
-      '<div class="ls-bar__group ls-bar__group--themes" role="radiogroup" aria-label="Color theme">' +
+    '<div class="ls-bar-shell" data-expanded="true">' +
+      '<button class="ls-bar-trigger" type="button" data-bar-trigger aria-controls="ls-bar-controls" aria-expanded="true">' +
+        '<span data-bar-trigger-label>Hide controls</span>' +
+        '<span class="ls-bar-trigger__chevron" aria-hidden="true">▾</span>' +
+      '</button>' +
+    '<header class="ls-bar" id="ls-bar-controls" aria-label="Logo controls">' +
+      '<div class="ls-bar__group">' +
         '<span class="ls-bar__title">Theme</span>' +
-        themeButtonsHTML() +
+        '<div class="ls-theme-dropdown">' +
+          '<button class="ls-theme-trigger" type="button" aria-expanded="false" aria-haspopup="listbox" data-theme-trigger>' +
+            '<span class="ls-theme-swatches" data-theme-trigger-swatches></span>' +
+            '<span data-theme-trigger-label></span>' +
+            '<span class="ls-theme-trigger__chevron" aria-hidden="true">▾</span>' +
+          '</button>' +
+          '<div class="ls-theme-panel" role="listbox" hidden>' +
+            themeButtonsHTML() +
+          '</div>' +
+        '</div>' +
       '</div>' +
-      '<span class="ls-bar__divider" aria-hidden="true"></span>' +
+      '<span class="ls-bar__section-label">Logo formatting</span>' +
       '<div class="ls-bar__group">' +
         '<span class="ls-bar__title">Layout</span>' +
         '<select class="ls-select" data-control="layout" aria-label="Lockup layout">' +
@@ -532,7 +680,8 @@
         '<input class="ls-slider" type="range" data-control="offset" min="0" max="4" step="1" value="4" aria-label="Chromatic offset" />' +
         '<output class="ls-slider-value" data-display="offset">100%</output>' +
       '</div>' +
-    '</header>'
+    '</header>' +
+    '</div>'
   );
 
   // ---- Inject CSS ------------------------------------------
@@ -545,13 +694,14 @@
 
   // ---- Storage keys ----------------------------------------
   var KEYS = {
-    theme:    'hep4rep-logo-theme',
-    layout:   'hep4rep-logo-layout',
-    font:     'hep4rep-logo-font',
-    forFont:  'hep4rep-logo-for-font',
-    italic:   'hep4rep-logo-for-italic',
-    offset:   'hep4rep-logo-offset',
-    custom:   'hep4rep-logo-custom'
+    theme:     'hep4rep-logo-theme',
+    layout:    'hep4rep-logo-layout',
+    font:      'hep4rep-logo-font',
+    forFont:   'hep4rep-logo-for-font',
+    italic:    'hep4rep-logo-for-italic',
+    offset:    'hep4rep-logo-offset',
+    custom:    'hep4rep-logo-custom',
+    collapsed: 'hep4rep-logo-collapsed'
   };
   var DEFAULT_THEME = 'detroit-flag-rust';
   var CUSTOM_PROPS = ['--c-gold', '--c-warm', '--c-anchor'];
@@ -642,9 +792,64 @@
     });
   }
 
+  // Find a theme by key (no Array.find for older browser compat)
+  function findTheme(key) {
+    for (var i = 0; i < THEMES.length; i++) {
+      if (THEMES[i].key === key) return THEMES[i];
+    }
+    return THEMES[0];
+  }
+
+  // Update the dropdown trigger's swatches + label to match
+  // the active theme.
+  function updateThemeTrigger(bar, themeKey) {
+    var t = findTheme(themeKey);
+    var sw = bar.querySelector('[data-theme-trigger-swatches]');
+    var lbl = bar.querySelector('[data-theme-trigger-label]');
+    if (sw) {
+      sw.innerHTML = t.colors.map(function (c) {
+        return '<span class="ls-theme-dot" style="background:' + c + '"></span>';
+      }).join('');
+    }
+    if (lbl) lbl.textContent = t.label;
+  }
+
+  function closeThemePanel(bar) {
+    var trigger = bar.querySelector('[data-theme-trigger]');
+    var panel = bar.querySelector('.ls-theme-panel');
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    if (panel) panel.hidden = true;
+  }
+
   function wireBar(bar) {
     var s = readState();
-    // Theme buttons
+
+    // Theme dropdown — trigger toggles the panel
+    var trigger = bar.querySelector('[data-theme-trigger]');
+    var panel = bar.querySelector('.ls-theme-panel');
+    if (trigger && panel) {
+      trigger.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = trigger.getAttribute('aria-expanded') === 'true';
+        trigger.setAttribute('aria-expanded', open ? 'false' : 'true');
+        panel.hidden = open;
+      });
+      // Click outside the panel closes it
+      document.addEventListener('click', function (e) {
+        if (panel.hidden) return;
+        if (panel.contains(e.target) || trigger.contains(e.target)) return;
+        closeThemePanel(bar);
+      });
+      // Escape closes
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !panel.hidden) closeThemePanel(bar);
+      });
+    }
+
+    // Initial trigger display
+    updateThemeTrigger(bar, s.theme);
+
+    // Theme buttons inside the panel
     bar.querySelectorAll('.ls-theme-btn').forEach(function (btn) {
       btn.setAttribute('aria-pressed', btn.dataset.theme === s.theme ? 'true' : 'false');
       btn.addEventListener('click', function () {
@@ -656,6 +861,8 @@
         bar.querySelectorAll('.ls-theme-btn').forEach(function (b) {
           b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
         });
+        updateThemeTrigger(bar, btn.dataset.theme);
+        closeThemePanel(bar);
         requestAnimationFrame(function () { syncCustomSwatches(bar); });
       });
     });
@@ -750,6 +957,7 @@
       bar.querySelectorAll('.ls-theme-btn').forEach(function (b) {
         b.setAttribute('aria-pressed', b.dataset.theme === s.theme ? 'true' : 'false');
       });
+      updateThemeTrigger(bar, s.theme);
       var ls = bar.querySelector('select[data-control="layout"]');     if (ls) ls.value = s.layout;
       var fs = bar.querySelector('select[data-control="font"]');       if (fs) fs.value = s.font;
       var ffs= bar.querySelector('select[data-control="for-font"]');   if (ffs) ffs.value = s.forFont;
@@ -758,6 +966,41 @@
       var so = bar.querySelector('output[data-display="offset"]');     if (so) so.textContent = ((s.offset / 4) * 100).toFixed(0) + '%';
       requestAnimationFrame(function () { syncCustomSwatches(bar); });
     }
+  }
+
+  // ---- Bar shell (collapse/expand) -------------------------
+  function setShellExpanded(shell, trigger, expanded) {
+    shell.setAttribute('data-expanded', expanded ? 'true' : 'false');
+    if (trigger) {
+      trigger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      var lbl = trigger.querySelector('[data-bar-trigger-label]');
+      if (lbl) lbl.textContent = expanded ? 'Hide controls' : 'Customize';
+    }
+  }
+
+  function wireShell() {
+    var shell = document.querySelector('.ls-bar-shell');
+    var trigger = shell ? shell.querySelector('[data-bar-trigger]') : null;
+    if (!shell || !trigger) return;
+
+    // Initial state — saved choice wins, otherwise mobile defaults
+    // to collapsed and desktop defaults to expanded.
+    var expanded = true;
+    try {
+      var saved = localStorage.getItem(KEYS.collapsed);
+      if (saved === '1') expanded = false;
+      else if (saved === '0') expanded = true;
+      else if (window.matchMedia && window.matchMedia('(max-width: 720px)').matches) {
+        expanded = false;
+      }
+    } catch (e) {}
+    setShellExpanded(shell, trigger, expanded);
+
+    trigger.addEventListener('click', function () {
+      var isOpen = shell.getAttribute('data-expanded') === 'true';
+      setShellExpanded(shell, trigger, !isOpen);
+      try { localStorage.setItem(KEYS.collapsed, isOpen ? '1' : '0'); } catch (e) {}
+    });
   }
 
   // ---- Init ------------------------------------------------
@@ -770,6 +1013,7 @@
       mount.outerHTML = BAR_HTML;
       var bar = document.querySelector('.ls-bar');
       if (bar) wireBar(bar);
+      wireShell();
     }
 
     window.addEventListener('storage', handleStorage);
