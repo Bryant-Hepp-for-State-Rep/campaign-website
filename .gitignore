@@ -1,0 +1,23 @@
+# Strategy / research / opposition docs — keep local only.
+docs/
+
+# macOS metadata.
+.DS_Store
+
+# Claude Code workspace state.
+.claude/
+
+# Editor / OS artifacts.
+.idea/
+.vscode/
+*.swp
+*~
+
+# Python (used for one-off scripts during the design-drafts work).
+__pycache__/
+*.pyc
+
+# Node / build (in case future tooling lands here).
+node_modules/
+dist/
+.cache/

@@ -1,0 +1,46 @@
+/* Theme 1: Detroit Flag
+   Red, white, navy, gold — drawn directly from the Detroit
+   municipal flag. Wordmark uses literal flag colors per the
+   user's spec: gold "Hepp", red "for", navy "Rep". */
+
+:root {
+  /* Base palette */
+  --color-bg:              #FAF7F0;
+  --color-surface:         #FFFFFF;
+  --color-text:            #1B2A4E;
+  --color-text-muted:      #5C6B85;
+  --color-border:          #E8E1D0;
+  --color-border-strong:   #1B2A4E;
+
+  /* Primary (the warm red of the Detroit flag) */
+  --color-primary:         #C8102E;
+  --color-primary-text:    #FFFFFF;
+  --color-primary-hover:   #A50D26;
+
+  /* Accent (Detroit flag gold) */
+  --color-accent:          #C9A227;
+
+  /* Eyebrow / small accents */
+  --color-eyebrow:         #C8102E;
+
+  /* "In Focus" loud block — navy field with gold + cream */
+  --color-loud-bg:         #1B2A4E;
+  --color-loud-text:       #FAF7F0;
+  --color-loud-accent:     #E0B843;
+
+  /* Highlighted phrase inside hero subhead */
+  --color-highlight-bg:    #FFE9B0;
+  --color-highlight-text:  #1B2A4E;
+
+  /* Wordmark — literal Detroit flag treatment */
+  --color-wordmark-1:      #C9A227; /* gold — "Hepp" */
+  --color-wordmark-2:      #C8102E; /* red  — "for" (small) */
+  --color-wordmark-3:      #1B2A4E; /* navy — "Rep" */
+
+  /* Footer */
+  --color-footer-bg:       #1B2A4E;
+  --color-footer-text:     #FAF7F0;
+
+  /* Footer wordmark overrides — "Rep" collides with navy bg */
+  --color-wordmark-3-footer: #FAF7F0;
+}

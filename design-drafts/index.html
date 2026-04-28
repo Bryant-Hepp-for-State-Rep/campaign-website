@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>hepp4rep — design drafts gallery</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #111;
+      color: #f3f3f3;
+      line-height: 1.5;
+    }
+    .gallery-header {
+      padding: 2rem clamp(1rem, 3vw, 3rem);
+      border-bottom: 1px solid #2a2a2a;
+    }
+    .gallery-header h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    .gallery-header p {
+      font-size: 0.95rem;
+      color: #aaa;
+      max-width: 70ch;
+    }
+    .gallery-header a {
+      color: #f3f3f3;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 1.5rem;
+      padding: 1.5rem clamp(1rem, 3vw, 3rem);
+    }
+    .draft-card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .draft-card__head {
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      border-bottom: 1px solid #2a2a2a;
+    }
+    .draft-card__title {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .draft-card__num {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888;
+      font-weight: 700;
+    }
+    .draft-card__open {
+      color: #f3f3f3;
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.35rem 0.7rem;
+      border: 1px solid #444;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .draft-card__open:hover {
+      background: #2a2a2a;
+    }
+    .draft-card__note {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.85rem;
+      color: #b0b0b0;
+      border-bottom: 1px solid #2a2a2a;
+      background: #151515;
+    }
+    .draft-card__frame-wrap {
+      position: relative;
+      width: 100%;
+      height: 720px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .draft-card__frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1280px;
+      height: 1600px;
+      border: 0;
+      transform: scale(0.5);
+      transform-origin: top left;
+    }
+
+    /* Sticky control bar (mirrors logo-explorations.html, but
+       minimal — only the logo font is controllable here. */
+    .control-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      margin: 0 clamp(1rem, 3vw, 3rem);
+      padding: 0.55rem 0.875rem;
+      background: rgba(20, 20, 20, 0.85);
+      backdrop-filter: saturate(180%) blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      border: 1px solid #2a2a2a;
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+      align-items: center;
+    }
+    .control-bar__group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: nowrap;
+    }
+    .control-bar__title {
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      white-space: nowrap;
+    }
+    .control-bar__divider {
+      width: 1px;
+      height: 18px;
+      background: #2a2a2a;
+      flex: 0 0 auto;
+    }
+    .control-bar__link {
+      margin-left: auto;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #f3f3f3;
+      text-decoration: none;
+      padding: 0.32rem 0.75rem;
+      border: 1.5px solid #444;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .control-bar__link:hover { border-color: #f3f3f3; }
+    .font-select {
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.34rem 1.6rem 0.34rem 0.65rem;
+      border: 1.5px solid #444;
+      border-radius: 999px;
+      background-color: transparent;
+      background-image: linear-gradient(45deg, transparent 50%, #f3f3f3 50%),
+                        linear-gradient(-45deg, transparent 50%, #f3f3f3 50%);
+      background-position: calc(100% - 12px) calc(50% - 1px),
+                           calc(100% - 8px)  calc(50% - 1px);
+      background-size: 4px 4px;
+      background-repeat: no-repeat;
+      color: #f3f3f3;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      line-height: 1;
+    }
+    .font-select option { color: #111; }
+    .font-select:hover { border-color: #f3f3f3; }
+    .font-select:focus-visible {
+      outline: 2px solid #f3f3f3;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="control-bar" aria-label="Logo controls">
+    <div class="control-bar__group">
+      <span class="control-bar__title">Logo font</span>
+      <select class="font-select" id="font-input" aria-label="Logo font (applies across all theme drafts)">
+        <option value="">System default</option>
+        <optgroup label="Sans · clean">
+          <option value="inter">Inter Black</option>
+          <option value="archivo">Archivo Black</option>
+          <option value="anton">Anton (condensed)</option>
+        </optgroup>
+        <optgroup label="Sans · contemporary">
+          <option value="bricolage">Bricolage Grotesque</option>
+          <option value="funnel">Funnel Display</option>
+        </optgroup>
+        <optgroup label="Sans · poster / chunky">
+          <option value="bowlby">Bowlby One</option>
+          <option value="big-shoulders">Big Shoulders Display</option>
+          <option value="bungee">Bungee</option>
+        </optgroup>
+        <optgroup label="Serif · editorial / civic">
+          <option value="roboto-slab">Roboto Slab</option>
+          <option value="fraunces">Fraunces</option>
+        </optgroup>
+      </select>
+    </div>
+    <a class="control-bar__link" href="logo-explorations.html">Lockup tool · more controls →</a>
+  </div>
+
+  <header class="gallery-header">
+    <h1>hepp4rep — design draft gallery</h1>
+    <p>
+      Seven color-theme variants of the same homepage. Same content,
+      same structure, same components — only the palette changes. See
+      <a href="README.md">README.md</a> for the design rationale of each
+      theme.
+    </p>
+    <p style="margin-top: 0.5rem;">
+      → <a href="logo-explorations.html">Logo / wordmark explorations</a>
+      (six monumental-lockup directions for the campaign mark)
+    </p>
+  </header>
+
+  <div class="gallery">
+
+    <article class="draft-card">
+      <div class="draft-card__head">
+        <div>
+          <div class="draft-card__num">Theme 1 · Base palette</div>
+          <div class="draft-card__title">Detroit Flag</div>
+        </div>
+        <a class="draft-card__open" href="drafts/1-detroit-flag.html" target="_blank" rel="noopener">Open ↗</a>
+      </div>
+      <p class="draft-card__note">Red, navy, gold on warm white. Civic-patriotic-local. Most directly evokes Detroit.</p>
+      <div class="draft-card__frame-wrap">
+        <iframe class="draft-card__frame" src="drafts/1-detroit-flag.html" title="Detroit Flag theme preview" loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="draft-card">
+      <div class="draft-card__head">
+        <div>
+          <div class="draft-card__num">Theme 2 · Base palette</div>
+          <div class="draft-card__title">DDOT × Dem Navy</div>
+        </div>
+        <a class="draft-card__open" href="drafts/2-ddot-dem-navy.html" target="_blank" rel="noopener">Open ↗</a>
+      </div>
+      <p class="draft-card__note">DDOT bus livery green plus traditional Democratic navy. Transit-forward.</p>
+      <div class="draft-card__frame-wrap">
+        <iframe class="draft-card__frame" src="drafts/2-ddot-dem-navy.html" title="DDOT × Dem Navy theme preview" loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="draft-card">
+      <div class="draft-card__head">
+        <div>
+          <div class="draft-card__num">Theme 3 · Base palette</div>
+          <div class="draft-card__title">Palestine Subtle</div>
+        </div>
+        <a class="draft-card__open" href="drafts/3-palestine-subtle.html" target="_blank" rel="noopener">Open ↗</a>
+      </div>
+      <p class="draft-card__note">Deep olive, warm rust, cream. Reads as warm earth-tone; second layer evokes Palestine.</p>
+      <div class="draft-card__frame-wrap">
+        <iframe class="draft-card__frame" src="drafts/3-palestine-subtle.html" title="Palestine Subtle theme preview" loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="draft-card">
+      <div class="draft-card__head">
+        <div>
+          <div class="draft-card__num">Theme 4 · Base palette</div>
+          <div class="draft-card__title">Pure Michigan</div>
+        </div>
+        <a class="draft-card__open" href="drafts/4-pure-michigan.html" target="_blank" rel="noopener">Open ↗</a>
+      </div>
+      <p class="draft-card__note">Lake blue, forest green, warm sand. State-level civic, "Pure Michigan" tourism vocabulary.</p>
+      <div class="draft-card__frame-wrap">
+        <iframe class="draft-card__frame" src="drafts/4-pure-michigan.html" title="Pure Michigan theme preview" loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="draft-card">
+      <div class="draft-card__head">
+        <div>
+          <div class="draft-card__num">Theme 5 · Permutation</div>
+          <div class="draft-card__title">Detroit Flag × Palestine</div>
+        </div>
+        <a class="draft-card__open" href="drafts/5-detroit-palestine.html" target="_blank" rel="noopener">Open ↗</a>
+      </div>
+      <p class="draft-card__note">Detroit red and gold accents on a Palestine-evocative olive primary. Most explicitly layered.</p>
+      <div class="draft-card__frame-wrap">
+        <iframe class="draft-card__frame" src="drafts/5-detroit-palestine.html" title="Detroit × Palestine theme preview" loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="draft-card">
+      <div class="draft-card__head">
+        <div>
+          <div class="draft-card__num">Theme 6 · Permutation</div>
+          <div class="draft-card__title">DDOT × Palestine</div>
+        </div>
+        <a class="draft-card__open" href="drafts/6-ddot-palestine.html" target="_blank" rel="noopener">Open ↗</a>
+      </div>
+      <p class="draft-card__note">DDOT green = Palestine green. Cleanest single-color overlap. Transit + values without contradiction.</p>
+      <div class="draft-card__frame-wrap">
+        <iframe class="draft-card__frame" src="drafts/6-ddot-palestine.html" title="DDOT × Palestine theme preview" loading="lazy"></iframe>
+      </div>
+    </article>
+
+    <article class="draft-card">
+      <div class="draft-card__head">
+        <div>
+          <div class="draft-card__num">Theme 7 · Permutation</div>
+          <div class="draft-card__title">Michigan × Detroit</div>
+        </div>
+        <a class="draft-card__open" href="drafts/7-michigan-detroit.html" target="_blank" rel="noopener">Open ↗</a>
+      </div>
+      <p class="draft-card__note">Michigan forest green primary, Detroit flag navy + gold accents. State + city civic identity.</p>
+      <div class="draft-card__frame-wrap">
+        <iframe class="draft-card__frame" src="drafts/7-michigan-detroit.html" title="Michigan × Detroit theme preview" loading="lazy"></iframe>
+      </div>
+    </article>
+
+  </div>
+
+  <script>
+    (function () {
+      var FONT_KEY = 'hep4rep-logo-font';
+      var select = document.getElementById('font-input');
+      if (!select) return;
+
+      // Restore saved value
+      try {
+        var saved = localStorage.getItem(FONT_KEY) || '';
+        if (saved) select.value = saved;
+      } catch (e) {}
+
+      select.addEventListener('change', function () {
+        var v = select.value;
+        try {
+          if (v) {
+            localStorage.setItem(FONT_KEY, v);
+          } else {
+            localStorage.removeItem(FONT_KEY);
+          }
+        } catch (e) {}
+        // Storage events do not fire in the document that
+        // made the change — manually re-apply to all iframes
+        // by reloading their src with a cache-busting query.
+        // Cheaper alternative: dispatch a synthetic storage
+        // event into each iframe's window.
+        var iframes = document.querySelectorAll('iframe.draft-card__frame');
+        iframes.forEach(function (frame) {
+          try {
+            var w = frame.contentWindow;
+            if (w && w.__hepp4repFont) {
+              w.__hepp4repFont.apply(v || null);
+            }
+          } catch (err) { /* cross-origin or not loaded */ }
+        });
+      });
+
+      // Also keep this tab synced if the user changes the font
+      // on logo-explorations.html in another tab.
+      window.addEventListener('storage', function (e) {
+        if (e.key === FONT_KEY) {
+          select.value = e.newValue || '';
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

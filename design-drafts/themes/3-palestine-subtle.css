@@ -1,0 +1,43 @@
+/* Theme 3: Palestine Subtle
+   Deep olive green, warm rust, cream, soft charcoal.
+   Reads as warm earth-tone for general audience; second
+   layer evokes Palestine for those who recognize. NOT the
+   literal flag. */
+
+:root {
+  --color-bg:              #F5F0E8;
+  --color-surface:         #FFFFFF;
+  --color-text:            #2A2A2A;
+  --color-text-muted:      #6E6660;
+  --color-border:          #E5DDD0;
+  --color-border-strong:   #2A2A2A;
+
+  /* Primary — deep olive green (Palestine-evocative) */
+  --color-primary:         #3F5C3F;
+  --color-primary-text:    #F5F0E8;
+  --color-primary-hover:   #324832;
+
+  /* Accent — warm rust red */
+  --color-accent:          #9B3923;
+
+  --color-eyebrow:         #9B3923;
+
+  /* Loud block — dark olive, warm cream text */
+  --color-loud-bg:         #2D3F2D;
+  --color-loud-text:       #F5F0E8;
+  --color-loud-accent:     #C04A2C;
+
+  --color-highlight-bg:    rgba(155, 57, 35, 0.14);
+  --color-highlight-text:  #2A2A2A;
+
+  /* Wordmark — olive / rust / charcoal */
+  --color-wordmark-1:      #3F5C3F;
+  --color-wordmark-2:      #9B3923;
+  --color-wordmark-3:      #2A2A2A;
+
+  --color-footer-bg:       #2D3F2D;
+  --color-footer-text:     #F5F0E8;
+
+  /* Footer wordmark overrides — olive "Hepp" collides with dark olive bg */
+  --color-wordmark-1-footer: #F5F0E8;
+}

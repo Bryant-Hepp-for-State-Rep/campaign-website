@@ -1,0 +1,42 @@
+/* Theme 4: Pure Michigan
+   Lake blue, forest green, warm sand cream. Evokes the
+   "Pure Michigan" tourism vocabulary — broad statewide
+   civic identity rather than specifically Detroit. */
+
+:root {
+  --color-bg:              #FBF8F3;
+  --color-surface:         #FFFFFF;
+  --color-text:            #0F2D3F;
+  --color-text-muted:      #5B6F7A;
+  --color-border:          #E5E0D5;
+  --color-border-strong:   #0F2D3F;
+
+  /* Primary — lake blue */
+  --color-primary:         #1B5485;
+  --color-primary-text:    #FBF8F3;
+  --color-primary-hover:   #144368;
+
+  /* Accent — forest green */
+  --color-accent:          #3A6B47;
+
+  --color-eyebrow:         #1B5485;
+
+  /* Loud block — forest green, cream text, warm sand accent */
+  --color-loud-bg:         #2D5B3A;
+  --color-loud-text:       #FBF8F3;
+  --color-loud-accent:     #E8B860;
+
+  --color-highlight-bg:    rgba(232, 184, 96, 0.30);
+  --color-highlight-text:  #0F2D3F;
+
+  /* Wordmark — lake / forest / teal */
+  --color-wordmark-1:      #1B5485;
+  --color-wordmark-2:      #3A6B47;
+  --color-wordmark-3:      #0F2D3F;
+
+  --color-footer-bg:       #0F2D3F;
+  --color-footer-text:     #FBF8F3;
+
+  /* Footer wordmark overrides — teal "Rep" exactly matches footer bg */
+  --color-wordmark-3-footer: #FBF8F3;
+}

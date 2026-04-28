@@ -1,0 +1,44 @@
+/* Theme 5: Detroit Flag × Palestine Subtle
+   Most explicitly layered theme. Detroit flag red + gold +
+   Palestine olive green + warm cream. The wordmark replaces
+   navy with green for second-layer meaning while keeping the
+   flag's three-color rhythm. */
+
+:root {
+  --color-bg:              #F5F0E8;
+  --color-surface:         #FFFFFF;
+  --color-text:            #2A2A2A;
+  --color-text-muted:      #6E6660;
+  --color-border:          #E5DDD0;
+  --color-border-strong:   #2A2A2A;
+
+  /* Primary — Palestine-evocative deep olive green */
+  --color-primary:         #3F5C3F;
+  --color-primary-text:    #F5F0E8;
+  --color-primary-hover:   #324832;
+
+  /* Accent — Detroit flag red */
+  --color-accent:          #C8102E;
+
+  --color-eyebrow:         #C8102E;
+
+  /* Loud block — Detroit red field, gold accent, cream text */
+  --color-loud-bg:         #A11B2D;
+  --color-loud-text:       #F5F0E8;
+  --color-loud-accent:     #E0B843;
+
+  --color-highlight-bg:    rgba(200, 16, 46, 0.15);
+  --color-highlight-text:  #2A2A2A;
+
+  /* Wordmark — gold / red / olive
+     (Detroit flag rhythm with green replacing navy) */
+  --color-wordmark-1:      #C9A227; /* gold — "Hepp"  */
+  --color-wordmark-2:      #C8102E; /* red  — "for"   */
+  --color-wordmark-3:      #3F5C3F; /* olive — "Rep"  */
+
+  --color-footer-bg:       #2D3F2D;
+  --color-footer-text:     #F5F0E8;
+
+  /* Footer wordmark overrides — olive "Rep" collides with dark olive bg */
+  --color-wordmark-3-footer: #F5F0E8;
+}

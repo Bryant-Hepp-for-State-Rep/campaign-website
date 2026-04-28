@@ -1,0 +1,43 @@
+/* Theme 7: Michigan × Detroit
+   Forest green (Michigan) + Detroit flag navy + gold
+   accent on warm cream. Bridges state-level and city-
+   level civic identity for the "running for state office
+   representing a Detroit district" framing. */
+
+:root {
+  --color-bg:              #FBF8F3;
+  --color-surface:         #FFFFFF;
+  --color-text:            #0F2D3F;
+  --color-text-muted:      #5B6F7A;
+  --color-border:          #E5E0D5;
+  --color-border-strong:   #0F2D3F;
+
+  /* Primary — Michigan forest green */
+  --color-primary:         #3A6B47;
+  --color-primary-text:    #FBF8F3;
+  --color-primary-hover:   #2C5436;
+
+  /* Accent — Detroit flag navy */
+  --color-accent:          #1B2A4E;
+
+  --color-eyebrow:         #3A6B47;
+
+  /* Loud block — Detroit navy field, gold accent, cream text */
+  --color-loud-bg:         #1B2A4E;
+  --color-loud-text:       #FBF8F3;
+  --color-loud-accent:     #E0B843;
+
+  --color-highlight-bg:    rgba(201, 162, 39, 0.22);
+  --color-highlight-text:  #0F2D3F;
+
+  /* Wordmark — green (state) / gold (Detroit accent) / navy (Detroit) */
+  --color-wordmark-1:      #3A6B47;
+  --color-wordmark-2:      #C9A227;
+  --color-wordmark-3:      #1B2A4E;
+
+  --color-footer-bg:       #1B2A4E;
+  --color-footer-text:     #FBF8F3;
+
+  /* Footer wordmark overrides — navy "Rep" exactly matches footer bg */
+  --color-wordmark-3-footer: #FBF8F3;
+}

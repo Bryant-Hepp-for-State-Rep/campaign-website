@@ -1,0 +1,43 @@
+/* Theme 2: DDOT × Dem Navy
+   DDOT bus livery green (transit infrastructure) with
+   classic Democratic navy. Bridges Bryant's transit
+   signature with Democratic visual familiarity. */
+
+:root {
+  --color-bg:              #FFFFFF;
+  --color-surface:         #F2F8F3;
+  --color-text:            #0E2755;
+  --color-text-muted:      #5B6675;
+  --color-border:          #DCE7E0;
+  --color-border-strong:   #0E2755;
+
+  /* Primary — DDOT bus green */
+  --color-primary:         #2E7D4F;
+  --color-primary-text:    #FFFFFF;
+  --color-primary-hover:   #246339;
+
+  /* Accent — Democratic navy */
+  --color-accent:          #0E2755;
+
+  --color-eyebrow:         #2E7D4F;
+
+  /* Loud block — navy field, white + green text */
+  --color-loud-bg:         #0E2755;
+  --color-loud-text:       #FFFFFF;
+  --color-loud-accent:     #5DA877;
+
+  --color-highlight-bg:    rgba(46, 125, 79, 0.18);
+  --color-highlight-text:  #0E2755;
+
+  /* Wordmark — green / navy / deep text */
+  --color-wordmark-1:      #2E7D4F;
+  --color-wordmark-2:      #0E2755;
+  --color-wordmark-3:      #0E2755;
+
+  --color-footer-bg:       #0E2755;
+  --color-footer-text:     #FFFFFF;
+
+  /* Footer wordmark overrides — both "for" and "Rep" collide with navy bg */
+  --color-wordmark-2-footer: #FFFFFF;
+  --color-wordmark-3-footer: #FFFFFF;
+}

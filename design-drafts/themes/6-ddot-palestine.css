@@ -1,0 +1,43 @@
+/* Theme 6: DDOT × Palestine
+   DDOT bus green and Palestine green sit on nearly the same
+   hue — using the same primary color for both meanings is
+   the cleanest single-color overlap of any permutation.
+   Warm rust accent on cream completes the palette. */
+
+:root {
+  --color-bg:              #F5F0E8;
+  --color-surface:         #FFFFFF;
+  --color-text:            #2A2A2A;
+  --color-text-muted:      #6E6660;
+  --color-border:          #E5DDD0;
+  --color-border-strong:   #2A2A2A;
+
+  /* Primary — DDOT/Palestine green */
+  --color-primary:         #2E7D4F;
+  --color-primary-text:    #F5F0E8;
+  --color-primary-hover:   #246339;
+
+  /* Accent — warm rust */
+  --color-accent:          #9B3923;
+
+  --color-eyebrow:         #9B3923;
+
+  /* Loud block — dark green, cream text, rust accent */
+  --color-loud-bg:         #1F5D3A;
+  --color-loud-text:       #F5F0E8;
+  --color-loud-accent:     #C04A2C;
+
+  --color-highlight-bg:    rgba(155, 57, 35, 0.14);
+  --color-highlight-text:  #2A2A2A;
+
+  /* Wordmark — green / rust / charcoal */
+  --color-wordmark-1:      #2E7D4F;
+  --color-wordmark-2:      #9B3923;
+  --color-wordmark-3:      #2A2A2A;
+
+  --color-footer-bg:       #1F5D3A;
+  --color-footer-text:     #F5F0E8;
+
+  /* Footer wordmark overrides — green "Hepp" collides with dark green bg */
+  --color-wordmark-1-footer: #F5F0E8;
+}

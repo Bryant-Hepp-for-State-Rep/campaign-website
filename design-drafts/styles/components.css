@@ -1,0 +1,621 @@
+/* ============================================================
+   components.css — component styles using CSS custom properties
+   All theme variation comes from themes/N-name.css overriding
+   the variables below. Do not put colors here directly.
+   ============================================================ */
+
+/* Site header --------------------------------------------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: saturate(180%) blur(8px);
+  -webkit-backdrop-filter: saturate(180%) blur(8px);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: 1rem;
+}
+
+/* Wordmark — stacked "Hepp / for / Rep" treatment.
+   Three colors map to CSS variables. The Detroit-flag theme
+   uses gold / red / navy literally; other themes substitute
+   their primary / accent / text colors.
+   Font + weight + tracking come from variables that are
+   updated by `wordmark-font.js` based on the shared
+   localStorage key. Defaults below = system stack. */
+
+:root {
+  --wordmark-font: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --wordmark-weight: 900;
+  --wordmark-tracking: -0.045em;
+}
+
+.wordmark {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  font-family: var(--wordmark-font);
+  font-weight: var(--wordmark-weight);
+  letter-spacing: var(--wordmark-tracking);
+  line-height: 0.92;
+  text-transform: lowercase;
+  font-size: 1.5rem;
+  /* Slight optical correction for stacked baseline */
+  padding-block: 2px;
+}
+
+.wordmark__hepp {
+  color: var(--color-wordmark-1, var(--color-primary));
+  display: block;
+}
+
+.wordmark__for {
+  color: var(--color-wordmark-2, var(--color-accent));
+  /* Connector always uses Inter italic, regardless of the
+     display font the user picks for HEPP / REP. */
+  font-family: "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+  font-size: 0.5em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-style: italic;
+  display: block;
+  margin-block: 0.12em 0.05em;
+  padding-inline-start: 0.15em;
+}
+
+.wordmark__rep {
+  color: var(--color-wordmark-3, var(--color-text));
+  display: block;
+}
+
+/* Larger hero / footer variant */
+.wordmark--large {
+  font-size: clamp(3rem, 7vw, 5rem);
+  line-height: 0.88;
+}
+
+/* When the wordmark sits in the footer, any word whose color
+   collides with --color-footer-bg gets swapped to off-white via
+   a footer-specific override variable. Themes that don't define
+   the *-footer variables fall back to the regular wordmark
+   colors via var()'s second argument. */
+.site-footer .wordmark__hepp {
+  color: var(--color-wordmark-1-footer, var(--color-wordmark-1, var(--color-primary)));
+}
+.site-footer .wordmark__for {
+  color: var(--color-wordmark-2-footer, var(--color-wordmark-2, var(--color-accent)));
+}
+.site-footer .wordmark__rep {
+  color: var(--color-wordmark-3-footer, var(--color-wordmark-3, var(--color-text)));
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  padding-block: 0.25rem;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover {
+  border-bottom-color: var(--color-primary);
+}
+
+@media (max-width: 640px) {
+  .site-nav {
+    gap: 1rem;
+  }
+  .site-nav a:not(.button) {
+    display: none;
+  }
+}
+
+/* Buttons -------------------------------------------------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.08s ease;
+  white-space: nowrap;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button--primary {
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+}
+
+.button--primary:hover {
+  background: var(--color-primary-hover, var(--color-primary));
+}
+
+.button--secondary {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border-strong, var(--color-text));
+}
+
+.button--secondary:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.button--small {
+  padding: 0.5rem 0.875rem;
+  font-size: 0.875rem;
+}
+
+/* Hero ----------------------------------------------------- */
+
+.hero {
+  padding-block: clamp(3rem, 7vw, 5rem) clamp(3.5rem, 8vw, 6rem);
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+@media (max-width: 880px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero__office {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  color: var(--color-eyebrow, var(--color-primary));
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.hero__name {
+  margin-bottom: 0.5rem;
+}
+
+.hero__district {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-bottom: 1.75rem;
+}
+
+.hero__tagline {
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+}
+
+.hero__subhead {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.55;
+  color: var(--color-text);
+  margin-bottom: 2rem;
+  max-width: 56ch;
+}
+
+.hero__subhead strong {
+  background: var(--color-highlight-bg, transparent);
+  color: var(--color-highlight-text, inherit);
+  padding: 0 0.15em;
+}
+
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hero__photo {
+  aspect-ratio: 4 / 5;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 100%
+  );
+  opacity: 0.08;
+}
+
+.hero__photo-label {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1rem;
+  font-style: italic;
+}
+
+/* About / why I'm running ---------------------------------- */
+
+.about {
+  background: var(--color-surface);
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+@media (max-width: 880px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about__photo {
+  aspect-ratio: 5 / 4;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+.about__heading {
+  margin-bottom: 1.5rem;
+}
+
+.about__body p {
+  margin-bottom: 1rem;
+}
+
+.about__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* Priorities ----------------------------------------------- */
+
+.priorities__heading {
+  margin-bottom: 0.5rem;
+}
+
+.priorities__lede {
+  color: var(--color-text-muted);
+  margin-bottom: 2.5rem;
+  max-width: 60ch;
+}
+
+.priorities__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 880px) {
+  .priorities__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.priority-card {
+  padding: 1.75rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-primary);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.priority-card__number {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.priority-card__heading {
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  color: var(--color-text);
+}
+
+.priority-card__body {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  flex: 1;
+}
+
+/* In Focus block (signature issue — visually loudest) ------ */
+
+.in-focus {
+  background: var(--color-loud-bg);
+  color: var(--color-loud-text);
+}
+
+.in-focus a {
+  color: var(--color-loud-text);
+}
+
+.in-focus__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+@media (max-width: 880px) {
+  .in-focus__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.in-focus__eyebrow {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-loud-accent, var(--color-loud-text));
+  margin-bottom: 0.75rem;
+}
+
+.in-focus__heading {
+  margin-bottom: 1.5rem;
+}
+
+.in-focus__stat {
+  font-size: clamp(5rem, 12vw, 8rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--color-loud-accent, var(--color-loud-text));
+  letter-spacing: -0.04em;
+}
+
+.in-focus__stat-label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  max-width: 22ch;
+  opacity: 0.85;
+}
+
+.in-focus__body p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  opacity: 0.92;
+}
+
+.in-focus__cta {
+  margin-top: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  border-bottom: 2px solid var(--color-loud-accent, var(--color-loud-text));
+  padding-bottom: 2px;
+  text-decoration: none;
+}
+
+/* Get involved -------------------------------------------- */
+
+.get-involved__heading {
+  margin-bottom: 2.5rem;
+}
+
+.get-involved__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 880px) {
+  .get-involved__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cta-card {
+  padding: 1.75rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cta-card--primary {
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  border-color: var(--color-primary);
+}
+
+.cta-card__heading {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.cta-card__body {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  flex: 1;
+  opacity: 0.9;
+}
+
+.cta-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cta-card input[type="email"] {
+  padding: 0.75rem 1rem;
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border-strong, var(--color-border));
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.cta-card--primary input[type="email"] {
+  background: rgba(255, 255, 255, 0.95);
+  color: #111;
+}
+
+.cta-card button[type="submit"] {
+  padding: 0.75rem 1rem;
+  background: var(--color-text);
+  color: var(--color-bg);
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cta-card--primary button[type="submit"] {
+  background: var(--color-bg);
+  color: var(--color-primary);
+}
+
+.cta-card__pending {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  display: inline-block;
+  padding: 0.35rem 0.625rem;
+  border: 1px solid var(--color-border-strong, var(--color-border));
+  border-radius: 999px;
+  margin-top: auto;
+}
+
+/* Footer --------------------------------------------------- */
+
+.site-footer {
+  background: var(--color-footer-bg, var(--color-text));
+  color: var(--color-footer-text, var(--color-bg));
+  padding-block: 3rem;
+}
+
+.site-footer a {
+  color: inherit;
+}
+
+.site-footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.site-footer__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-weight: 600;
+}
+
+.site-footer__contact {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.site-footer__legal {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  border-top: 1px solid currentColor;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  justify-content: space-between;
+}
+
+/* Theme banner (only on draft pages) ----------------------- */
+
+.theme-banner {
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-size: 0.85rem;
+  padding: 0.625rem 1.25rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.theme-banner strong {
+  font-weight: 700;
+}
+
+.theme-banner a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
