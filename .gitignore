@@ -20,4 +20,5 @@ __pycache__/
 # Node / build (in case future tooling lands here).
 node_modules/
 dist/
+_site/
 .cache/
