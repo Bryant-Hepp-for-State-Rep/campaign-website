@@ -2,7 +2,7 @@
 hero:
   eyebrow: Democrat for Michigan State House · District 9
   name: Bryant Hepp
-  district_line: East Side · Downtown · Midtown · New Center
+  district_line: East Side · Downtown · Southwest Downtown · Midtown · New Center · Milwaukee Junction
   tagline: Running for office, because driving costs too much.
   subhead: >
     Detroit drivers in predominantly Black neighborhoods pay **up to 5×
