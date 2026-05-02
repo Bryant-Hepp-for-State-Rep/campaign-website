@@ -255,9 +255,9 @@ permalink: /policy/auto-insurance/index.html
       <h2 class="policy-cta__heading">{{ policy_auto_insurance.cta.heading }}</h2>
       <div class="policy-cta__body">{{ policy_auto_insurance.cta.body | mdBody | safe }}</div>
       <div class="policy-cta__buttons">
-        <a class="button button--primary" href="{{ policy_auto_insurance.cta.primary_target }}">{{ policy_auto_insurance.cta.primary_label }}</a>
+        <a class="button button--primary" href="{{ policy_auto_insurance.cta.primary_target | url }}">{{ policy_auto_insurance.cta.primary_label }}</a>
         {% if policy_auto_insurance.cta.secondary_label %}
-        <a class="button button--secondary" href="{{ policy_auto_insurance.cta.secondary_target }}" target="_blank" rel="noopener">{{ policy_auto_insurance.cta.secondary_label }}</a>
+        <a class="button button--secondary" href="{{ policy_auto_insurance.cta.secondary_target | url }}" target="_blank" rel="noopener">{{ policy_auto_insurance.cta.secondary_label }}</a>
         {% endif %}
       </div>
     </div>

@@ -1,15 +1,15 @@
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="cstack cstack--sm order2-GR" href="/" aria-label="Hepp for Rep — home">
+    <a class="cstack cstack--sm order2-GR" href="{{ '/' | url }}" aria-label="Hepp for Rep — home">
       <span class="cstack__hepp">HEPP</span>
       <span class="cstack__for"><span data-for-text>for</span><span data-for-alt aria-hidden="true">4</span></span>
       <span class="cstack__rep">REP</span>
     </a>
     <nav class="site-nav" aria-label="Primary">
       {%- for link in nav.links %}
-      <a href="{{ link.target }}">{{ link.label }}</a>
+      <a href="{{ link.target | url }}">{{ link.label }}</a>
       {%- endfor %}
-      <a class="button button--small button--primary" href="{{ site.primary_cta.target }}">{{ site.primary_cta.label }}</a>
+      <a class="button button--small button--primary" href="{{ site.primary_cta.target | url }}">{{ site.primary_cta.label }}</a>
     </nav>
   </div>
 </header>

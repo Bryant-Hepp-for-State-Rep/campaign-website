@@ -15,9 +15,9 @@ permalink: /index.html
         <p class="hero__tagline">{{ home.hero.tagline }}</p>
         <p class="hero__subhead">{{ home.hero.subhead | mdInline | safe }}</p>
         <div class="hero__ctas">
-          <a class="button button--primary" href="{{ home.hero.primary_cta.target }}">{{ home.hero.primary_cta.label }}</a>
+          <a class="button button--primary" href="{{ home.hero.primary_cta.target | url }}">{{ home.hero.primary_cta.label }}</a>
           {% if home.hero.secondary_cta and home.hero.secondary_cta.label %}
-          <a class="button button--secondary" href="{{ home.hero.secondary_cta.target }}">{{ home.hero.secondary_cta.label }}</a>
+          <a class="button button--secondary" href="{{ home.hero.secondary_cta.target | url }}">{{ home.hero.secondary_cta.label }}</a>
           {% endif %}
         </div>
       </div>
@@ -37,7 +37,7 @@ permalink: /index.html
         <div class="lead">{{ home.about_teaser.lede | mdBody | safe }}</div>
         {{ home.about_teaser.body | mdBody | safe }}
         {% if home.about_teaser.link_text %}
-        <p><a href="{{ home.about_teaser.link_target }}">{{ home.about_teaser.link_text }}</a></p>
+        <p><a href="{{ home.about_teaser.link_target | url }}">{{ home.about_teaser.link_text }}</a></p>
         {% endif %}
       </div>
     </div>
@@ -76,7 +76,7 @@ permalink: /index.html
       <div class="in-focus__body">
         <h2 class="in-focus__heading">{{ issue.heading }}</h2>
         {{ issue.body | mdBody | safe }}
-        <a class="in-focus__cta" href="{{ issue.cta_target }}">{{ issue.cta_label }}</a>
+        <a class="in-focus__cta" href="{{ issue.cta_target | url }}">{{ issue.cta_label }}</a>
       </div>
     </div>
   </div>
@@ -108,7 +108,7 @@ permalink: /index.html
         <h3 class="cta-card__heading">{{ home.get_involved.donate_card.heading }}</h3>
         <div class="cta-card__body">{{ home.get_involved.donate_card.body | mdBody | safe }}</div>
         {% if home.get_involved.donate_card.enabled and home.get_involved.donate_card.actblue_url %}
-        <a class="button button--primary" href="{{ home.get_involved.donate_card.actblue_url }}" target="_blank" rel="noopener">Donate</a>
+        <a class="button button--primary" href="{{ home.get_involved.donate_card.actblue_url | url }}" target="_blank" rel="noopener">Donate</a>
         {% else %}
         <span class="cta-card__pending">{{ home.get_involved.donate_card.pending_label }}</span>
         {% endif %}

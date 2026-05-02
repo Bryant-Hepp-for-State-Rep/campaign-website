@@ -731,12 +731,15 @@
     }
 
     // ── REGISTER ───────────────────────────────────────────────────
-    // Stylesheets — paths are relative to the CMS-served origin, so
-    // /styles/* and /themes/* are reachable as long as Eleventy passed
-    // them through (it does).
-    window.CMS.registerPreviewStyle("/styles/base.css");
-    window.CMS.registerPreviewStyle("/styles/components.css");
-    window.CMS.registerPreviewStyle("/themes/1-detroit-flag.css");
+    // Compute the deploy prefix from the current admin URL so the
+    // same code works at /admin/, /hep4rep/admin/, /anything/admin/.
+    // window.location.pathname on the admin page is "<prefix>/admin/";
+    // strip the trailing /admin/ to get the prefix.
+    const prefix = window.location.pathname.replace(/\/admin\/?$/, "");
+
+    window.CMS.registerPreviewStyle(prefix + "/styles/base.css");
+    window.CMS.registerPreviewStyle(prefix + "/styles/components.css");
+    window.CMS.registerPreviewStyle(prefix + "/themes/1-detroit-flag.css");
     // Google Fonts — same families the live site loads.
     window.CMS.registerPreviewStyle(
       "https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;0,900;1,700&family=Fraunces:ital,wght@0,400;0,900;1,400&display=swap"

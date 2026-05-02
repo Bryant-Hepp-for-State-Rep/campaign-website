@@ -12,4 +12,4 @@ socials:
     url: https://bsky.app/profile/hepp4rep.bsky.social
 primary_cta:
   label: Join the campaign
-  target: "#get-involved"
+  target: "/#get-involved"

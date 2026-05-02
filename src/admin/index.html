@@ -14,7 +14,8 @@
        this, Decap's preview pane just dumps field values as plain
        text. With it, the preview iframe applies the site CSS and
        renders each page using a React component that mirrors the
-       Eleventy template. -->
-  <script src="/admin/preview.js"></script>
+       Eleventy template. Loaded via a relative path so it works under
+       any deploy prefix (root, /hep4rep/, custom domain, etc). -->
+  <script src="preview.js"></script>
 </body>
 </html>
