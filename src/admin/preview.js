@@ -18,6 +18,43 @@
 // as placeholders. Bryant sees the structure; the live page resolves
 // the relations.
 
+// ── Workaround: preview pane stops scrolling after divider resize ─
+// Decap's form/preview divider drag appears to leave a stuck
+// pointer-events state on something — possibly an overlay element
+// from the drag handler — that intercepts scroll-wheel events on the
+// preview iframe until the user clicks somewhere. We can't reach the
+// offending element directly from here, but firing a synthetic resize
+// event after every drag-completion gives Decap (and any layout-aware
+// React component) a chance to recompute and clear the state.
+//
+// Filtered to only fire after gestures that actually moved the mouse
+// (i.e. drags, not regular clicks) and to ignore synthetic events to
+// avoid feedback loops. Runs in the admin parent window — preview.js
+// is loaded by admin/index.html alongside decap-cms.js, not inside
+// the preview iframe.
+//
+// Tracking issue: filed upstream in decapcms/decap-cms.
+(function () {
+  let dragStart = null;
+  document.addEventListener("mousedown", function (e) {
+    if (e.button === 0 && e.isTrusted) {
+      dragStart = { x: e.clientX, y: e.clientY };
+    }
+  });
+  document.addEventListener("mouseup", function (e) {
+    if (!e.isTrusted) return;
+    const start = dragStart;
+    dragStart = null;
+    if (!start) return;
+    const moved = Math.hypot(e.clientX - start.x, e.clientY - start.y);
+    if (moved < 5) return; // not a drag — ignore regular clicks
+    // Let Decap's own mouseup handlers run first, then nudge.
+    setTimeout(function () {
+      window.dispatchEvent(new Event("resize"));
+    }, 50);
+  });
+})();
+
 (function () {
   // Load markdown-it from CDN so we can render the same restricted
   // markdown the build uses. Two renderers, mirroring the .eleventy.js
