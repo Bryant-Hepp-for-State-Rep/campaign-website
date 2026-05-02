@@ -16,7 +16,7 @@
 # This is what gates draft pages behind the admin login.
 backend:
   name: github
-  repo: blolt/hep4rep
+  repo: blolt/hepp4rep
   branch: main
   # NOTE: GitHub OAuth requires an OAuth proxy. Setup options are
   # documented in docs/setup-decap-cloudflare.md.
