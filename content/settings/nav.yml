@@ -1,0 +1,7 @@
+links:
+  - label: About
+    target: /about/
+  - label: Priorities
+    target: /#priorities
+  - label: Redlining
+    target: /#in-focus

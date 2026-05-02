@@ -1,0 +1,119 @@
+---
+layout: layouts/base.njk
+title: Bryant Hepp for State Rep — Home
+description: Bryant Hepp, Democrat for Michigan State House District 9.
+permalink: /index.html
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero__grid">
+      <div>
+        <span class="hero__office">{{ home.hero.eyebrow }}</span>
+        <h1 class="hero__name">{{ home.hero.name }}</h1>
+        <p class="hero__district">{{ home.hero.district_line }}</p>
+        <p class="hero__tagline">{{ home.hero.tagline }}</p>
+        <p class="hero__subhead">{{ home.hero.subhead | mdInline | safe }}</p>
+        <div class="hero__ctas">
+          <a class="button button--primary" href="{{ home.hero.primary_cta.target }}">{{ home.hero.primary_cta.label }}</a>
+          {% if home.hero.secondary_cta and home.hero.secondary_cta.label %}
+          <a class="button button--secondary" href="{{ home.hero.secondary_cta.target }}">{{ home.hero.secondary_cta.label }}</a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="hero__photo" aria-hidden="true">
+        <span class="hero__photo-label">[ Photo placeholder — community / candid ]</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="container">
+    <div class="about__grid">
+      <div class="about__photo" aria-hidden="true">[ Photo placeholder ]</div>
+      <div class="about__body">
+        <h2 class="about__heading">{{ home.about_teaser.heading }}</h2>
+        <div class="lead">{{ home.about_teaser.lede | mdBody | safe }}</div>
+        {{ home.about_teaser.body | mdBody | safe }}
+        {% if home.about_teaser.link_text %}
+        <p><a href="{{ home.about_teaser.link_target }}">{{ home.about_teaser.link_text }}</a></p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="priorities">
+  <div class="container">
+    <h2 class="priorities__heading">{{ home.priorities_section.heading }}</h2>
+    <div class="priorities__lede">{{ home.priorities_section.lede | mdBody | safe }}</div>
+    <div class="priorities__grid">
+      {%- for slug in home.priorities_section.priorities %}
+        {%- set p = priorities[slug] %}
+        {%- if p %}
+        <article class="priority-card">
+          <span class="priority-card__number">{{ "0" + (loop.index | string) }} / {{ p.label }}</span>
+          <h3 class="priority-card__heading">{{ p.heading }}</h3>
+          <div class="priority-card__body">{{ p.body | mdBody | safe }}</div>
+        </article>
+        {%- endif %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{%- set issue = issues[home.in_focus.current_issue] %}
+{%- if issue %}
+<section id="in-focus" class="in-focus">
+  <div class="container">
+    <p class="in-focus__eyebrow">{{ home.in_focus.eyebrow }}</p>
+    <div class="in-focus__grid">
+      <div>
+        <div class="in-focus__stat">{{ issue.stat_value }}</div>
+        <p class="in-focus__stat-label">{{ issue.stat_label | mdInline | safe }}</p>
+      </div>
+      <div class="in-focus__body">
+        <h2 class="in-focus__heading">{{ issue.heading }}</h2>
+        {{ issue.body | mdBody | safe }}
+        <a class="in-focus__cta" href="{{ issue.cta_target }}">{{ issue.cta_label }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section id="get-involved">
+  <div class="container">
+    <h2 class="get-involved__heading">{{ home.get_involved.heading }}</h2>
+    <div class="get-involved__grid">
+
+      <div class="cta-card cta-card--primary">
+        <h3 class="cta-card__heading">{{ home.get_involved.email_card.heading }}</h3>
+        <div class="cta-card__body">{{ home.get_involved.email_card.body | mdBody | safe }}</div>
+        <form action="{{ home.get_involved.email_card.form_action }}" method="post" aria-label="Email signup">
+          <label class="sr-only" for="email">Email address</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+          <button type="submit">{{ home.get_involved.email_card.submit_label }}</button>
+        </form>
+      </div>
+
+      <div class="cta-card">
+        <h3 class="cta-card__heading">{{ home.get_involved.volunteer_card.heading }}</h3>
+        <div class="cta-card__body">{{ home.get_involved.volunteer_card.body | mdBody | safe }}</div>
+        <a class="button button--secondary" href="mailto:{{ site.contact_email }}?subject={{ home.get_involved.volunteer_card.email_subject | urlencode }}">{{ home.get_involved.volunteer_card.cta_label }}</a>
+      </div>
+
+      <div class="cta-card">
+        <h3 class="cta-card__heading">{{ home.get_involved.donate_card.heading }}</h3>
+        <div class="cta-card__body">{{ home.get_involved.donate_card.body | mdBody | safe }}</div>
+        {% if home.get_involved.donate_card.enabled and home.get_involved.donate_card.actblue_url %}
+        <a class="button button--primary" href="{{ home.get_involved.donate_card.actblue_url }}" target="_blank" rel="noopener">Donate</a>
+        {% else %}
+        <span class="cta-card__pending">{{ home.get_involved.donate_card.pending_label }}</span>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>

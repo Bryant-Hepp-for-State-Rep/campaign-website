@@ -1,0 +1,266 @@
+---
+layout: layouts/base.njk
+title: Auto Insurance Redlining — Policy · Bryant Hepp for State Rep
+description: A four-part policy program to end auto insurance redlining in Detroit.
+permalink: /policy/auto-insurance/index.html
+---
+
+<style>
+  .policy {
+    --rule: 1px solid var(--color-border);
+  }
+  .policy section {
+    padding-block: clamp(2.5rem, 6vw, 4.5rem);
+    border-top: var(--rule);
+  }
+  .policy section:first-of-type { border-top: 0; }
+
+  .policy-hero__eyebrow,
+  .policy-section__eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-eyebrow);
+    margin-bottom: 1rem;
+  }
+  .policy-hero__heading {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+    max-width: 22ch;
+  }
+  .policy-hero__lede {
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    line-height: 1.55;
+    max-width: 60ch;
+    color: var(--color-text-muted);
+  }
+
+  .policy-section__heading {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.75rem;
+    max-width: 22ch;
+  }
+  .policy-section__lede {
+    font-size: 1.1rem;
+    line-height: 1.55;
+    max-width: 60ch;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+  }
+  .policy-section__body p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    max-width: 60ch;
+  }
+  .policy-section__body strong { font-weight: 700; }
+
+  .citations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+  }
+  .evidence-row-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    margin-top: 2.25rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .evidence-row-label:first-of-type {
+    margin-top: 1rem;
+  }
+  .citation {
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 1.5rem;
+    background: var(--color-surface, #fff);
+  }
+  .citation__figure {
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--color-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .citation__source {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+  }
+  .citation__date {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.85rem;
+  }
+  .citation__finding {
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+
+  .pillars {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 1100px;
+  }
+  .pillar {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr);
+    gap: 2rem;
+    padding: 1.75rem 0;
+    border-top: var(--rule);
+    align-items: start;
+  }
+  .pillar:first-of-type { border-top: 0; padding-top: 0; }
+  @media (max-width: 720px) {
+    .pillar { grid-template-columns: 1fr; gap: 0.5rem; }
+  }
+  .pillar__num {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-eyebrow);
+    letter-spacing: -0.01em;
+  }
+  .pillar__heading {
+    font-size: 1.4rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.005em;
+  }
+  .pillar__body p {
+    font-size: 1rem;
+    line-height: 1.55;
+    margin-bottom: 0.75rem;
+    max-width: 56ch;
+  }
+  .pillar__body strong { font-weight: 700; }
+
+  .policy-cta {
+    background: var(--color-loud-bg, var(--color-surface));
+    color: var(--color-loud-text, var(--color-text));
+  }
+  .policy-cta__heading {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    max-width: 22ch;
+  }
+  .policy-cta__body p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 60ch;
+    margin-bottom: 1.5rem;
+  }
+  .policy-cta__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+  }
+</style>
+
+<div class="policy">
+
+  <section class="policy-hero">
+    <div class="container">
+      <p class="policy-hero__eyebrow">{{ policy_auto_insurance.hero.eyebrow }}</p>
+      <h1 class="policy-hero__heading">{{ policy_auto_insurance.hero.heading }}</h1>
+      <p class="policy-hero__lede">{{ policy_auto_insurance.hero.lede | mdInline | safe }}</p>
+    </div>
+  </section>
+
+  <section class="policy-evidence">
+    <div class="container">
+      <p class="policy-section__eyebrow">The data</p>
+      <h2 class="policy-section__heading">{{ policy_auto_insurance.evidence.heading }}</h2>
+      <p class="policy-section__lede">{{ policy_auto_insurance.evidence.lede | mdInline | safe }}</p>
+
+      <h3 class="evidence-row-label">{{ policy_auto_insurance.evidence.risk_adjusted.label }}</h3>
+      <div class="citations">
+        {%- for c in policy_auto_insurance.evidence.risk_adjusted.citations %}
+        <article class="citation">
+          <div class="citation__figure">{{ c.figure }}</div>
+          <p class="citation__source">{{ c.source | mdInline | safe }}</p>
+          <p class="citation__date">{{ c.date }}</p>
+          <p class="citation__finding">{{ c.finding | mdInline | safe }}</p>
+        </article>
+        {%- endfor %}
+      </div>
+
+      <h3 class="evidence-row-label">{{ policy_auto_insurance.evidence.detroit_specific.label }}</h3>
+      <div class="citations">
+        {%- for c in policy_auto_insurance.evidence.detroit_specific.citations %}
+        <article class="citation">
+          <div class="citation__figure">{{ c.figure }}</div>
+          <p class="citation__source">{{ c.source | mdInline | safe }}</p>
+          <p class="citation__date">{{ c.date }}</p>
+          <p class="citation__finding">{{ c.finding | mdInline | safe }}</p>
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="policy-2019">
+    <div class="container">
+      <p class="policy-section__eyebrow">Why this isn't already fixed</p>
+      <h2 class="policy-section__heading">{{ policy_auto_insurance.reform_2019.heading }}</h2>
+      <div class="policy-section__body">{{ policy_auto_insurance.reform_2019.body | mdBody | safe }}</div>
+    </div>
+  </section>
+
+  <section class="policy-pillars">
+    <div class="container">
+      <p class="policy-section__eyebrow">The proposal</p>
+      <h2 class="policy-section__heading">{{ policy_auto_insurance.pillars.heading }}</h2>
+      <p class="policy-section__lede">{{ policy_auto_insurance.pillars.lede | mdInline | safe }}</p>
+      <div class="pillars">
+        {%- for p in policy_auto_insurance.pillars.items %}
+        <article class="pillar">
+          <div class="pillar__num">{{ p.number }}</div>
+          <div>
+            <h3 class="pillar__heading">{{ p.heading }}</h3>
+            <div class="pillar__body">{{ p.body | mdBody | safe }}</div>
+          </div>
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="policy-theory">
+    <div class="container">
+      <p class="policy-section__eyebrow">The path</p>
+      <h2 class="policy-section__heading">{{ policy_auto_insurance.theory_of_change.heading }}</h2>
+      <div class="policy-section__body">{{ policy_auto_insurance.theory_of_change.body | mdBody | safe }}</div>
+    </div>
+  </section>
+
+  <section class="policy-cta">
+    <div class="container">
+      <h2 class="policy-cta__heading">{{ policy_auto_insurance.cta.heading }}</h2>
+      <div class="policy-cta__body">{{ policy_auto_insurance.cta.body | mdBody | safe }}</div>
+      <div class="policy-cta__buttons">
+        <a class="button button--primary" href="{{ policy_auto_insurance.cta.primary_target }}">{{ policy_auto_insurance.cta.primary_label }}</a>
+        {% if policy_auto_insurance.cta.secondary_label %}
+        <a class="button button--secondary" href="{{ policy_auto_insurance.cta.secondary_target }}" target="_blank" rel="noopener">{{ policy_auto_insurance.cta.secondary_label }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+</div>

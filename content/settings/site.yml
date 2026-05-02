@@ -1,0 +1,15 @@
+contact_email: hello@hepp4rep.com
+committee_disclaimer: Paid for by Bryant Hepp for State Representative
+copyright_holder: Bryant Hepp for State Representative
+socials:
+  - platform: Instagram
+    url: https://instagram.com/hepp4rep
+  - platform: TikTok
+    url: https://tiktok.com/@hepp4rep
+  - platform: Facebook
+    url: https://facebook.com/hepp4rep
+  - platform: Bluesky
+    url: https://bsky.app/profile/hepp4rep.bsky.social
+primary_cta:
+  label: Join the campaign
+  target: "#get-involved"

@@ -1,0 +1,17 @@
+{
+  "name": "hep4rep",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bryant Hepp for State Representative — campaign site (static, Eleventy + Decap CMS).",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "clean": "rm -rf _site dist"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "js-yaml": "^4.1.0",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0"
+  }
+}

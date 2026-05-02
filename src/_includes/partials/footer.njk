@@ -1,0 +1,21 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <a class="cstack cstack--sm order2-GR" href="#top" aria-label="Hepp for Rep — back to top">
+        <span class="cstack__hepp">HEPP</span>
+        <span class="cstack__for"><span data-for-text>for</span><span data-for-alt aria-hidden="true">4</span></span>
+        <span class="cstack__rep">REP</span>
+      </a>
+      <nav class="site-footer__socials" aria-label="Social media">
+        {%- for social in site.socials %}
+        <a href="{{ social.url }}">{{ social.platform }}</a>
+        {%- endfor %}
+      </nav>
+      <p class="site-footer__contact"><a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a></p>
+    </div>
+    <div class="site-footer__legal">
+      <span>{{ site.committee_disclaimer }}</span>
+      <span>© 2026</span>
+    </div>
+  </div>
+</footer>
