@@ -117,13 +117,17 @@ function buildPostMessage(status, payload) {
 <script>
   (function () {
     var msg = "authorization:github:${status}:" + JSON.stringify(${JSON.stringify(body)});
-    function send() {
+    function sendToken() {
       window.opener && window.opener.postMessage(msg, "*");
     }
     window.addEventListener("message", function (e) {
-      if (e.data === "authorizing:github") send();
+      if (e.data === "authorizing:github") sendToken();
     }, false);
-    send();
+    // Decap v3 handshake: signal readiness, then wait for opener's echo
+    // before sending the token. Falling back to an immediate sendToken
+    // covers older Decap versions that skip the handshake.
+    if (window.opener) window.opener.postMessage("authorizing:github", "*");
+    setTimeout(sendToken, 500);
   })();
 </script>
 <p>Authentication ${status}. You can close this window.</p>
