@@ -18,8 +18,18 @@ backend:
   name: github
   repo: blolt/hepp4rep
   branch: main
-  # NOTE: GitHub OAuth requires an OAuth proxy. Setup options are
-  # documented in docs/setup-decap-cloudflare.md.
+  # GitHub OAuth needs a proxy because the OAuth client_secret can't
+  # live in the browser. By default Decap uses Netlify's free proxy at
+  # api.netlify.com — but that only works if you've registered the
+  # site_id (the admin hostname) with a Netlify site. Setting base_url
+  # here points Decap at our own Cloudflare Worker proxy instead.
+  #
+  # Setup walkthrough: docs/setup-cloudflare-oauth-worker.md
+  # Until the Worker is deployed, leave base_url commented out — Decap
+  # will fall back to Netlify and OAuth will 404 unless you've also
+  # done the Netlify-side registration.
+  # base_url: https://hepp4rep-oauth.<your-account>.workers.dev
+  # auth_endpoint: auth
 
 publish_mode: editorial_workflow
 
