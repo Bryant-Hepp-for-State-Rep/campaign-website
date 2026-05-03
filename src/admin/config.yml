@@ -28,8 +28,8 @@ backend:
   # Until the Worker is deployed, leave base_url commented out — Decap
   # will fall back to Netlify and OAuth will 404 unless you've also
   # done the Netlify-side registration.
-  # base_url: https://hepp4rep-oauth.<your-account>.workers.dev
-  # auth_endpoint: auth
+  base_url: https://hepp4rep-oauth.johnwillbolt.workers.dev
+  auth_endpoint: auth
 
 publish_mode: editorial_workflow
 

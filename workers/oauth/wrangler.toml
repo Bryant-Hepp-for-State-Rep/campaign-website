@@ -1,0 +1,14 @@
+name = "hepp4rep-oauth"
+main = "src/index.js"
+compatibility_date = "2026-05-01"
+
+# Decap CMS GitHub OAuth proxy. Walkthrough:
+#   docs/setup-cloudflare-oauth-worker.md
+#
+# Secrets (set via `wrangler secret put`, never committed):
+#   GITHUB_CLIENT_ID       — from the GitHub OAuth App
+#   GITHUB_CLIENT_SECRET   — from the GitHub OAuth App
+#   ALLOWED_ORIGINS        — comma-separated; e.g. "https://blolt.github.io"
+#
+# Deploy:    wrangler deploy
+# Tail logs: wrangler tail
