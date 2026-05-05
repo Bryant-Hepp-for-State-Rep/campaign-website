@@ -60,11 +60,12 @@ module.exports = function (eleventyConfig) {
     templateFormats: ["njk", "md", "html"],
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk",
-    // Site is currently hosted at https://blolt.github.io/hepp4rep/.
+    // Site is currently hosted at
+    // https://bryant-hepp-for-state-rep.github.io/campaign-website/.
     // Eleventy's `url` filter prepends this prefix to root-relative
     // paths (paths starting with "/"). Templates use {{ "/foo" | url }}
     // for every internal link; setting this here is the single place
     // to change when we move to a custom domain (set to "/" instead).
-    pathPrefix: "/hepp4rep/"
+    pathPrefix: "/campaign-website/"
   };
 };

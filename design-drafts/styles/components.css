@@ -33,7 +33,7 @@
    localStorage key. Defaults below = system stack. */
 
 :root {
-  --wordmark-font: -apple-system, BlinkMacSystemFont, "Segoe UI",
+  --wordmark-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif;
   --wordmark-weight: 900;
   --wordmark-tracking: -0.045em;

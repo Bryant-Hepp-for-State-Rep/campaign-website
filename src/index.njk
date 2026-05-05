@@ -44,39 +44,25 @@ permalink: /index.html
   </div>
 </section>
 
-<section id="priorities">
-  <div class="container">
-    <h2 class="priorities__heading">{{ home.priorities_section.heading }}</h2>
-    <div class="priorities__lede">{{ home.priorities_section.lede | mdBody | safe }}</div>
-    <div class="priorities__grid">
-      {%- for slug in home.priorities_section.priorities %}
-        {%- set p = priorities[slug] %}
-        {%- if p %}
-        <article class="priority-card">
-          <span class="priority-card__number">{{ "0" + (loop.index | string) }} / {{ p.label }}</span>
-          <h3 class="priority-card__heading">{{ p.heading }}</h3>
-          <div class="priority-card__body">{{ p.body | mdBody | safe }}</div>
-        </article>
-        {%- endif %}
-      {%- endfor %}
-    </div>
-  </div>
-</section>
-
-{%- set issue = issues[home.in_focus.current_issue] %}
-{%- if issue %}
+{%- set focus = policies[site.in_focus_policy] %}
+{%- if focus %}
 <section id="in-focus" class="in-focus">
   <div class="container">
     <p class="in-focus__eyebrow">{{ home.in_focus.eyebrow }}</p>
     <div class="in-focus__grid">
       <div>
-        <div class="in-focus__stat">{{ issue.stat_value }}</div>
-        <p class="in-focus__stat-label">{{ issue.stat_label | mdInline | safe }}</p>
+        {%- if focus.stat_value %}
+        <div class="in-focus__stat">{{ focus.stat_value }}</div>
+        <p class="in-focus__stat-label">{{ focus.stat_label | mdInline | safe }}</p>
+        {%- endif %}
       </div>
       <div class="in-focus__body">
-        <h2 class="in-focus__heading">{{ issue.heading }}</h2>
-        {{ issue.body | mdBody | safe }}
-        <a class="in-focus__cta" href="{{ issue.cta_target | url }}">{{ issue.cta_label }}</a>
+        <h2 class="in-focus__heading">{{ focus.heading }}</h2>
+        {{ focus.body | mdBody | safe }}
+        {%- if focus.cta_target %}
+        <a class="in-focus__cta" href="{{ focus.cta_target | url }}">{{ focus.cta_label }}</a>
+        {%- endif %}
+        <p class="in-focus__see-all"><a href="{{ '/policies/' | url }}">{{ home.in_focus.see_all_label }}</a></p>
       </div>
     </div>
   </div>

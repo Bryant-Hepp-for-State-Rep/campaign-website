@@ -16,7 +16,7 @@
 # This is what gates draft pages behind the admin login.
 backend:
   name: github
-  repo: blolt/hepp4rep
+  repo: Bryant-Hepp-for-State-Rep/campaign-website
   branch: main
   # GitHub OAuth needs a proxy because the OAuth client_secret can't
   # live in the browser. By default Decap uses Netlify's free proxy at
@@ -84,6 +84,14 @@ collections:
                 label: Target
                 widget: string
                 hint: "URL or page anchor (e.g. #get-involved)"
+          - name: in_focus_policy
+            label: In-Focus policy
+            widget: relation
+            collection: policies
+            value_field: "{{slug}}"
+            search_fields: [label, heading, nav_label]
+            display_fields: [label, heading]
+            hint: "The policy currently spotlighted on the home page; its nav_label also drives the third top-nav link."
 
       - name: nav
         label: Primary navigation
@@ -145,38 +153,15 @@ collections:
               - { name: link_text, widget: string, required: false }
               - { name: link_target, widget: string, required: false }
 
-          # Priorities — references the priorities collection
-          - name: priorities_section
-            label: Priorities section
-            widget: object
-            fields:
-              - { name: heading, widget: string }
-              - { name: lede, widget: markdown, <<: *body_prose }
-              - name: priorities
-                label: Priorities to show on home page (max 3)
-                widget: relation
-                collection: priorities
-                value_field: slug
-                search_fields: [label, heading]
-                display_fields: [label, heading]
-                multiple: true
-                min: 1
-                max: 3
-                hint: "Pick exactly the 3 priorities to show on the homepage. Order here = display order."
-
-          # In Focus — references signature issues collection
+          # In Focus — pulls the policy designated as in-focus in
+          # site settings; only the eyebrow text + "see all" label
+          # are home-page-specific.
           - name: in_focus
             label: In Focus section
             widget: object
             fields:
               - { name: eyebrow, widget: string }
-              - name: current_issue
-                label: Current signature issue
-                widget: relation
-                collection: issues
-                value_field: slug
-                search_fields: [name, heading]
-                display_fields: [name]
+              - { name: see_all_label, label: "'See all policies' link label", widget: string, default: "See all policies →" }
 
           # Get involved — three CTA cards
           - name: get_involved
@@ -322,34 +307,26 @@ collections:
                       - { name: label, widget: string, hint: "Short tag, e.g. 'UMich'" }
                       - { name: text, widget: string }
 
-  # ── Priorities (folder collection) ───────────────────────────────
-  - name: priorities
-    label: Priorities
-    folder: content/priorities
+  # ── Policies (folder collection) ─────────────────────────────────
+  # Unified collection for all policy positions. One of them is
+  # designated as "in focus" via settings.in_focus_policy. The same
+  # data is rendered three ways: as a stacked entry on /policies/, as
+  # the spotlight section on the home page (when in-focus), and as
+  # the dynamic third nav link (using nav_label).
+  - name: policies
+    label: Policies
+    folder: content/policies
     create: true
     slug: "{{slug}}"
     identifier_field: slug
     summary: "{{label}} — {{heading}}"
     fields:
       - { name: slug, label: Slug, widget: string, hint: "Used in URLs and references (lowercase, hyphenated)" }
-      - { name: label, label: Short label, widget: string, hint: "1–2 words: 'Transit', 'Housing', 'Basic Needs'" }
+      - { name: nav_label, label: Nav label, widget: string, hint: "Short form used when this policy is in-focus on the top nav (e.g. 'Redlining')." }
+      - { name: label, label: Short label, widget: string, hint: "1–2 words used as the section eyebrow ('Transit', 'Auto Insurance')." }
       - { name: heading, label: Heading, widget: string }
+      - { name: stat_value, label: Stat value, widget: string, required: false, hint: "Optional headline figure ('5×', '$1,200', '1 in 4'). Strings, not numbers. Leave blank if no stat." }
+      - { name: stat_label, label: Stat label, widget: markdown, <<: *stat_emphasis, required: false }
       - { name: body, label: Body, widget: markdown, <<: *body_prose }
-
-  # ── Signature issues (folder collection) ─────────────────────────
-  - name: issues
-    label: Signature issues
-    folder: content/issues
-    create: true
-    slug: "{{slug}}"
-    identifier_field: slug
-    summary: "{{name}}"
-    fields:
-      - { name: slug, label: Slug, widget: string, hint: "Used in references (lowercase, hyphenated)" }
-      - { name: name, label: Name, widget: string }
-      - { name: stat_value, label: Stat value, widget: string, hint: "The big headline figure ('5×', '$1,200', '1 in 4'). Strings, not numbers." }
-      - { name: stat_label, label: Stat label, widget: markdown, <<: *stat_emphasis }
-      - { name: heading, label: Heading, widget: string }
-      - { name: body, label: Body, widget: markdown, <<: *body_prose }
-      - { name: cta_label, label: CTA label, widget: string }
-      - { name: cta_target, label: CTA target, widget: string, hint: "URL or page anchor" }
+      - { name: cta_label, label: Deep-dive CTA label, widget: string, required: false, hint: "e.g. 'Read the policy →'. Leave blank if no deep-dive page exists." }
+      - { name: cta_target, label: Deep-dive URL, widget: string, required: false, hint: "URL of the deep-dive page. Leave blank to omit the deep-dive link." }
