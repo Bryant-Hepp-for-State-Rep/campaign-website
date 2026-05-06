@@ -9,7 +9,7 @@ hero:
 bio_sections:
   - type: prose
     eyebrow: Passionate about Education
-    body: Bryant is a limited license social worker and urban planner who is
+    body: Bryant is a limited-license social worker and urban planner who is
       passionate about solving problems by addressing their root causes. A
       public school graduate and the son of two social workers, Bryant studied
       International Relations at Michigan State University before teaching
