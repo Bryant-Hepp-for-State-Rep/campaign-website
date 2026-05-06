@@ -29,9 +29,7 @@ priorities_section:
   lede: Bryant is focused on keeping life in Detroit affordable for all residents,
     and making sure that basic needs don't cost more based on where we live.
   priorities:
-    - transit
-    - housing
-    - basic-needs
+    - housing-1
 in_focus:
   eyebrow: In Focus · Signature Issue
 get_involved:
