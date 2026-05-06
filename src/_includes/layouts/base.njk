@@ -5,8 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ title }}</title>
   <meta name="description" content="{{ description }}" />
+
+  <link rel="icon" type="image/png" href="{{ '/images/logo/circle-transparent.png' | url }}" />
+  <link rel="apple-touch-icon" href="{{ '/images/logo/circle-transparent.png' | url }}" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:image" content="{{ '/images/logo/circle-with-bg.png' | url }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ title }}" />
+  <meta name="twitter:description" content="{{ description }}" />
+  <meta name="twitter:image" content="{{ '/images/logo/circle-with-bg.png' | url }}" />
+
   <link rel="stylesheet" href="{{ '/styles/base.css' | url }}" />
   <link rel="stylesheet" href="{{ '/styles/components.css' | url }}" />
+  <link rel="stylesheet" href="{{ '/styles/theme.css' | url }}" />
   <script src="{{ '/wordmark-font.js' | url }}" defer></script>
   <script src="{{ '/logo-system.js' | url }}" defer></script>
 </head>

@@ -739,9 +739,9 @@
 
     window.CMS.registerPreviewStyle(prefix + "/styles/base.css");
     window.CMS.registerPreviewStyle(prefix + "/styles/components.css");
-    window.CMS.registerPreviewStyle(prefix + "/themes/1-detroit-flag.css");
-    // Inter is self-hosted via @font-face declarations inside base.css —
-    // no third-party font CDN.
+    window.CMS.registerPreviewStyle(prefix + "/styles/theme.css");
+    // Montserrat + Inter are self-hosted via @font-face declarations
+    // inside base.css — no third-party font CDN.
 
     window.CMS.registerPreviewTemplate("home", HomePreview);
     window.CMS.registerPreviewTemplate("about", AboutPreview);
