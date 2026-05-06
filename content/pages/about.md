@@ -2,47 +2,39 @@
 hero:
   eyebrow: About
   name: Bryant Hepp
-  role: >
-    Limited-license social worker · urban planner · candidate for
-    Michigan State Representative, District 9
-  lede: >
-    Bryant is a Detroit-based clinician and urban planner running to
-    outlaw auto insurance redlining and rebuild the public services
-    District 9 has been denied. He has worked in affordable housing
-    and homelessness services and previously taught English in Nablus.
+  role: social worker · urban planner · candidate
+  lede: Bryant is a Detroit-based limited-license social worker and urban planner
+    running to outlaw auto insurance redlining and make life in Detroit
+    affordable, no matter your ZIP code or street address.
 bio_sections:
   - type: prose
-    eyebrow: Career
-    body: |
-      Bryant currently works in affordable housing and homelessness
-      services in Detroit, applying his clinical training in
-      coordinated entry, harm reduction, and housing-first frameworks.
-      As an urban planner, he focuses on the intersections of land
-      use, transit, and equity.
-
-      Before returning to Detroit, he spent three years teaching
-      English in Nablus, an experience that shaped how he thinks
-      about civil rights, dignity, and what governments owe the people
-      they govern.
-  - type: list
-    eyebrow: Education
-    items:
-      - label: UMich
-        text: Master of Urban & Regional Planning · Master of Social Work
-      - label: MSU
-        text: B.A. International Relations
+    eyebrow: Passionate about Education
+    body: Bryant is a limited-license social worker and urban planner who is
+      passionate about solving problems by addressing their root causes. A
+      public school graduate and the son of two social workers, Bryant studied
+      International Relations at Michigan State University before teaching
+      English for three years in Palestine. In 2020, Bryant returned to the
+      United States to study Urban Planning and Social Work at the University of
+      Michigan. He has taught English across the Middle East and North Africa,
+      supported United Nations youth development work in Azerbaijan, worked on
+      Palestinian-led environmental justice projects in Jordan and Israel, and
+      helped facilitate environmental and zoning approvals for mutual aid
+      housing projects in Brazil.
   - type: prose
-    eyebrow: Why I'm running
-    body: |
-      The people I've worked with, taught, and lived alongside have
-      one thing in common: governments that should have shown up for
-      them, didn't. District 9 deserves a legislator who has done the
-      work, knows the levers, and won't soften the specifics.
-
-      I'm running on auto insurance redlining as a first issue because
-      it's the most expensive line item in too many household budgets
-      — and the simplest to fix at the state level. From there:
-      transit, housing as a human right, mental health funding, and
-      government that treats showing up as the baseline, not the
-      exception.
+    eyebrow: Working his way to Detroit
+    body: Bryant dipped his toes into Detroit politics in 2020, when he volunteered
+      with the Democratic Party's Voter Protection Team at TCF Center to prevent
+      Donald Trump from stealing the election. Since 2020, Bryant has monitored
+      elections with the Michigan Democratic Party in Detroit and East Point,
+      campaigned for progressive candidates in local elections, and served as a
+      delegate at the 2026 Michigan Democratic Party Convention.
+  - type: prose
+    eyebrow: Career in Housing Solutions
+    body: Bryant works in affordable housing to address the root causes of
+      homelessness. Supporting tenants at the intersection of housing and
+      behavioral healthcare makes Bryant passionate about human rights as he
+      works to keep people who were homeless and experience a disability healthy
+      and housed. He hopes to earn your vote and bring the same
+      solutions-focused approach to representing the East Side, Midtown, and
+      Downtown in the Michigan House of Representatives.
 ---
