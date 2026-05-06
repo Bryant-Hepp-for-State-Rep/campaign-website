@@ -740,10 +740,8 @@
     window.CMS.registerPreviewStyle(prefix + "/styles/base.css");
     window.CMS.registerPreviewStyle(prefix + "/styles/components.css");
     window.CMS.registerPreviewStyle(prefix + "/themes/1-detroit-flag.css");
-    // Google Fonts — same families the live site loads.
-    window.CMS.registerPreviewStyle(
-      "https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;0,900;1,700&family=Fraunces:ital,wght@0,400;0,900;1,400&display=swap"
-    );
+    // Inter is self-hosted via @font-face declarations inside base.css —
+    // no third-party font CDN.
 
     window.CMS.registerPreviewTemplate("home", HomePreview);
     window.CMS.registerPreviewTemplate("about", AboutPreview);
