@@ -6,12 +6,15 @@
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve",
-    "clean": "rm -rf _site dist"
+    "clean": "rm -rf _site dist",
+    "deploy": "npm run build && wrangler deploy",
+    "preview": "npm run build && wrangler dev"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
     "gray-matter": "^4.0.3",
     "js-yaml": "^4.1.0",
-    "markdown-it": "^14.1.0"
+    "markdown-it": "^14.1.0",
+    "wrangler": "^4.88.0"
   }
 }
