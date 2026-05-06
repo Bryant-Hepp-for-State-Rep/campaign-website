@@ -6,13 +6,13 @@
       <span class="cstack__rep">REP</span>
     </a>
     <nav class="site-nav" aria-label="Primary">
+      {%- set focusPolicy = policies[site.in_focus_policy] %}
       {%- for link in nav.links %}
       <a href="{{ link.target | url }}">{{ link.label }}</a>
-      {%- endfor %}
-      {%- set focusPolicy = policies[site.in_focus_policy] %}
-      {%- if focusPolicy %}
+      {%- if loop.first and focusPolicy %}
       <a href="{{ '/#in-focus' | url }}">{{ focusPolicy.nav_label or focusPolicy.label }}</a>
       {%- endif %}
+      {%- endfor %}
       <a class="button button--small button--primary" href="{{ site.primary_cta.target | url }}">{{ site.primary_cta.label }}</a>
     </nav>
   </div>

@@ -153,15 +153,35 @@ collections:
               - { name: link_text, widget: string, required: false }
               - { name: link_target, widget: string, required: false }
 
+          # Priorities — three policies rendered as cards, picked
+          # from the policies collection. The same collection drives
+          # the in-focus spotlight; the two presentations are
+          # independent picks against shared data.
+          - name: priorities_section
+            label: Priorities section
+            widget: object
+            fields:
+              - { name: heading, widget: string }
+              - { name: lede, widget: markdown, <<: *body_prose }
+              - name: priorities
+                label: Policies to show as priority cards (max 3)
+                widget: relation
+                collection: policies
+                value_field: "{{slug}}"
+                search_fields: [label, heading]
+                display_fields: [label, heading]
+                multiple: true
+                min: 1
+                max: 3
+                hint: "Pick 3 policies to render as the home page's priority card grid."
+
           # In Focus — pulls the policy designated as in-focus in
-          # site settings; only the eyebrow text + "see all" label
-          # are home-page-specific.
+          # site settings; only the eyebrow text is home-specific.
           - name: in_focus
             label: In Focus section
             widget: object
             fields:
               - { name: eyebrow, widget: string }
-              - { name: see_all_label, label: "'See all policies' link label", widget: string, default: "See all policies →" }
 
           # Get involved — three CTA cards
           - name: get_involved

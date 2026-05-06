@@ -28,11 +28,19 @@ about_teaser:
     didn't. I'm running for State Representative because District 9
     deserves a legislator who has done the work, knows the levers, and
     won't soften the specifics.
-  link_text: Read about the issue at the center of this campaign →
-  link_target: "#in-focus"
+  link_text: Read more about Bryant →
+  link_target: /about/
+priorities_section:
+  heading: Three priorities for District 9
+  lede: >
+    Specific levers, not slogans. Each connects to a real fight in
+    Lansing — and a real difference for District 9.
+  priorities:
+    - transit
+    - housing
+    - basic-needs
 in_focus:
   eyebrow: In Focus · Signature Issue
-  see_all_label: See all policies →
 get_involved:
   heading: Get involved
   email_card:

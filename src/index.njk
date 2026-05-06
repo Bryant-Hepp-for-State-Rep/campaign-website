@@ -44,6 +44,25 @@ permalink: /index.html
   </div>
 </section>
 
+<section id="priorities">
+  <div class="container">
+    <h2 class="priorities__heading">{{ home.priorities_section.heading }}</h2>
+    <div class="priorities__lede">{{ home.priorities_section.lede | mdBody | safe }}</div>
+    <div class="priorities__grid">
+      {%- for slug in home.priorities_section.priorities %}
+        {%- set p = policies[slug] %}
+        {%- if p %}
+        <article class="priority-card">
+          <span class="priority-card__number">{{ "0" + (loop.index | string) }} / {{ p.label }}</span>
+          <h3 class="priority-card__heading">{{ p.heading }}</h3>
+          <div class="priority-card__body">{{ p.body | mdBody | safe }}</div>
+        </article>
+        {%- endif %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
 {%- set focus = policies[site.in_focus_policy] %}
 {%- if focus %}
 <section id="in-focus" class="in-focus">
@@ -62,7 +81,6 @@ permalink: /index.html
         {%- if focus.cta_target %}
         <a class="in-focus__cta" href="{{ focus.cta_target | url }}">{{ focus.cta_label }}</a>
         {%- endif %}
-        <p class="in-focus__see-all"><a href="{{ '/policies/' | url }}">{{ home.in_focus.see_all_label }}</a></p>
       </div>
     </div>
   </div>
