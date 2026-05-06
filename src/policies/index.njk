@@ -1,0 +1,140 @@
+---
+layout: layouts/base.njk
+title: Policies — Bryant Hepp for State Rep
+description: Where Bryant Hepp stands on the issues that matter to Michigan House District 9.
+permalink: /policies/index.html
+---
+
+<style>
+  .policies-hero {
+    padding-block: clamp(2.5rem, 6vw, 4.5rem);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .policies-hero__eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-eyebrow);
+    margin-bottom: 1rem;
+  }
+  .policies-hero__heading {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+    max-width: 22ch;
+  }
+  .policies-hero__lede {
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    line-height: 1.55;
+    max-width: 60ch;
+    color: var(--color-text-muted);
+  }
+  .policy-entry {
+    padding-block: clamp(2.5rem, 6vw, 4.5rem);
+    border-top: 1px solid var(--color-border);
+  }
+  .policy-entry:first-of-type {
+    border-top: 0;
+  }
+  .policy-entry__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+  }
+  @media (max-width: 720px) {
+    .policy-entry__grid { grid-template-columns: 1fr; }
+  }
+  .policy-entry__eyebrow {
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-eyebrow);
+    margin-bottom: 0.75rem;
+  }
+  .policy-entry__badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0.25rem 0.55rem;
+    margin-left: 0.5rem;
+    background: var(--color-primary, #000);
+    color: var(--color-loud-text, #fff);
+    border-radius: 2px;
+    vertical-align: middle;
+  }
+  .policy-entry__stat {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    color: var(--color-primary);
+  }
+  .policy-entry__stat-label {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+    max-width: 28ch;
+  }
+  .policy-entry__heading {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin-bottom: 1rem;
+    max-width: 22ch;
+  }
+  .policy-entry__body p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    max-width: 60ch;
+  }
+  .policy-entry__cta {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-weight: 700;
+  }
+</style>
+
+<section class="policies-hero">
+  <div class="container">
+    <p class="policies-hero__eyebrow">Where I stand</p>
+    <h1 class="policies-hero__heading">Policies</h1>
+    <p class="policies-hero__lede">Specific levers, not slogans. Each connects to a real fight in Lansing — and a real difference for District&nbsp;9.</p>
+  </div>
+</section>
+
+{%- for slug, policy in policies %}
+<article class="policy-entry" id="{{ policy.slug }}">
+  <div class="container">
+    <p class="policy-entry__eyebrow">
+      {{ policy.label }}{% if site.in_focus_policy == policy.slug %}<span class="policy-entry__badge">In focus</span>{% endif %}
+    </p>
+    <div class="policy-entry__grid">
+      <div>
+        {%- if policy.stat_value %}
+        <div class="policy-entry__stat">{{ policy.stat_value }}</div>
+        {%- if policy.stat_label %}
+        <p class="policy-entry__stat-label">{{ policy.stat_label | mdInline | safe }}</p>
+        {%- endif %}
+        {%- endif %}
+      </div>
+      <div>
+        <h2 class="policy-entry__heading">{{ policy.heading }}</h2>
+        <div class="policy-entry__body">{{ policy.body | mdBody | safe }}</div>
+        {%- if policy.cta_target %}
+        <a class="policy-entry__cta" href="{{ policy.cta_target | url }}">{{ policy.cta_label or 'Read more →' }}</a>
+        {%- endif %}
+      </div>
+    </div>
+  </div>
+</article>
+{%- endfor %}
