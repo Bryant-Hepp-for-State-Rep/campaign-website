@@ -5,8 +5,8 @@ hero:
   district_line: East Side · Downtown · Midtown
   tagline: Affordable living in every neighborhood.
   subhead: "**Housing, healthcare, and mobility are human rights — not luxuries.**
-    I'm running to repair the broken systems discriminate block-by-block and
-    street-by street to charge Detroiters a premium for basic needs."
+    I'm running to repair the broken systems that discriminate block-by-block
+    and street-by street to charge Detroiters a premium for basic needs."
   primary_cta:
     label: Join the campaign
     target: "#get-involved"
