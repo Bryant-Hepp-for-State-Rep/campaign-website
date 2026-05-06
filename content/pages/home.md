@@ -3,12 +3,12 @@ hero:
   eyebrow: Democrat for Michigan State House · District 9
   name: Bryant Hepp
   district_line: East Side · Downtown · Midtown · New Center
-  tagline: Running for office, because driving costs too much.
+  tagline: Affordable living in every neighborhood.
   subhead: >
-    Detroit drivers in predominantly Black neighborhoods pay **up to 5×
-    more** for auto insurance than their neighbors two miles away. I'm
-    running to end auto insurance redlining — and to fund the transit,
-    housing, and basic services District 9 has been denied for too long.
+    **Housing, healthcare, and mobility are human rights — not
+    luxuries.** I'm running to repair the broken systems that charge
+    Detroiters a premium for basic needs — block-by-block,
+    street-by-street.
   primary_cta:
     label: Join the campaign
     target: "#get-involved"
