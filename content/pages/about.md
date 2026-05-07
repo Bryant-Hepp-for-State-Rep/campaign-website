@@ -12,12 +12,10 @@ bio_sections:
       International Relations at Michigan State University before teaching
       English for three years in Palestine, where he helped send Palestinian
       students to US universities. In 2020, Bryant returned to the United States
-      to study Urban Planning and Social Work at the University of Michigan. He
-      has taught English across the Middle East and North Africa, supported
-      United Nations youth development work in Azerbaijan, worked on
-      Palestinian-led environmental justice projects in Jordan and Israel, and
-      helped facilitate environmental and zoning approvals for mutual aid
-      housing projects in Brazil.
+      to study Urban Planning and Social Work at the University of Michigan.
+      Bryant has supported grassroots international development projects focused
+      on environmental justice, education, and positive youth development across
+      the Middle East, North Africa, the Caucasus region, and South America.
   - type: prose
     eyebrow: Active in Elections
     body: Bryant dipped his toes into Detroit politics in 2020, when he volunteered
