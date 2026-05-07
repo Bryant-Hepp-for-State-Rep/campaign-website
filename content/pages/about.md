@@ -10,12 +10,11 @@ bio_sections:
     eyebrow: Passionate about Education
     body: A public school graduate and the son of two social workers, Bryant studied
       International Relations at Michigan State University before teaching
-      English for three years in Palestine, where he helped send Palestinian
-      students to US universities. In 2020, Bryant returned to the United States
-      to study Urban Planning and Social Work at the University of Michigan.
-      Bryant has supported grassroots international development projects focused
-      on environmental justice, education, and positive youth development across
-      the Middle East, North Africa, the Caucasus region, and South America.
+      English for three years in Palestine. In 2020, Bryant returned to the
+      United States to study Urban Planning and Social Work at the University of
+      Michigan. Bryant has supported grassroots international development
+      projects focused on education and environmental justice across the Middle
+      East, North Africa, and South America.
   - type: prose
     eyebrow: Active in Elections
     body: Bryant dipped his toes into Detroit politics in 2020, when he volunteered
