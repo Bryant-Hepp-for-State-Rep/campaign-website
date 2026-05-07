@@ -2,10 +2,9 @@
 hero:
   eyebrow: About
   name: Bryant Hepp
-  role: social worker · urban planner · candidate
-  lede: Bryant is a Detroit-based limited-license social worker and urban planner
-    running to outlaw auto insurance redlining and make life in Detroit
-    affordable, no matter your ZIP code or street address.
+  role: Social Worker · Urban Planner · Candidate
+  lede: Bryant is a limited-license social worker and urban planner running to
+    make life affordable in every neighborhood.
 bio_sections:
   - type: prose
     eyebrow: Passionate about Education
