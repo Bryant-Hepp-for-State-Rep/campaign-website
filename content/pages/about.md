@@ -9,19 +9,18 @@ hero:
 bio_sections:
   - type: prose
     eyebrow: Passionate about Education
-    body: Bryant is a limited-license social worker and urban planner who is
-      passionate about solving problems by addressing their root causes. A
-      public school graduate and the son of two social workers, Bryant studied
+    body: A public school graduate and the son of two social workers, Bryant studied
       International Relations at Michigan State University before teaching
-      English for three years in Palestine. In 2020, Bryant returned to the
-      United States to study Urban Planning and Social Work at the University of
-      Michigan. He has taught English across the Middle East and North Africa,
-      supported United Nations youth development work in Azerbaijan, worked on
+      English for three years in Palestine, where he helped send Palestinian
+      students to US universities. In 2020, Bryant returned to the United States
+      to study Urban Planning and Social Work at the University of Michigan. He
+      has taught English across the Middle East and North Africa, supported
+      United Nations youth development work in Azerbaijan, worked on
       Palestinian-led environmental justice projects in Jordan and Israel, and
       helped facilitate environmental and zoning approvals for mutual aid
       housing projects in Brazil.
   - type: prose
-    eyebrow: Working his way to Detroit
+    eyebrow: Active in Elections
     body: Bryant dipped his toes into Detroit politics in 2020, when he volunteered
       with the Democratic Party's Voter Protection Team at TCF Center to prevent
       Donald Trump from stealing the election. Since 2020, Bryant has monitored
@@ -29,7 +28,7 @@ bio_sections:
       campaigned for progressive candidates in local elections, and served as a
       delegate at the 2026 Michigan Democratic Party Convention.
   - type: prose
-    eyebrow: Career in Housing Solutions
+    eyebrow: Focused on Housing Solutions
     body: Bryant works in affordable housing to address the root causes of
       homelessness. Supporting tenants at the intersection of housing and
       behavioral healthcare makes Bryant passionate about human rights as he
