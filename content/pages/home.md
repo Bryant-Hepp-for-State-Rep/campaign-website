@@ -5,8 +5,8 @@ hero:
   district_line: East Side · Downtown · Midtown
   tagline: Affordable living in every neighborhood.
   subhead: "**Housing, healthcare, and mobility are human rights — not luxuries.**
-    I'm running to repair the broken systems that discriminate block-by-block
-    and street-by street to charge Detroiters a premium for basic needs."
+    From water and electricity to car insurance and bus lines, your ability to
+    make ends meet shouldn't depend on your ZIP code or street address."
   primary_cta:
     label: Join the campaign
     target: "#get-involved"
@@ -15,13 +15,12 @@ hero:
     target: "#about"
 about_teaser:
   heading: Why I'm running
-  lede: As a limited-license social worker and urban planner, I've worked
-    alongside communities across Michigan and around the world to solve problems
-    like homelessness and lack of economic opportunity.
-  body: From teaching English in Palestine to protecting absentee ballots at TCF
-    center, I've supported grassroots-level change and protected our human and
-    civil rights in order to preserve a brighter future. That's why I'm running
-    to represent District 9 in Lansing.
+  lede: I'm running to repair the broken systems that charge Detroiters more for
+    basic needs and make life hard for working families.
+  body: As a social worker and urban planner, I've worked with communities across
+    Michigan and around the world to address the root causes of problems and
+    solve complex problems that raise the cost of living. I want to do the same
+    for our community with your support August 4.
   link_text: Read more about Bryant →
   link_target: /about/
 priorities_section:
