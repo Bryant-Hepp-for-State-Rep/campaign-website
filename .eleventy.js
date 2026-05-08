@@ -44,6 +44,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "design-drafts/logo-system.js": "logo-system.js" });
   eleventyConfig.addPassthroughCopy({ "design-drafts/wordmark-font.js": "wordmark-font.js" });
 
+  // CMS media — Decap writes uploads to content/images and references
+  // them as /images/foo.png (per public_folder in admin/config.yml).
+  // This passthrough is what makes those references resolve at the
+  // static-site URL.
+  eleventyConfig.addPassthroughCopy({ "content/images": "images" });
+
   // Decap admin loader (Step 2 — empty until config.yml is wired).
   eleventyConfig.addPassthroughCopy({ "src/admin": "admin" });
 
