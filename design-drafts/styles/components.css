@@ -100,9 +100,11 @@
   color: var(--color-wordmark-3-footer, var(--color-wordmark-3, var(--color-text)));
 }
 
-/* Site logo — image lockup. The PNG is the canonical brand mark
-   (see content/images/logo_rectangle.png). Header uses the
-   default size; footer overrides with a slightly larger pour. */
+/* Site logo — image lockup. Header uses the transparent block
+   variant (navy text on the cream page bg); footer uses the
+   filled circle variant (light text on navy footer bg). Both
+   render at the same height so the brand mark reads as a
+   consistent unit at the top and bottom of the page. */
 .site-logo {
   display: inline-flex;
   align-items: center;
@@ -111,16 +113,12 @@
 }
 .site-logo img {
   display: block;
-  height: 44px;
+  height: 56px;
   width: auto;
   max-width: 100%;
 }
-.site-logo--footer img {
-  height: 56px;
-}
 @media (max-width: 640px) {
-  .site-logo img { height: 36px; }
-  .site-logo--footer img { height: 44px; }
+  .site-logo img { height: 48px; }
 }
 
 .site-nav {
