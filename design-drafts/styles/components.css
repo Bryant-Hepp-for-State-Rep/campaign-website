@@ -562,6 +562,38 @@
   color: var(--color-primary);
 }
 
+/* Donate-amounts grid — six suggested-amount tiles inside the
+   donate cta-card. Each tile deep-links to ActBlue with the
+   amount pre-filled and a unique refcode for conversion tracking
+   in the ActBlue dashboard. */
+.donate-amounts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-top: auto;
+}
+.donate-amount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 0.5rem;
+  border: 1.5px solid var(--color-border-strong, var(--color-text));
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition: background 0.1s ease, color 0.1s ease, transform 0.08s ease;
+}
+.donate-amount:hover {
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  border-color: var(--color-primary);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
 .cta-card__pending {
   font-size: 0.8rem;
   font-weight: 700;

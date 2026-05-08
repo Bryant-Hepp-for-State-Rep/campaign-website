@@ -49,9 +49,9 @@ get_involved:
   donate_card:
     heading: Donate
     body: >
-      ActBlue page is being set up. We'll link it here as soon as the committee
-      is registered with the state.
-    enabled: false
+      Every dollar funds canvassing, mailers, and digital outreach
+      across District 9. Pick an amount or choose your own.
+    enabled: true
     actblue_url: https://secure.actblue.com/donate/hepp4rep
     pending_label: Coming soon
 ---

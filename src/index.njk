@@ -112,7 +112,15 @@ permalink: /index.html
         <h3 class="cta-card__heading">{{ home.get_involved.donate_card.heading }}</h3>
         <div class="cta-card__body">{{ home.get_involved.donate_card.body | mdBody | safe }}</div>
         {% if home.get_involved.donate_card.enabled and home.get_involved.donate_card.actblue_url %}
-        <a class="button button--primary" href="{{ home.get_involved.donate_card.actblue_url | url }}" target="_blank" rel="noopener">Donate</a>
+        {%- set abu = home.get_involved.donate_card.actblue_url %}
+        <div class="donate-amounts" role="group" aria-label="Suggested donation amounts">
+          <a class="donate-amount" href="{{ abu }}?amount=25&refcode=home-25" target="_blank" rel="noopener">$25</a>
+          <a class="donate-amount" href="{{ abu }}?amount=50&refcode=home-50" target="_blank" rel="noopener">$50</a>
+          <a class="donate-amount" href="{{ abu }}?amount=100&refcode=home-100" target="_blank" rel="noopener">$100</a>
+          <a class="donate-amount" href="{{ abu }}?amount=250&refcode=home-250" target="_blank" rel="noopener">$250</a>
+          <a class="donate-amount" href="{{ abu }}?amount=500&refcode=home-500" target="_blank" rel="noopener">$500</a>
+          <a class="donate-amount" href="{{ abu }}?refcode=home-other" target="_blank" rel="noopener">Other</a>
+        </div>
         {% else %}
         <span class="cta-card__pending">{{ home.get_involved.donate_card.pending_label }}</span>
         {% endif %}

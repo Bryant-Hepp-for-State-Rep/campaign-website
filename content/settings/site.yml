@@ -11,6 +11,6 @@ socials:
   - platform: Bluesky
     url: https://bsky.app/profile/hepp4rep.bsky.social
 primary_cta:
-  label: Join the campaign
-  target: "/#get-involved"
+  label: Donate
+  target: https://secure.actblue.com/donate/hepp4rep?refcode=nav
 in_focus_policy: auto-insurance-redlining
