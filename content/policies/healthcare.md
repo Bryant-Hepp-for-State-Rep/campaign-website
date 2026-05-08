@@ -1,7 +1,13 @@
 ---
 slug: healthcare
-nav_label: healthcare
+nav_label: Healthcare
 label: Healthcare
-heading: Healthcare for all Detroiters
+heading: Healthcare is a human right
+stat_value: ""
+stat_label: ""
+body: >
+  Champion Medicare for All, expand benefit enrollment, and end
+  utility shutoffs. Basic dignity should not be a wedge issue.
+cta_label: ""
+cta_target: ""
 ---
-Medicare for All is the right choice for our community. Bryant will fight for universal healthcare to respect the dignity of all Detroiters, cut the middleman out of our insurance costs, and protect our most vulnerable neighbors from lapses in coverage that leave them sick and in the hospital.

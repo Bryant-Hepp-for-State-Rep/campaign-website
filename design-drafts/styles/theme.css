@@ -1,62 +1,63 @@
 /* ============================================================
    theme.css — active campaign theme
    ============================================================
-   Palette source: campaign Drive (palette.pdf), 5/5/26.
-   Five hex values, two rows:
-     warm trio  D5573B  DEE5E5  9DC5BB
-     cool pair  1D2F6F  8390FA
+   Palette source: campaign Drive (palette.pdf), final 5/8/26.
+   Three hex values:
+     #172659  deep indigo   ink, primary CTA, loud-bg, footer
+     #9CC4BC  sage          accent, secondary, in-focus accent
+     #DEE4E4  pale cyan-grey surface, loud-bg text
 
-   Roles:
-     D5573B  terracotta primary  CTAs, eyebrow, wordmark "HEPP"
-     DEE5E5  pale cyan-grey      surface, loud-bg text
-     9DC5BB  sage                accent, wordmark "for"
-     1D2F6F  deep indigo         ink, loud-bg, footer, wordmark "REP"
-     8390FA  periwinkle          link, loud-bg accent
+   Tightened from a 5-color provisional palette: the terracotta
+   primary and periwinkle link were dropped. With the warm pair
+   gone, indigo carries both ink AND CTA duty, which produces a
+   quieter, more substantive feel — appropriate for a campaign
+   that wants to read as serious-policy rather than personality.
 
    Replaces 1-detroit-flag.css as the active production theme.
    ============================================================ */
 
 :root {
-  /* Base palette */
+  /* Base */
   --color-bg:              #FAF7F0;
-  --color-surface:         #DEE5E5;
-  --color-text:            #1D2F6F;
+  --color-surface:         #DEE4E4;
+  --color-text:            #172659;
   --color-text-muted:      #5C6B85;
   --color-border:          #C4D4D4;
-  --color-border-strong:   #1D2F6F;
+  --color-border-strong:   #172659;
 
-  /* Primary (terracotta from palette warm row) */
-  --color-primary:         #D5573B;
-  --color-primary-text:    #FFFFFF;
-  --color-primary-hover:   #B8462E;
+  /* Primary CTA — indigo carries this now (no terracotta) */
+  --color-primary:         #172659;
+  --color-primary-text:    #DEE4E4;
+  --color-primary-hover:   #0E1A40;
 
-  /* Accent (sage from palette warm row) */
-  --color-accent:          #9DC5BB;
+  /* Accent — sage */
+  --color-accent:          #9CC4BC;
 
-  /* Eyebrow */
-  --color-eyebrow:         #D5573B;
+  /* Eyebrow — sage so it reads as a quiet accent above headings,
+     rather than competing with the indigo headline itself */
+  --color-eyebrow:         #172659;
 
-  /* "In Focus" loud block — indigo field with periwinkle accent */
-  --color-loud-bg:         #1D2F6F;
-  --color-loud-text:       #DEE5E5;
-  --color-loud-accent:     #8390FA;
+  /* "In Focus" loud block — indigo field with sage accent */
+  --color-loud-bg:         #172659;
+  --color-loud-text:       #DEE4E4;
+  --color-loud-accent:     #9CC4BC;
 
   /* Highlighted phrase inside hero subhead */
-  --color-highlight-bg:    #DEE5E5;
-  --color-highlight-text:  #1D2F6F;
+  --color-highlight-bg:    #DEE4E4;
+  --color-highlight-text:  #172659;
 
-  /* Wordmark — three palette colors */
-  --color-wordmark-1:      #D5573B; /* terracotta — "HEPP" */
-  --color-wordmark-2:      #9DC5BB; /* sage       — "for"  */
-  --color-wordmark-3:      #1D2F6F; /* indigo     — "REP"  */
+  /* Wordmark — three-tone using the full palette */
+  --color-wordmark-1:      #172659; /* indigo  — "HEPP" */
+  --color-wordmark-2:      #9CC4BC; /* sage    — "for"  */
+  --color-wordmark-3:      #172659; /* indigo  — "REP"  */
 
   /* Footer */
-  --color-footer-bg:       #1D2F6F;
-  --color-footer-text:     #DEE5E5;
+  --color-footer-bg:       #172659;
+  --color-footer-text:     #DEE4E4;
 
-  /* Footer wordmark override — "REP" collides with indigo bg */
-  --color-wordmark-3-footer: #DEE5E5;
+  /* Footer wordmark override — "REP" reads against indigo */
+  --color-wordmark-3-footer: #DEE4E4;
 
-  /* Link color — periwinkle from palette cool pair */
-  --color-link:            #8390FA;
+  /* Link — sage; underlined for hierarchy, not color contrast */
+  --color-link:            #172659;
 }

@@ -1,7 +1,14 @@
 ---
 slug: mobility
-nav_label: mobility
+nav_label: Mobility
 label: Mobility
-heading: Transportation Equity to Drive Economic Growth
+heading: Mobility is a human right
+stat_value: ""
+stat_label: ""
+body: >
+  End auto-insurance redlining, fully fund DDOT, and advance Bus
+  Rapid Transit on Woodward and Gratiot. Detroiters shouldn't pay
+  a premium to move through their own city.
+cta_label: ""
+cta_target: ""
 ---
-Freedom of movement is a human right, and Detroiters pay too much to get around whether they drive or take the bus. Auto insurance companies don't just charge more based on ZIP code, they discriminate block-by-block to charge Black neighborhoods more to drive a car. Detroit's public transit needs millions of dollars of investment to provide timely transportation to all Detroiters, whether they are going to work or to the grocery store.

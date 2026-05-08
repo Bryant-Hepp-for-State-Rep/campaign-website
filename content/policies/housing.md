@@ -2,7 +2,7 @@
 slug: housing
 nav_label: Housing
 label: Housing
-heading: Realize Housing as a Human Right
+heading: Housing is a human right
 stat_value: ""
 stat_label: ""
 body: >
