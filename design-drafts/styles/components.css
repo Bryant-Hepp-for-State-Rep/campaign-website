@@ -100,11 +100,12 @@
   color: var(--color-wordmark-3-footer, var(--color-wordmark-3, var(--color-text)));
 }
 
-/* Site logo — three-row stacked text lockup ("BRYANT HEPP /
-   for / STATE REP"). The middle "for" row uses --color-accent
-   so the sage/teal A/B toggle shows visibly in the header.
-   Block treatment: heavy uppercase, tight tracking, near-zero
-   leading so the rows read as one mark rather than three. */
+/* Site logo — two-row stacked text lockup. Row 1 is "BRYANT
+   HEPP"; row 2 is the inline pair "for STATE REP" where the
+   italic lowercase "for" carries --color-accent so the
+   sage/teal A/B toggle shows directly in the header. Block
+   treatment: heavy uppercase, tight tracking, near-zero
+   leading so the two rows read as one mark. */
 .site-logo {
   display: inline-flex;
   flex-direction: column;
@@ -126,16 +127,17 @@
   line-height: 0.92;
 }
 
+/* Inline within row 2. Lowercase + italic disambiguates "for"
+   from the surrounding uppercase block, and the accent color
+   ties it to the sage/teal toggle. */
 .site-logo__connector {
-  display: block;
-  font-size: clamp(0.78rem, 1.2vw, 1rem);
-  font-weight: 700;
+  display: inline;
   font-style: italic;
-  letter-spacing: 0;
-  color: var(--color-accent);
-  margin-block: 0.12em 0.06em;
-  padding-inline-start: 0.25em;
+  font-weight: 700;
   text-transform: lowercase;
+  letter-spacing: -0.01em;
+  color: var(--color-accent);
+  margin-right: 0.12em;
 }
 
 /* Footer variant — text becomes cream against the navy bg, but
