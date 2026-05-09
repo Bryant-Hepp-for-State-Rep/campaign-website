@@ -8,7 +8,7 @@ hero:
     From water and electricity to car insurance and bus lines, your ability to
     make ends meet shouldn't depend on your ZIP code or street address."
   primary_cta:
-    label: Join the campaign
+    label: Get involved
     target: "#get-involved"
   secondary_cta:
     label: Meet Bryant
