@@ -595,6 +595,60 @@
   color: var(--color-primary);
 }
 
+/* ============================================================
+   ActionNetwork widget overrides
+   ============================================================
+   AN injects a form inside .an-form-mount. Their stylesheet
+   ships rules scoped to #can_embed_form. Adding our class
+   ancestor (.an-form-mount) bumps specificity above theirs so
+   we win without !important. Adjust to taste — if AN renames
+   selectors in a future widget version, these become no-ops
+   and the form falls back to AN defaults (still functional).
+   ============================================================ */
+
+.an-form-mount #can_embed_form {
+  font-family: inherit;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: inherit;
+}
+
+/* Email/text inputs — match the cream/indigo treatment our
+   custom form had before the AN widget swap. */
+.an-form-mount #can_embed_form input[type=email],
+.an-form-mount #can_embed_form input[type=text] {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border-strong, var(--color-text));
+  border-radius: 4px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Submit button — match .button.button--primary. */
+.an-form-mount #can_embed_form input[type=submit] {
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  font-family: "Montserrat", "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.875rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: 0;
+  transition: transform 0.08s ease, background 0.1s ease;
+}
+.an-form-mount #can_embed_form input[type=submit]:hover {
+  background: var(--color-primary-hover, var(--color-primary));
+  transform: translateY(-1px);
+}
+
 /* Accent A/B toggle pill — bottom-right floating button injected
    by base.njk. Consumes the same palette/role tokens as the rest
    of the site so changing --palette-indigo recolors this too. */
