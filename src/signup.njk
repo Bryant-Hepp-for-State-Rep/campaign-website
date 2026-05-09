@@ -1,0 +1,60 @@
+---
+layout: layouts/base.njk
+permalink: /signup/
+title: Join the campaign — Bryant Hepp for State Rep
+description: Sign up to follow Bryant Hepp's campaign for Michigan State House District 9.
+---
+
+<section class="signup-hero">
+  <div class="container container-narrow">
+    <span class="eyebrow">Join the campaign list</span>
+    <h1>Just one more step</h1>
+    <p class="lead">Confirm your details to join the campaign list. We'll keep you posted on milestones, policy drops, and ways to plug in.</p>
+  </div>
+</section>
+
+<section class="signup-form">
+  <div class="container container-narrow">
+    {# ActionNetwork stylesheet — loaded inline on this page only.
+       The widget's JS injects an HTML form into the target div;
+       AN's CSS styles it. We override their styles below in
+       components.css under .an-form-mount. #}
+    <link rel="stylesheet" href="https://actionnetwork.org/css/style-embed-v3.css" />
+    <script src="https://actionnetwork.org/widgets/v6/form/subscribe-to-bryant-hepps-campaign-for-state-rep?format=js&source=widget"></script>
+    <div id="can-form-area-subscribe-to-bryant-hepps-campaign-for-state-rep" class="an-form-mount" style="width: 100%"></div>
+  </div>
+</section>
+
+{# Prefill the AN form's email input from our ?email_address=
+   query param. AN injects the form asynchronously via JS, so we
+   can't query for the input on page load. MutationObserver
+   watches the DOM and fires the prefill once the input appears.
+   We dispatch input + change events so AN's own JS notices. #}
+<script>
+  (function () {
+    'use strict';
+    var params = new URLSearchParams(window.location.search);
+    var email = params.get('email_address');
+    if (!email) return;
+
+    function fill() {
+      var input = document.querySelector('#can_embed_form input[type=email]');
+      if (!input) return false;
+      input.value = email;
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      input.dispatchEvent(new Event('change', { bubbles: true }));
+      return true;
+    }
+
+    if (fill()) return;
+
+    var observer = new MutationObserver(function () {
+      if (fill()) observer.disconnect();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Failsafe: stop observing after 10 seconds even if the form
+    // never shows up (e.g. AN script blocked / network error).
+    setTimeout(function () { observer.disconnect(); }, 10000);
+  })();
+</script>
