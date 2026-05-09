@@ -1,3 +1,4 @@
+{%- from "partials/social-icon.njk" import socialIcon -%}
 <footer class="site-footer">
   <div class="container">
     <div class="site-footer__top">
@@ -7,7 +8,9 @@
       </a>
       <nav class="site-footer__socials" aria-label="Social media">
         {%- for social in site.socials %}
-        <a href="{{ social.url }}">{{ social.platform }}</a>
+        <a href="{{ social.url }}" aria-label="{{ social.platform }}" rel="me noopener" target="_blank">
+          {{ socialIcon(social.platform) }}
+        </a>
         {%- endfor %}
       </nav>
       <p class="site-footer__contact"><a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a></p>
