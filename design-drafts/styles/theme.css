@@ -2,7 +2,7 @@
    theme.css — active campaign theme
    ============================================================
    Palette (revised 5/8/26):
-     #172659  deep indigo   ink, loud-bg, footer
+     #1E3A5F  deep indigo   ink, loud-bg, footer
      #8ED4C6  bright teal   accent, loud-accent, hover
      #D5573B  terracotta    primary CTA, eyebrow, link-hover
      #DEE4E4  pale cyan-grey surface, loud-bg text
@@ -23,10 +23,10 @@
   /* Base */
   --color-bg:              #FAF7F0;
   --color-surface:         #DEE4E4;
-  --color-text:            #172659;
+  --color-text:            #1E3A5F;
   --color-text-muted:      #5C6B85;
   --color-border:          #C4D4D4;
-  --color-border-strong:   #172659;
+  --color-border-strong:   #1E3A5F;
 
   /* Primary CTA — terracotta. White text reads cleanly against
      it (≈4.7:1, passes WCAG AA for normal text). */
@@ -45,30 +45,30 @@
 
   /* "In Focus" loud block — indigo field with bright-teal accent.
      The accent is what carries the stat figure / decorative work. */
-  --color-loud-bg:         #172659;
+  --color-loud-bg:         #1E3A5F;
   --color-loud-text:       #DEE4E4;
   --color-loud-accent:     #9CC4BC;
 
   /* Highlighted phrase inside hero subhead */
   --color-highlight-bg:    #DEE4E4;
-  --color-highlight-text:  #172659;
+  --color-highlight-text:  #1E3A5F;
 
   /* Wordmark — kept defined as fallback. Production header is
      now an image, so these only matter if a template ever
      reverts to the text .wordmark component. */
   --color-wordmark-1:      #D5573B; /* terracotta — "HEPP" */
   --color-wordmark-2:      #8ED4C6; /* teal       — "for"  */
-  --color-wordmark-3:      #172659; /* indigo     — "REP"  */
+  --color-wordmark-3:      #1E3A5F; /* indigo     — "REP"  */
 
   /* Footer */
-  --color-footer-bg:       #172659;
+  --color-footer-bg:       #1E3A5F;
   --color-footer-text:     #DEE4E4;
   --color-wordmark-3-footer: #DEE4E4;
 
   /* Link — indigo for body prose so paragraphs stay quiet, but
      hover/focus shifts to terracotta to signal interactivity
      without competing with surrounding text. */
-  --color-link:            #172659;
+  --color-link:            #1E3A5F;
   --color-link-hover:      #D5573B;
 }
 
