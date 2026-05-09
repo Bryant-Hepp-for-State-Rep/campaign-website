@@ -10,5 +10,9 @@
   },
   "compatibility_flags": [
     "nodejs_compat"
+  ],
+  "routes": [
+    { "pattern": "hepp4rep.com", "custom_domain": true },
+    { "pattern": "www.hepp4rep.com", "custom_domain": true }
   ]
 }
