@@ -3,7 +3,7 @@ hero:
   eyebrow: Democrat for Michigan State House · District 9
   name: Bryant Hepp
   district_line: East Side · Downtown · Midtown
-  tagline: "**Affordable living** in every neighborhood."
+  tagline: Affordable living in every neighborhood.
   subhead: "**Housing, healthcare, and mobility are human rights — not luxuries.**
     From water and electricity to car insurance and bus lines, your ability to
     make ends meet shouldn't depend on your ZIP code or street address."
