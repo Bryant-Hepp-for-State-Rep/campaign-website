@@ -2,7 +2,7 @@
 slug: auto-insurance-redlining
 nav_label: Redlining
 label: Auto Insurance
-heading: How we lower auto-insurance costs
+heading: How we lower the cost of auto-insurance
 stat_value: 5×
 stat_label: >
   what one Detroit block group pays compared to neighbors a few blocks
