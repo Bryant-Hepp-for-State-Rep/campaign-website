@@ -11,8 +11,19 @@
   "compatibility_flags": [
     "nodejs_compat"
   ],
-  "routes": [
-    { "pattern": "hepp4rep.com", "custom_domain": true },
-    { "pattern": "www.hepp4rep.com", "custom_domain": true }
-  ]
+  // Keep the workers.dev URL (https://hepp4rep.johnwillbolt.workers.dev)
+  // explicitly enabled. When custom_domain routes were the only
+  // routing config and they failed to bind, wrangler implicitly
+  // disabled workers.dev too — production went offline. Setting
+  // these explicitly makes the workers.dev URL a guaranteed
+  // fallback that doesn't depend on custom-domain success.
+  "workers_dev": true,
+  "preview_urls": true
+  // Custom-domain routes for hepp4rep.com / www.hepp4rep.com
+  // are intentionally absent here — re-add when ready for the
+  // DNS cutover. Format:
+  //   "routes": [
+  //     { "pattern": "hepp4rep.com", "custom_domain": true },
+  //     { "pattern": "www.hepp4rep.com", "custom_domain": true }
+  //   ]
 }
