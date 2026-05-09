@@ -3,9 +3,9 @@ slug: auto-insurance-redlining
 nav_label: Redlining
 label: Auto Insurance
 heading: How we lower the cost of auto-insurance
-stat_lead: "Drivers in one Detroit block group pay"
+stat_lead: "Drivers in one majority-Black Detroit block group pay"
 stat_value: 5×
-stat_trail: "what their neighbors a few blocks away pay for identical auto coverage."
+stat_trail: "what majority-white neighbors a few blocks away pay for identical coverage."
 stat_source: Michigan Senate testimony, September 2025
 body: >
   In a 97% Black block group in Detroit's 48208, drivers pay roughly
