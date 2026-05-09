@@ -64,6 +64,7 @@ collections:
         file: content/settings/site.yml
         fields:
           - { name: contact_email, label: Contact email, widget: string }
+          - { name: volunteer_email, label: Volunteer email, widget: string, hint: "Inbox the volunteer card mailto link routes to. Will be replaced with a Mobilize signup link once Mobilize is set up." }
           - { name: committee_disclaimer, label: Committee disclaimer, widget: string }
           - { name: copyright_holder, label: Copyright holder, widget: string }
           - name: socials
@@ -199,7 +200,7 @@ collections:
                 fields:
                   - { name: heading, widget: string }
                   - { name: body, widget: markdown, <<: *body_prose }
-                  - { name: form_action, widget: string, hint: "ESP form action URL (Mailchimp, etc.) — '#' until configured." }
+                  - { name: form_action, widget: string, hint: "ActionNetwork form responses URL (e.g. https://actionnetwork.org/forms/[slug]/responses). Use '#' until configured." }
                   - { name: submit_label, widget: string, default: "Sign up" }
               - name: volunteer_card
                 widget: object

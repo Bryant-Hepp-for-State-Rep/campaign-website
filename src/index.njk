@@ -113,9 +113,14 @@ permalink: /index.html
       <div class="cta-card">
         <h3 class="cta-card__heading">{{ home.get_involved.email_card.heading }}</h3>
         <div class="cta-card__body">{{ home.get_involved.email_card.body | mdBody | safe }}</div>
+        {# Field name "email_address" is ActionNetwork's expected
+           input name for their custom-HTML-form integration.
+           Once the AN form is created, paste its responses URL
+           (e.g. https://actionnetwork.org/forms/[slug]/responses)
+           into email_card.form_action via Decap. #}
         <form action="{{ home.get_involved.email_card.form_action }}" method="post" aria-label="Email signup">
           <label class="sr-only" for="email">Email address</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+          <input id="email" name="email_address" type="email" placeholder="you@example.com" required autocomplete="email" />
           <button type="submit">{{ home.get_involved.email_card.submit_label }}</button>
         </form>
       </div>
@@ -123,7 +128,7 @@ permalink: /index.html
       <div class="cta-card">
         <h3 class="cta-card__heading">{{ home.get_involved.volunteer_card.heading }}</h3>
         <div class="cta-card__body">{{ home.get_involved.volunteer_card.body | mdBody | safe }}</div>
-        <a class="button button--secondary" href="mailto:{{ site.contact_email }}?subject={{ home.get_involved.volunteer_card.email_subject | urlencode }}">{{ home.get_involved.volunteer_card.cta_label }}</a>
+        <a class="button button--secondary" href="mailto:{{ site.volunteer_email or site.contact_email }}?subject={{ home.get_involved.volunteer_card.email_subject | urlencode }}">{{ home.get_involved.volunteer_card.cta_label }}</a>
       </div>
 
     </div>
