@@ -627,6 +627,15 @@
   transform: translateY(-1px);
 }
 
+/* When the donate card is the primary card (terracotta bg), the
+   default tile hover (terracotta fill) would blend into the
+   card. Invert it instead: indigo fill, cream text. */
+.cta-card--primary .donate-amount:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+  border-color: var(--color-text);
+}
+
 .cta-card__pending {
   font-size: 0.8rem;
   font-weight: 700;

@@ -93,22 +93,6 @@ permalink: /index.html
     <div class="get-involved__grid">
 
       <div class="cta-card cta-card--primary">
-        <h3 class="cta-card__heading">{{ home.get_involved.email_card.heading }}</h3>
-        <div class="cta-card__body">{{ home.get_involved.email_card.body | mdBody | safe }}</div>
-        <form action="{{ home.get_involved.email_card.form_action }}" method="post" aria-label="Email signup">
-          <label class="sr-only" for="email">Email address</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" required />
-          <button type="submit">{{ home.get_involved.email_card.submit_label }}</button>
-        </form>
-      </div>
-
-      <div class="cta-card">
-        <h3 class="cta-card__heading">{{ home.get_involved.volunteer_card.heading }}</h3>
-        <div class="cta-card__body">{{ home.get_involved.volunteer_card.body | mdBody | safe }}</div>
-        <a class="button button--secondary" href="mailto:{{ site.contact_email }}?subject={{ home.get_involved.volunteer_card.email_subject | urlencode }}">{{ home.get_involved.volunteer_card.cta_label }}</a>
-      </div>
-
-      <div class="cta-card">
         <h3 class="cta-card__heading">{{ home.get_involved.donate_card.heading }}</h3>
         <div class="cta-card__body">{{ home.get_involved.donate_card.body | mdBody | safe }}</div>
         {% if home.get_involved.donate_card.enabled and home.get_involved.donate_card.actblue_url %}
@@ -124,6 +108,22 @@ permalink: /index.html
         {% else %}
         <span class="cta-card__pending">{{ home.get_involved.donate_card.pending_label }}</span>
         {% endif %}
+      </div>
+
+      <div class="cta-card">
+        <h3 class="cta-card__heading">{{ home.get_involved.email_card.heading }}</h3>
+        <div class="cta-card__body">{{ home.get_involved.email_card.body | mdBody | safe }}</div>
+        <form action="{{ home.get_involved.email_card.form_action }}" method="post" aria-label="Email signup">
+          <label class="sr-only" for="email">Email address</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+          <button type="submit">{{ home.get_involved.email_card.submit_label }}</button>
+        </form>
+      </div>
+
+      <div class="cta-card">
+        <h3 class="cta-card__heading">{{ home.get_involved.volunteer_card.heading }}</h3>
+        <div class="cta-card__body">{{ home.get_involved.volunteer_card.body | mdBody | safe }}</div>
+        <a class="button button--secondary" href="mailto:{{ site.contact_email }}?subject={{ home.get_involved.volunteer_card.email_subject | urlencode }}">{{ home.get_involved.volunteer_card.cta_label }}</a>
       </div>
 
     </div>
