@@ -32,5 +32,44 @@
 
   {% include "partials/footer.njk" %}
 
+  {# ─── Accent A/B toggle ───────────────────────────────────
+     Temporary floating button to compare sage (#9CC4BC) vs
+     teal (#8ED4C6) for the accent color. State persists in
+     localStorage. Remove this <script> block (and the
+     body[data-accent="teal"] rule in theme.css) once we settle
+     on a final accent. #}
+  <script>
+    (function () {
+      'use strict';
+      var KEY = 'hep4rep-accent';
+      var current = 'sage';
+      try {
+        if (localStorage.getItem(KEY) === 'teal') current = 'teal';
+      } catch (e) {}
+      document.body.setAttribute('data-accent', current);
+
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = 'Accent: ' + current;
+      btn.setAttribute('aria-label', 'Toggle accent color between sage and teal');
+      btn.style.cssText =
+        'position:fixed;bottom:1rem;right:1rem;z-index:1000;' +
+        'padding:0.55rem 0.95rem;background:#172659;color:#FAF7F0;' +
+        'border:1.5px solid #FAF7F0;border-radius:999px;' +
+        'font-family:"Montserrat","Inter",sans-serif;font-size:0.75rem;' +
+        'font-weight:700;letter-spacing:0.04em;text-transform:lowercase;' +
+        'cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.18);';
+
+      btn.addEventListener('click', function () {
+        current = current === 'sage' ? 'teal' : 'sage';
+        document.body.setAttribute('data-accent', current);
+        btn.textContent = 'Accent: ' + current;
+        try { localStorage.setItem(KEY, current); } catch (e) {}
+      });
+
+      document.body.appendChild(btn);
+    })();
+  </script>
+
 </body>
 </html>

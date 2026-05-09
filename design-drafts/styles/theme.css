@@ -34,9 +34,10 @@
   --color-primary-text:    #FFFFFF;
   --color-primary-hover:   #B8462E;
 
-  /* Accent — bright teal. Used for in-focus accent, hover trims,
-     and any decorative line work that needs to carry chroma. */
-  --color-accent:          #8ED4C6;
+  /* Accent — sage by default. A small floating button (see the
+     inline script in base.njk) lets us flip to a brighter teal
+     for live comparison; that override is below. */
+  --color-accent:          #9CC4BC;
 
   /* Eyebrow — terracotta. Eyebrow text is small/bold/uppercase,
      so it survives lower contrast and benefits from a warm pop. */
@@ -46,7 +47,7 @@
      The accent is what carries the stat figure / decorative work. */
   --color-loud-bg:         #172659;
   --color-loud-text:       #DEE4E4;
-  --color-loud-accent:     #8ED4C6;
+  --color-loud-accent:     #9CC4BC;
 
   /* Highlighted phrase inside hero subhead */
   --color-highlight-bg:    #DEE4E4;
@@ -69,4 +70,13 @@
      without competing with surrounding text. */
   --color-link:            #172659;
   --color-link-hover:      #D5573B;
+}
+
+/* Accent A/B toggle — temporary. Flipped by the floating button
+   wired up in base.njk. Sage (#9CC4BC) is the default; teal
+   (#8ED4C6) is the brighter alternative under evaluation. */
+body[data-accent="teal"] {
+  --color-accent:       #8ED4C6;
+  --color-loud-accent:  #8ED4C6;
+  --color-wordmark-2:   #8ED4C6;
 }
