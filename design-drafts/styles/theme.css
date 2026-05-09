@@ -55,14 +55,14 @@
   --color-primary-text:    var(--palette-white);
   --color-primary-hover:   var(--palette-terra-hover);
 
-  /* Accent — overridden by data-accent= rules below */
-  --color-accent:          var(--palette-sage);
+  /* Accent — teal, locked in (was A/B toggled vs sage / deep) */
+  --color-accent:          var(--palette-teal);
   --color-eyebrow:         var(--palette-terracotta);
 
   /* "In Focus" loud block — indigo field, accent pop */
   --color-loud-bg:         var(--palette-indigo);
   --color-loud-text:       var(--palette-cyan-grey);
-  --color-loud-accent:     var(--palette-sage);
+  --color-loud-accent:     var(--palette-teal);
 
   /* Inline highlight pill */
   --color-highlight-bg:    var(--palette-cyan-grey);
@@ -70,7 +70,7 @@
 
   /* Wordmark — kept defined as fallbacks for future text logos */
   --color-wordmark-1:      var(--palette-terracotta); /* "HEPP" */
-  --color-wordmark-2:      var(--palette-sage);       /* "for"  */
+  --color-wordmark-2:      var(--palette-teal);       /* "for"  */
   --color-wordmark-3:      var(--palette-indigo);     /* "REP"  */
   --color-wordmark-3-footer: var(--palette-cyan-grey);
 
@@ -83,19 +83,3 @@
   --color-link-hover:      var(--palette-terracotta);
 }
 
-/* ── 3. ACCENT ROTATION — A/B toggle ─────────────────────────
-   Temporary: flipped by the floating button in base.njk.
-   Each rule swaps the three accent-bearing roles to a different
-   palette value. Remove this block + the <script> in base.njk
-   when the accent decision is finalized. */
-
-body[data-accent="teal"] {
-  --color-accent:       var(--palette-teal);
-  --color-loud-accent:  var(--palette-teal);
-  --color-wordmark-2:   var(--palette-teal);
-}
-body[data-accent="deep"] {
-  --color-accent:       var(--palette-deep);
-  --color-loud-accent:  var(--palette-deep);
-  --color-wordmark-2:   var(--palette-deep);
-}

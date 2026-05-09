@@ -637,28 +637,6 @@
   padding-block: clamp(1rem, 2vw, 2rem) clamp(3rem, 6vw, 5rem);
 }
 
-/* Accent A/B toggle pill — bottom-right floating button injected
-   by base.njk. Consumes the same palette/role tokens as the rest
-   of the site so changing --palette-indigo recolors this too. */
-.accent-toggle {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  z-index: 1000;
-  padding: 0.55rem 0.95rem;
-  background: var(--color-text);
-  color: var(--color-bg);
-  border: 1.5px solid var(--color-bg);
-  border-radius: 999px;
-  font-family: "Montserrat", "Inter", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: lowercase;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
-}
-
 /* Donate-amounts grid — six suggested-amount tiles inside the
    donate cta-card. Each tile deep-links to ActBlue with the
    amount pre-filled and a unique refcode for conversion tracking
