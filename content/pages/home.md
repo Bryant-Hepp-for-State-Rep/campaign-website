@@ -37,7 +37,7 @@ get_involved:
   email_card:
     heading: Join the email list
     body: The single best way to stay in the loop.
-    form_action: "#"
+    form_action: https://actionnetwork.org/forms/subscribe-to-bryant-hepps-campaign-for-state-rep
     submit_label: Sign up
   volunteer_card:
     heading: Volunteer
