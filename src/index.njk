@@ -113,14 +113,22 @@ permalink: /index.html
       <div class="cta-card">
         <h3 class="cta-card__heading">{{ home.get_involved.email_card.heading }}</h3>
         <div class="cta-card__body">{{ home.get_involved.email_card.body | mdBody | safe }}</div>
-        {# ActionNetwork JS widget. The script tag fetches AN's
-           form HTML and injects it into the target div below.
-           Form copy / submit label / confirmation message all
-           live in ActionNetwork now (not in home.md). To swap
-           forms in the future, change the slug in both URLs
-           below to the new form's slug. #}
-        <script src="https://actionnetwork.org/widgets/v6/form/subscribe-to-bryant-hepps-campaign-for-state-rep?format=js&source=widget"></script>
-        <div id="can-form-area-subscribe-to-bryant-hepps-campaign-for-state-rep" class="an-form-mount" style="width: 100%"></div>
+        {# Progressive-ask pattern (ActBlue-style). Visitor types
+           an email here; on submit the browser navigates (GET) to
+           AN's hosted form with ?email_address= already populated.
+           AN renders their full form with the email pre-filled,
+           and any extra fields / confirmation handling stays
+           there. Single-input commitment on our side, full form
+           on theirs.
+
+           method="get" so the email lands in the URL query string
+           where AN's form page reads it. AN's expected param
+           name is email_address. #}
+        <form action="{{ home.get_involved.email_card.form_action }}" method="get" aria-label="Email signup">
+          <label class="sr-only" for="email">Email address</label>
+          <input id="email" name="email_address" type="email" placeholder="you@example.com" required autocomplete="email" />
+          <button type="submit">{{ home.get_involved.email_card.submit_label }}</button>
+        </form>
       </div>
 
       <div class="cta-card">
