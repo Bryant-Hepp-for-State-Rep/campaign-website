@@ -1,88 +1,101 @@
 /* ============================================================
-   theme.css — active campaign theme
+   theme.css — campaign palette + role assignments
    ============================================================
-   Palette (revised 5/8/26):
-     #1E3A5F  deep indigo   ink, loud-bg, footer
-     #8ED4C6  bright teal   accent, loud-accent, hover
-     #D5573B  terracotta    primary CTA, eyebrow, link-hover
-     #DEE4E4  pale cyan-grey surface, loud-bg text
+   Two layers:
 
-   Why this palette: the prior 3-color (indigo / sage / pale cyan-
-   grey) read flat — every CTA was indigo-on-cream and the only
-   accent was a muted sage that mostly disappeared. Adding
-   terracotta gives the page a warm primary that lifts buttons
-   and eyebrows off the cream bg. Brightening sage to a more
-   saturated teal lets the "in-focus" loud block and accent
-   borders carry visual weight against the indigo field.
+     1. PALETTE — raw color values. Every hex on the site is
+        declared once here. Change a value and it propagates
+        everywhere. This is the single source of truth.
 
-   Role assignments are wired so a single value swap propagates
-   everywhere without selector edits.
+     2. ROLES — what each color does (text, primary CTA, accent,
+        loud-bg, etc.). Roles consume palette values via var().
+        Components in components.css read from roles only —
+        they never reference the palette directly.
+
+   To recolor the site:
+     - "Change the indigo" → edit --palette-indigo (1 line).
+     - "Make eyebrows the accent color instead of terracotta"
+       → change --color-eyebrow to var(--palette-sage) (1 line).
+
+   The accent rotation at the bottom of the file (sage / teal /
+   deep) is a temporary A/B toggle wired up in base.njk.
    ============================================================ */
 
 :root {
-  /* Base */
-  --color-bg:              #FAF7F0;
-  --color-surface:         #DEE4E4;
-  --color-text:            #1E3A5F;
-  --color-text-muted:      #5C6B85;
-  --color-border:          #C4D4D4;
-  --color-border-strong:   #1E3A5F;
+  /* ── 1. PALETTE — every site color, named once ─────────── */
 
-  /* Primary CTA — terracotta. White text reads cleanly against
-     it (≈4.7:1, passes WCAG AA for normal text). */
-  --color-primary:         #D5573B;
-  --color-primary-text:    #FFFFFF;
-  --color-primary-hover:   #B8462E;
+  --palette-cream:        #FAF7F0;  /* warm page background */
+  --palette-indigo:       #1E3A5F;  /* deep blue / ink     */
+  --palette-cyan-grey:    #DEE4E4;  /* pale surface tone   */
+  --palette-terracotta:   #D5573B;  /* primary CTA, eyebrow */
 
-  /* Accent — sage by default. A small floating button (see the
-     inline script in base.njk) lets us flip to a brighter teal
-     for live comparison; that override is below. */
-  --color-accent:          #9CC4BC;
+  /* Accent options (default + A/B toggle alternatives) */
+  --palette-sage:         #9CC4BC;  /* default accent */
+  --palette-teal:         #8ED4C6;  /* alt: brighter  */
+  --palette-deep:         #5FA89B;  /* alt: deeper    */
 
-  /* Eyebrow — terracotta. Eyebrow text is small/bold/uppercase,
-     so it survives lower contrast and benefits from a warm pop. */
-  --color-eyebrow:         #D5573B;
+  /* Supporting greys + state variants */
+  --palette-muted-text:   #5C6B85;
+  --palette-border:       #C4D4D4;
+  --palette-terra-hover:  #B8462E;
+  --palette-white:        #FFFFFF;
 
-  /* "In Focus" loud block — indigo field with bright-teal accent.
-     The accent is what carries the stat figure / decorative work. */
-  --color-loud-bg:         #1E3A5F;
-  --color-loud-text:       #DEE4E4;
-  --color-loud-accent:     #9CC4BC;
+  /* ── 2. ROLES — what each palette color does ──────────── */
 
-  /* Highlighted phrase inside hero subhead */
-  --color-highlight-bg:    #DEE4E4;
-  --color-highlight-text:  #1E3A5F;
+  /* Base surfaces and ink */
+  --color-bg:              var(--palette-cream);
+  --color-surface:         var(--palette-cyan-grey);
+  --color-text:            var(--palette-indigo);
+  --color-text-muted:      var(--palette-muted-text);
+  --color-border:          var(--palette-border);
+  --color-border-strong:   var(--palette-indigo);
 
-  /* Wordmark — kept defined as fallback. Production header is
-     now an image, so these only matter if a template ever
-     reverts to the text .wordmark component. */
-  --color-wordmark-1:      #D5573B; /* terracotta — "HEPP" */
-  --color-wordmark-2:      #8ED4C6; /* teal       — "for"  */
-  --color-wordmark-3:      #1E3A5F; /* indigo     — "REP"  */
+  /* Primary CTA — buttons, eyebrows, donate-amount hover fill */
+  --color-primary:         var(--palette-terracotta);
+  --color-primary-text:    var(--palette-white);
+  --color-primary-hover:   var(--palette-terra-hover);
+
+  /* Accent — overridden by data-accent= rules below */
+  --color-accent:          var(--palette-sage);
+  --color-eyebrow:         var(--palette-terracotta);
+
+  /* "In Focus" loud block — indigo field, accent pop */
+  --color-loud-bg:         var(--palette-indigo);
+  --color-loud-text:       var(--palette-cyan-grey);
+  --color-loud-accent:     var(--palette-sage);
+
+  /* Inline highlight pill */
+  --color-highlight-bg:    var(--palette-cyan-grey);
+  --color-highlight-text:  var(--palette-indigo);
+
+  /* Wordmark — kept defined as fallbacks for future text logos */
+  --color-wordmark-1:      var(--palette-terracotta); /* "HEPP" */
+  --color-wordmark-2:      var(--palette-sage);       /* "for"  */
+  --color-wordmark-3:      var(--palette-indigo);     /* "REP"  */
+  --color-wordmark-3-footer: var(--palette-cyan-grey);
 
   /* Footer */
-  --color-footer-bg:       #1E3A5F;
-  --color-footer-text:     #DEE4E4;
-  --color-wordmark-3-footer: #DEE4E4;
+  --color-footer-bg:       var(--palette-indigo);
+  --color-footer-text:     var(--palette-cyan-grey);
 
-  /* Link — indigo for body prose so paragraphs stay quiet, but
-     hover/focus shifts to terracotta to signal interactivity
-     without competing with surrounding text. */
-  --color-link:            #1E3A5F;
-  --color-link-hover:      #D5573B;
+  /* Links */
+  --color-link:            var(--palette-indigo);
+  --color-link-hover:      var(--palette-terracotta);
 }
 
-/* Accent rotation — temporary. Flipped by the floating button
-   wired up in base.njk. Sage (#9CC4BC) is the default;
-   teal (#8ED4C6) is the brighter alternative; deep (#5FA89B) is
-   the darker, more saturated third option under evaluation. */
+/* ── 3. ACCENT ROTATION — A/B toggle ─────────────────────────
+   Temporary: flipped by the floating button in base.njk.
+   Each rule swaps the three accent-bearing roles to a different
+   palette value. Remove this block + the <script> in base.njk
+   when the accent decision is finalized. */
+
 body[data-accent="teal"] {
-  --color-accent:       #8ED4C6;
-  --color-loud-accent:  #8ED4C6;
-  --color-wordmark-2:   #8ED4C6;
+  --color-accent:       var(--palette-teal);
+  --color-loud-accent:  var(--palette-teal);
+  --color-wordmark-2:   var(--palette-teal);
 }
 body[data-accent="deep"] {
-  --color-accent:       #5FA89B;
-  --color-loud-accent:  #5FA89B;
-  --color-wordmark-2:   #5FA89B;
+  --color-accent:       var(--palette-deep);
+  --color-loud-accent:  var(--palette-deep);
+  --color-wordmark-2:   var(--palette-deep);
 }

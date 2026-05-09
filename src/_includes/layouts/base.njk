@@ -52,15 +52,9 @@
 
       var btn = document.createElement('button');
       btn.type = 'button';
+      btn.className = 'accent-toggle';
       btn.textContent = 'Accent: ' + current;
       btn.setAttribute('aria-label', 'Cycle accent color through sage, teal, and deep');
-      btn.style.cssText =
-        'position:fixed;bottom:1rem;right:1rem;z-index:1000;' +
-        'padding:0.55rem 0.95rem;background:#1E3A5F;color:#FAF7F0;' +
-        'border:1.5px solid #FAF7F0;border-radius:999px;' +
-        'font-family:"Montserrat","Inter",sans-serif;font-size:0.75rem;' +
-        'font-weight:700;letter-spacing:0.04em;text-transform:lowercase;' +
-        'cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.18);';
 
       btn.addEventListener('click', function () {
         var idx = ACCENTS.indexOf(current);
