@@ -1,0 +1,59 @@
+# Deploy to Cloudflare Workers on push to main.
+#
+# Triggers:
+#   - Every push to main (including Decap CMS "Publish" actions,
+#     which commit directly to main via the editorial workflow).
+#   - Manual via workflow_dispatch in the GitHub Actions UI.
+#
+# Required one-time setup:
+#   1. Create a Cloudflare API token (NOT a password / not OAuth):
+#      - Sign in to dash.cloudflare.com as admin@hepp4rep.com
+#      - https://dash.cloudflare.com/profile/api-tokens → Create Token
+#      - Use the "Edit Cloudflare Workers" template
+#      - Account Resources: Include → admin@hepp4rep.com's account
+#      - Zone Resources: Include → Specific zone → hepp4rep.com
+#      - Continue to summary → Create Token
+#      - Copy the token (shown only once)
+#   2. Add the token to GitHub:
+#      - Repo → Settings → Secrets and variables → Actions
+#      - New repository secret
+#      - Name: CLOUDFLARE_API_TOKEN
+#      - Value: paste the token
+#
+# After that, every push to main rebuilds the site with eleventy
+# and ships to Cloudflare. Build + deploy completes in ~30-60s.
+
+name: Deploy to Cloudflare Workers
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Don't pile up deploys; let the latest push win, but allow the
+# in-flight one to finish so we don't half-deploy.
+concurrency:
+  group: cloudflare-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build site (eleventy)
+        run: npm run build
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy
