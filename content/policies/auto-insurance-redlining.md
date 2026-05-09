@@ -2,7 +2,7 @@
 slug: auto-insurance-redlining
 nav_label: Redlining
 label: Auto Insurance
-heading: Auto Insurance Redlining
+heading: How we lower auto-insurance costs
 stat_value: 5×
 stat_label: >
   what one Detroit block group pays compared to neighbors a few blocks
@@ -10,20 +10,22 @@ stat_label: >
 body: >
   In a 97% Black block group in Detroit's 48208, drivers pay roughly
   five times what their neighbors a few blocks away pay for the same
-  coverage. The Markup investigated Michigan rate manuals in 2024 and
+  coverage. The Markup's 2024 investigation of Michigan rate manuals
   found location adjustments **seven times higher** in some Detroit
-  neighborhoods than in nearby majority-white areas. The pattern is
-  real, it is documented, and it is recent.
+  neighborhoods than in nearby majority-white areas, and University
+  of Michigan research has documented the same disparity at the
+  ZIP-code level.
 
 
   The 2019 no-fault reform was supposed to close this gap. Statewide
-  premiums fell ~18%. In Detroit they fell less than half that. The
-  disparity is still here.
+  premiums fell ~18%. In Detroit they fell less than half that.
 
 
-  This is fixable. The bill doesn't exist yet because Lansing won't
-  pass it. That changes when District 9 sends someone who's done the
-  work.
-cta_label: Read the policy →
-cta_target: /policy/auto-insurance/
+  Colorado's 2021 SB21-169 banned insurers from using external data —
+  credit scores, ZIP codes, algorithms — when it produces racially
+  discriminatory outcomes. Michigan can do the same. The bill doesn't
+  exist here yet because Lansing won't pass it. That changes when
+  District 9 sends someone who's done the work.
+cta_label: ""
+cta_target: ""
 ---
