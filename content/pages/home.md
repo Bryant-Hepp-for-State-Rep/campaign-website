@@ -13,16 +13,20 @@ hero:
   secondary_cta:
     label: Meet Bryant
     target: "#about"
+  photo: /images/bryant-hero.jpg
+  photo_alt: Bryant Hepp, Democrat for Michigan State House District 9.
 about_teaser:
   heading: Why I'm running
+  photo: /images/bryant-marathon.jpg
+  photo_alt: Bryant running the Detroit Free Press Marathon.
   lede: I'm running to repair the broken systems that charge Detroiters more for
     basic needs and make life hard for working families.
   body: As a social worker and urban planner, I've worked with communities across
     Michigan and around the world to address the root causes of problems and
     solve complex problems that raise the cost of living. I want to do the same
     for our community with your support August 4.
-  link_text: Read more about Bryant →
-  link_target: /about/
+  link_text: ""
+  link_target: ""
 priorities_section:
   heading: Three priorities for District 9
   lede: Bryant is focused on keeping life in Detroit affordable for all residents,
