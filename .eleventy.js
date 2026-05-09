@@ -66,12 +66,10 @@ module.exports = function (eleventyConfig) {
     templateFormats: ["njk", "md", "html"],
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk",
-    // Site is currently hosted at
-    // https://bryant-hepp-for-state-rep.github.io/campaign-website/.
-    // Eleventy's `url` filter prepends this prefix to root-relative
-    // paths (paths starting with "/"). Templates use {{ "/foo" | url }}
-    // for every internal link; setting this here is the single place
-    // to change when we move to a custom domain (set to "/" instead).
-    pathPrefix: "/campaign-website/"
+    // Cloudflare Workers Static Assets serves from the worker root,
+    // so internal URLs are root-relative. Templates use {{ "/foo" | url }};
+    // pathPrefix "/" is the no-op default. (Was "/campaign-website/" when
+    // hosted on GitHub Pages — switch back if we ever return to that.)
+    pathPrefix: "/"
   };
 };
