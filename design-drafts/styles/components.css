@@ -100,26 +100,48 @@
   color: var(--color-wordmark-3-footer, var(--color-wordmark-3, var(--color-text)));
 }
 
-/* Site logo — image lockup. Header uses the transparent block
-   variant (navy text on the cream page bg); footer uses the
-   filled circle variant (light text on navy footer bg). Both
-   render at the same height so the brand mark reads as a
-   consistent unit at the top and bottom of the page. */
+/* Site logo — three-row stacked text lockup ("BRYANT HEPP /
+   for / STATE REP"). The middle "for" row uses --color-accent
+   so the sage/teal A/B toggle shows visibly in the header.
+   Block treatment: heavy uppercase, tight tracking, near-zero
+   leading so the rows read as one mark rather than three. */
 .site-logo {
   display: inline-flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   text-decoration: none;
-  line-height: 0;
+  font-family: "Montserrat", "Inter", sans-serif;
+  font-weight: 900;
+  line-height: 0.92;
+  color: var(--color-text);
+  padding-block: 0.15rem;
 }
-.site-logo img {
+.site-logo:hover { text-decoration: none; }
+
+.site-logo__line {
   display: block;
-  height: 56px;
-  width: auto;
-  max-width: 100%;
+  font-size: clamp(1.4rem, 2.4vw, 1.95rem);
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  line-height: 0.92;
 }
-@media (max-width: 640px) {
-  .site-logo img { height: 48px; }
+
+.site-logo__connector {
+  display: block;
+  font-size: clamp(0.78rem, 1.2vw, 1rem);
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0;
+  color: var(--color-accent);
+  margin-block: 0.12em 0.06em;
+  padding-inline-start: 0.25em;
+  text-transform: lowercase;
 }
+
+/* Footer variant — text becomes cream against the navy bg, but
+   "for" stays on --color-accent so the A/B toggle propagates. */
+.site-footer .site-logo { color: var(--color-footer-text); }
+.site-footer .site-logo__connector { color: var(--color-accent); }
 
 .site-nav {
   display: flex;
@@ -249,8 +271,17 @@
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: var(--color-primary);
+  color: var(--color-text);
   margin-bottom: 1.25rem;
+}
+
+/* The lead phrase ("Affordable living") is bolded in markdown
+   and rendered as <strong>; we color it with --color-accent so
+   the sage/teal toggle shows directly in the hero. The rest of
+   the tagline stays in --color-text (indigo). */
+.hero__tagline strong {
+  color: var(--color-accent);
+  font-weight: inherit;
 }
 
 .hero__subhead {

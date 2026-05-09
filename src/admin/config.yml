@@ -122,7 +122,11 @@ collections:
               - { name: eyebrow, label: Eyebrow, widget: string, hint: "Office line above the candidate name" }
               - { name: name, label: Candidate name, widget: string }
               - { name: district_line, label: District line, widget: string, hint: "Neighborhoods, separated by ' · '" }
-              - { name: tagline, label: Tagline, widget: string }
+              - name: tagline
+                label: Tagline
+                widget: markdown
+                <<: *tight_inline
+                hint: "Use **bold** to color a phrase in the accent color (sage/teal)."
               - name: subhead
                 label: Subhead
                 widget: markdown

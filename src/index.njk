@@ -12,7 +12,7 @@ permalink: /index.html
         <span class="hero__office">{{ home.hero.eyebrow }}</span>
         <h1 class="hero__name">{{ home.hero.name }}</h1>
         <p class="hero__district">{{ home.hero.district_line }}</p>
-        <p class="hero__tagline">{{ home.hero.tagline }}</p>
+        <p class="hero__tagline">{{ home.hero.tagline | mdInline | safe }}</p>
         <p class="hero__subhead">{{ home.hero.subhead | mdInline | safe }}</p>
         <div class="hero__ctas">
           <a class="button button--primary" href="{{ home.hero.primary_cta.target | url }}">{{ home.hero.primary_cta.label }}</a>
