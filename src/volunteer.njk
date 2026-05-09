@@ -1,0 +1,37 @@
+---
+layout: layouts/base.njk
+permalink: /volunteer/
+title: Volunteer with Bryant Hepp for State Rep
+description: Help the campaign for Michigan State House District 9.
+---
+
+<section class="signup-hero">
+  <div class="container container-narrow">
+    <span class="eyebrow">Volunteer with the campaign</span>
+    <h1>Plug in</h1>
+    <p class="lead">Walking doors, phone-banking, hosting a meet-up — tell us how you can help and we'll be in touch.</p>
+  </div>
+</section>
+
+<section class="signup-form">
+  <div class="container container-narrow">
+
+    {# ── ActionNetwork volunteer form ─────────────────────
+       When the AN form is created, replace the fallback
+       block below with the widget mount:
+
+         <link rel="stylesheet" href="https://actionnetwork.org/css/style-embed-v3.css" />
+         <script src="https://actionnetwork.org/widgets/v6/form/[SLUG]?format=js&source=widget"></script>
+         <div id="can-form-area-[SLUG]" class="an-form-mount" style="width: 100%"></div>
+
+       Same pattern as src/signup.njk. The .an-form-mount CSS
+       overrides in components.css will style it to match. #}
+
+    <p class="lead">
+      The volunteer signup form is being set up. Until then, email
+      <a href="mailto:{{ site.volunteer_email or site.contact_email }}">{{ site.volunteer_email or site.contact_email }}</a>
+      and we'll get back to you.
+    </p>
+
+  </div>
+</section>
