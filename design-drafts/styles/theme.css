@@ -72,11 +72,17 @@
   --color-link-hover:      #D5573B;
 }
 
-/* Accent A/B toggle — temporary. Flipped by the floating button
-   wired up in base.njk. Sage (#9CC4BC) is the default; teal
-   (#8ED4C6) is the brighter alternative under evaluation. */
+/* Accent rotation — temporary. Flipped by the floating button
+   wired up in base.njk. Sage (#9CC4BC) is the default;
+   teal (#8ED4C6) is the brighter alternative; deep (#5FA89B) is
+   the darker, more saturated third option under evaluation. */
 body[data-accent="teal"] {
   --color-accent:       #8ED4C6;
   --color-loud-accent:  #8ED4C6;
   --color-wordmark-2:   #8ED4C6;
+}
+body[data-accent="deep"] {
+  --color-accent:       #5FA89B;
+  --color-loud-accent:  #5FA89B;
+  --color-wordmark-2:   #5FA89B;
 }

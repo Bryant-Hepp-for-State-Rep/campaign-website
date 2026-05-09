@@ -42,16 +42,18 @@
     (function () {
       'use strict';
       var KEY = 'hep4rep-accent';
+      var ACCENTS = ['sage', 'teal', 'deep'];
       var current = 'sage';
       try {
-        if (localStorage.getItem(KEY) === 'teal') current = 'teal';
+        var saved = localStorage.getItem(KEY);
+        if (ACCENTS.indexOf(saved) !== -1) current = saved;
       } catch (e) {}
       document.body.setAttribute('data-accent', current);
 
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.textContent = 'Accent: ' + current;
-      btn.setAttribute('aria-label', 'Toggle accent color between sage and teal');
+      btn.setAttribute('aria-label', 'Cycle accent color through sage, teal, and deep');
       btn.style.cssText =
         'position:fixed;bottom:1rem;right:1rem;z-index:1000;' +
         'padding:0.55rem 0.95rem;background:#172659;color:#FAF7F0;' +
@@ -61,7 +63,8 @@
         'cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.18);';
 
       btn.addEventListener('click', function () {
-        current = current === 'sage' ? 'teal' : 'sage';
+        var idx = ACCENTS.indexOf(current);
+        current = ACCENTS[(idx + 1) % ACCENTS.length];
         document.body.setAttribute('data-accent', current);
         btn.textContent = 'Accent: ' + current;
         try { localStorage.setItem(KEY, current); } catch (e) {}

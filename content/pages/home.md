@@ -32,7 +32,6 @@ priorities_section:
     - healthcare
     - mobility
 in_focus:
-  eyebrow: In Focus · Signature Issue
 get_involved:
   heading: Get involved
   email_card:
