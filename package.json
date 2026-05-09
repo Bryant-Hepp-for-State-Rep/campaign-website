@@ -8,7 +8,7 @@
     "serve": "eleventy --serve",
     "clean": "rm -rf _site dist",
     "deploy": "npm run build && wrangler deploy",
-    "preview": "npm run build && wrangler dev"
+    "preview": "npm run build && wrangler versions upload --message \"$(git branch --show-current)\""
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
