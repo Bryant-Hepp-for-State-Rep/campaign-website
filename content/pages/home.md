@@ -36,7 +36,7 @@ get_involved:
   heading: Get involved
   email_card:
     heading: Join the email list
-    body: The single best way to stay in the loop. Updates roughly twice a month.
+    body: The single best way to stay in the loop.
     form_action: "#"
     submit_label: Sign up
   volunteer_card:
