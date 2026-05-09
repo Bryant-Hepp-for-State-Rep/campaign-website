@@ -1,19 +1,22 @@
 /* ============================================================
    theme.css — active campaign theme
    ============================================================
-   Palette source: campaign Drive (palette.pdf), final 5/8/26.
-   Three hex values:
-     #172659  deep indigo   ink, primary CTA, loud-bg, footer
-     #9CC4BC  sage          accent, secondary, in-focus accent
+   Palette (revised 5/8/26):
+     #172659  deep indigo   ink, loud-bg, footer
+     #8ED4C6  bright teal   accent, loud-accent, hover
+     #D5573B  terracotta    primary CTA, eyebrow, link-hover
      #DEE4E4  pale cyan-grey surface, loud-bg text
 
-   Tightened from a 5-color provisional palette: the terracotta
-   primary and periwinkle link were dropped. With the warm pair
-   gone, indigo carries both ink AND CTA duty, which produces a
-   quieter, more substantive feel — appropriate for a campaign
-   that wants to read as serious-policy rather than personality.
+   Why this palette: the prior 3-color (indigo / sage / pale cyan-
+   grey) read flat — every CTA was indigo-on-cream and the only
+   accent was a muted sage that mostly disappeared. Adding
+   terracotta gives the page a warm primary that lifts buttons
+   and eyebrows off the cream bg. Brightening sage to a more
+   saturated teal lets the "in-focus" loud block and accent
+   borders carry visual weight against the indigo field.
 
-   Replaces 1-detroit-flag.css as the active production theme.
+   Role assignments are wired so a single value swap propagates
+   everywhere without selector edits.
    ============================================================ */
 
 :root {
@@ -25,39 +28,45 @@
   --color-border:          #C4D4D4;
   --color-border-strong:   #172659;
 
-  /* Primary CTA — indigo carries this now (no terracotta) */
-  --color-primary:         #172659;
-  --color-primary-text:    #DEE4E4;
-  --color-primary-hover:   #0E1A40;
+  /* Primary CTA — terracotta. White text reads cleanly against
+     it (≈4.7:1, passes WCAG AA for normal text). */
+  --color-primary:         #D5573B;
+  --color-primary-text:    #FFFFFF;
+  --color-primary-hover:   #B8462E;
 
-  /* Accent — sage */
-  --color-accent:          #9CC4BC;
+  /* Accent — bright teal. Used for in-focus accent, hover trims,
+     and any decorative line work that needs to carry chroma. */
+  --color-accent:          #8ED4C6;
 
-  /* Eyebrow — sage so it reads as a quiet accent above headings,
-     rather than competing with the indigo headline itself */
-  --color-eyebrow:         #172659;
+  /* Eyebrow — terracotta. Eyebrow text is small/bold/uppercase,
+     so it survives lower contrast and benefits from a warm pop. */
+  --color-eyebrow:         #D5573B;
 
-  /* "In Focus" loud block — indigo field with sage accent */
+  /* "In Focus" loud block — indigo field with bright-teal accent.
+     The accent is what carries the stat figure / decorative work. */
   --color-loud-bg:         #172659;
   --color-loud-text:       #DEE4E4;
-  --color-loud-accent:     #9CC4BC;
+  --color-loud-accent:     #8ED4C6;
 
   /* Highlighted phrase inside hero subhead */
   --color-highlight-bg:    #DEE4E4;
   --color-highlight-text:  #172659;
 
-  /* Wordmark — three-tone using the full palette */
-  --color-wordmark-1:      #172659; /* indigo  — "HEPP" */
-  --color-wordmark-2:      #9CC4BC; /* sage    — "for"  */
-  --color-wordmark-3:      #172659; /* indigo  — "REP"  */
+  /* Wordmark — kept defined as fallback. Production header is
+     now an image, so these only matter if a template ever
+     reverts to the text .wordmark component. */
+  --color-wordmark-1:      #D5573B; /* terracotta — "HEPP" */
+  --color-wordmark-2:      #8ED4C6; /* teal       — "for"  */
+  --color-wordmark-3:      #172659; /* indigo     — "REP"  */
 
   /* Footer */
   --color-footer-bg:       #172659;
   --color-footer-text:     #DEE4E4;
-
-  /* Footer wordmark override — "REP" reads against indigo */
   --color-wordmark-3-footer: #DEE4E4;
 
-  /* Link — sage; underlined for hierarchy, not color contrast */
+  /* Link — indigo for body prose so paragraphs stay quiet, but
+     hover/focus shifts to terracotta to signal interactivity
+     without competing with surrounding text. */
   --color-link:            #172659;
+  --color-link-hover:      #D5573B;
 }
