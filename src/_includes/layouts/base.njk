@@ -21,6 +21,10 @@
   <link rel="stylesheet" href="{{ '/styles/base.css' | url }}" />
   <link rel="stylesheet" href="{{ '/styles/components.css' | url }}" />
   <link rel="stylesheet" href="{{ '/styles/theme.css' | url }}" />
+  {# ActionNetwork widget stylesheet — only consumed on the home
+     page email signup card, but AN ships their CSS as a single
+     file and loading once site-wide lets the browser cache it. #}
+  <link rel="stylesheet" href="https://actionnetwork.org/css/style-embed-v3.css" />
 </head>
 <body>
 
