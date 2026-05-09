@@ -447,7 +447,33 @@
   margin-bottom: 1.5rem;
 }
 
-.in-focus__stat {
+/* In-focus stat block — vertical stack:
+   lead text → big figure → trail text → optional source line.
+   The big figure stays large and accent-colored; the lead and
+   trail wrap the sentence top-to-bottom around it so the
+   subject and comparison are spelled out without losing the
+   visual punch of the figure itself. */
+.in-focus__stat-block {
+  max-width: 28ch;
+}
+
+.in-focus__stat-lead,
+.in-focus__stat-trail {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.in-focus__stat-lead {
+  margin-bottom: 0.35rem;
+}
+
+.in-focus__stat-trail {
+  margin-top: 0.35rem;
+}
+
+.in-focus__stat-figure {
   font-size: clamp(5rem, 12vw, 8rem);
   font-weight: 900;
   line-height: 1;
@@ -455,12 +481,12 @@
   letter-spacing: -0.04em;
 }
 
-.in-focus__stat-label {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-top: 0.5rem;
-  max-width: 22ch;
-  opacity: 0.85;
+.in-focus__stat-source {
+  font-size: 0.85rem;
+  font-style: italic;
+  font-weight: 500;
+  margin-top: 1rem;
+  opacity: 0.7;
 }
 
 .in-focus__body p {

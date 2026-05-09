@@ -350,8 +350,10 @@ collections:
       - { name: nav_label, label: Nav label, widget: string, hint: "Short form used when this policy is in-focus on the top nav (e.g. 'Redlining')." }
       - { name: label, label: Short label, widget: string, hint: "1–2 words used as the section eyebrow ('Transit', 'Auto Insurance')." }
       - { name: heading, label: Heading, widget: string }
-      - { name: stat_value, label: Stat value, widget: string, required: false, hint: "Optional headline figure ('5×', '$1,200', '1 in 4'). Strings, not numbers. Leave blank if no stat." }
-      - { name: stat_label, label: Stat label, widget: markdown, <<: *stat_emphasis, required: false }
+      - { name: stat_lead, label: Stat sentence — lead, widget: string, required: false, hint: "Words that appear BEFORE the inline figure. e.g. 'Drivers in one Detroit block group pay'." }
+      - { name: stat_value, label: Stat figure, widget: string, required: false, hint: "The prominent inline figure ('5×', '$1,200', '1 in 4'). Strings, not numbers. Leave blank to skip the entire stat block." }
+      - { name: stat_trail, label: Stat sentence — trail, widget: string, required: false, hint: "Words that appear AFTER the inline figure. e.g. 'what their neighbors pay for identical coverage.'" }
+      - { name: stat_source, label: Stat source / citation, widget: string, required: false, hint: "Optional source line displayed below the stat sentence. e.g. 'Michigan Senate testimony, September 2025'." }
       - { name: body, label: Body, widget: markdown, <<: *body_prose }
       - { name: cta_label, label: Deep-dive CTA label, widget: string, required: false, hint: "e.g. 'Read the policy →'. Leave blank if no deep-dive page exists." }
       - { name: cta_target, label: Deep-dive URL, widget: string, required: false, hint: "URL of the deep-dive page. Leave blank to omit the deep-dive link." }

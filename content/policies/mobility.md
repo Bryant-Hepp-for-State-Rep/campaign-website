@@ -3,8 +3,6 @@ slug: mobility
 nav_label: Mobility
 label: Mobility
 heading: Mobility is a human right
-stat_value: ""
-stat_label: ""
 body: >
   End auto-insurance redlining, fully fund DDOT, and advance Bus
   Rapid Transit on Woodward and Gratiot. Detroiters shouldn't pay

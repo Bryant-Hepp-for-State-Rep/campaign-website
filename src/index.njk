@@ -75,10 +75,18 @@ permalink: /index.html
   <div class="container">
     <p class="in-focus__eyebrow">{{ home.in_focus.eyebrow }}</p>
     <div class="in-focus__grid">
-      <div>
+      <div class="in-focus__stat-block">
         {%- if focus.stat_value %}
-        <div class="in-focus__stat">{{ focus.stat_value }}</div>
-        <p class="in-focus__stat-label">{{ focus.stat_label | mdInline | safe }}</p>
+        {%- if focus.stat_lead %}
+        <p class="in-focus__stat-lead">{{ focus.stat_lead }}</p>
+        {%- endif %}
+        <p class="in-focus__stat-figure">{{ focus.stat_value }}</p>
+        {%- if focus.stat_trail %}
+        <p class="in-focus__stat-trail">{{ focus.stat_trail }}</p>
+        {%- endif %}
+        {%- if focus.stat_source %}
+        <p class="in-focus__stat-source">— {{ focus.stat_source }}</p>
+        {%- endif %}
         {%- endif %}
       </div>
       <div class="in-focus__body">
