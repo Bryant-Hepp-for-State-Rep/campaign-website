@@ -78,11 +78,11 @@ permalink: /index.html
       <div class="in-focus__stat-block">
         {%- if focus.stat_value %}
         {%- if focus.stat_lead %}
-        <p class="in-focus__stat-lead">{{ focus.stat_lead }}</p>
+        <p class="in-focus__stat-lead">{{ focus.stat_lead | mdInline | safe }}</p>
         {%- endif %}
         <p class="in-focus__stat-figure">{{ focus.stat_value }}</p>
         {%- if focus.stat_trail %}
-        <p class="in-focus__stat-trail">{{ focus.stat_trail }}</p>
+        <p class="in-focus__stat-trail">{{ focus.stat_trail | mdInline | safe }}</p>
         {%- endif %}
         {%- if focus.stat_source %}
         <p class="in-focus__stat-source">— {{ focus.stat_source }}</p>
