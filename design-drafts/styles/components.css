@@ -100,50 +100,36 @@
   color: var(--color-wordmark-3-footer, var(--color-wordmark-3, var(--color-text)));
 }
 
-/* Site logo — two-row stacked text lockup. Row 1 is "BRYANT
-   HEPP"; row 2 is the inline pair "for STATE REP" where the
-   italic lowercase "for" carries --color-accent so the
-   sage/teal A/B toggle shows directly in the header. Block
-   treatment: heavy uppercase, tight tracking, near-zero
-   leading so the two rows read as one mark. */
+/* Site logo — image lockup. Two PNG variants live in
+   content/images/: dark-over-light for cream backgrounds (header)
+   and light-over-dark for navy backgrounds (footer). Source PNGs
+   are 141x103 (~1.37:1 aspect). The .site-logo--footer modifier
+   bumps the height slightly because the footer has more space.
+   Source files are small enough that no responsive srcset is
+   needed; they upscale fine at the displayed sizes. */
 .site-logo {
   display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   text-decoration: none;
-  font-family: "Montserrat", "Inter", sans-serif;
-  font-weight: 900;
-  line-height: 0.92;
-  color: var(--color-text);
-  padding-block: 0.15rem;
+  line-height: 0;
 }
 .site-logo:hover { text-decoration: none; }
 
-.site-logo__line {
+.site-logo img {
   display: block;
-  font-size: clamp(1.4rem, 2.4vw, 1.95rem);
-  letter-spacing: -0.025em;
-  text-transform: uppercase;
-  line-height: 0.92;
+  height: 64px;
+  width: auto;
+  max-width: 100%;
 }
 
-/* Inline within row 2. Lowercase + italic disambiguates "for"
-   from the surrounding uppercase block, and the accent color
-   ties it to the sage/teal toggle. */
-.site-logo__connector {
-  display: inline;
-  font-style: italic;
-  font-weight: 700;
-  text-transform: lowercase;
-  letter-spacing: -0.01em;
-  color: var(--color-accent);
-  margin-right: 0.12em;
+.site-logo--footer img {
+  height: 80px;
 }
 
-/* Footer variant — text becomes cream against the navy bg, but
-   "for" stays on --color-accent so the A/B toggle propagates. */
-.site-footer .site-logo { color: var(--color-footer-text); }
-.site-footer .site-logo__connector { color: var(--color-accent); }
+@media (max-width: 640px) {
+  .site-logo img { height: 52px; }
+  .site-logo--footer img { height: 60px; }
+}
 
 .site-nav {
   display: flex;
